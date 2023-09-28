@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Home</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="book.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="src/CSAC.sol/contract.CSAC.html">CSAC</a></li><li class="chapter-item "><a href="src/CSAConverter.sol/contract.CSAConverter.html">CSAConverter</a></li><li class="chapter-item "><a href="src/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="src/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="src/CSAMarketplaceNative.sol/contract.CSAMarketplaceNative.html">CSAMarketplaceNative</a></li><li class="chapter-item "><a href="src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="src/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="src/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item "><a href="src/CSAVaultNative.sol/contract.CSAVaultNative.html">CSAVaultNative</a></li><li class="chapter-item "><a href="src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="csa-contracts"><a class="header" href="#csa-contracts">CSA Contracts</a></h1>
+<blockquote>
+<p>Repository for CSA Smart Contracts on Polygon POS.</p>
+</blockquote>
+<p>The CSA Contracts suite provides a set of contracts, enabling users to bet on the value of a football player. It operates on the Polygon POS and leverages Web3 Functions as oracles to update the values of footballers.</p>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<ul>
+<li><strong>CSAT and CSAC Tokens</strong>: CSAT is tradable and transferable, whereas CSAC is used for betting.</li>
+<li><strong>CSAConverter Contract</strong>: Allows 1:1 conversion between CSAT and CSAC.</li>
+<li><strong>CSASwap Contract</strong>: Enables users to swap CSA tokens for whitelisted tokens (USDC, USDT, and Matic).</li>
+<li><strong>CSAMarketplace Contract</strong>: Facilitates buying and selling of CSAT tokens in a secondary market.</li>
+<li><strong>CSAOracle Contract</strong>: Receives the data from a Web3 Function and updates the value of a footballer.</li>
+<li><strong>CSAEngine Contract</strong>: Enables users to bet long or short on the value of a footballer.</li>
+</ul>
+<h2 id="deployed-contracts-on-polygon-pos"><a class="header" href="#deployed-contracts-on-polygon-pos">Deployed Contracts on Polygon POS</a></h2>
+<p>Below are the verified contracts deployed on Polygon POS.</p>
+<div class="table-wrapper"><table><thead><tr><th>Contract Name</th><th>Address</th><th>Additional Information</th></tr></thead><tbody>
+<tr><td>CSAOracleV2</td><td><a href="https://polygonscan.com/address/0x0ec57c17a94f67980672db9489b7f390fdd60645">0x0ec57c17a94f67980672db9489b7f390fdd60645</a></td><td><a href="src/CSAOracleV2.sol/contract.CSAOracleV2.html">Documentation</a></td></tr>
+<tr><td>web3function</td><td><a href="https://beta.app.gelato.network/task/0xbffdd2367e3b47816c83b4d2a11769eef5e3ab585c89bcd4f344f94001127201?chainId=137">Link to Task</a></td><td><a href="https://beta.app.gelato.network">Beta App Gelato Network</a></td></tr>
+<tr><td>CSASwap</td><td><a href="https://polygonscan.com/address/0x171b63cf580fb0016bffe7b87f0daa0ae9a015ef">0x171b63cf580fb0016bffe7b87f0daa0ae9a015ef</a></td><td><a href="src/CSASwap.sol/contract.CSASwap.html">Documentation</a></td></tr>
+<tr><td>CSAEngineV2</td><td><a href="https://polygonscan.com/address/0xfd193a7e3508de78bdebb78acb26a6033252bbb4">0xfd193a7e3508de78bdebb78acb26a6033252bbb4</a></td><td><a href="src/CSAEngineV2.sol/contract.CSAEngineV2.html">Documentation</a></td></tr>
+<tr><td>CSAMarketplace</td><td><a href="https://polygonscan.com/address/0x9f25ef1da3789037002a42670915f8f0b6e94f6e">0x9f25ef1da3789037002a42670915f8f0b6e94f6e</a></td><td><a href="src/CSAMarketplace.sol/contract.CSAMarketplace.html">Documentation</a></td></tr>
+<tr><td>CSAT</td><td><a href="https://polygonscan.com/address/0x9b2fcc79907858117c841f5694b0c771836b292d">0x9b2fcc79907858117c841f5694b0c771836b292d</a></td><td><a href="src/CSAT.sol/contract.CSAT.html">Documentation</a></td></tr>
+<tr><td>CSAC</td><td><a href="https://polygonscan.com/address/0x4bbd9c8b02d9a44cab01b7e7cd2ed75c1116c3e7">0x4bbd9c8b02d9a44cab01b7e7cd2ed75c1116c3e7</a></td><td><a href="src/CSAC.sol/contract.CSAC.html">Documentation</a></td></tr>
+<tr><td>CSAConverter</td><td><a href="https://polygonscan.com/address/0xa32353be31238765c59c4a213a3a9487ec0eb96c">0xa32353be31238765c59c4a213a3a9487ec0eb96c</a></td><td><a href="src/CSAConverter.sol/contract.CSAConverter.html">Documentation</a></td></tr>
+<tr><td>CSAVault</td><td><a href="https://polygonscan.com/address/0x0267e6d97443541ec285edbe1d4c107a45a28e03">0x0267e6d97443541ec285edbe1d4c107a45a28e03</a></td><td><a href="src/CSAVault.sol/contract.CSAVault.html">Documentation</a></td></tr>
+</tbody></table>
+</div>
+<h2 id="what-are-web3-functions"><a class="header" href="#what-are-web3-functions">What are Web3 Functions?</a></h2>
+<p>Web3 Functions are decentralized cloud functions that work similarly to AWS Lambda or Google Cloud, just for web3. They enable developers to execute on-chain transactions based on arbitrary off-chain data (APIs / subgraphs, etc) &amp; computation. These functions are written in Typescript, stored on IPFS and run by Gelato.</p>
+<h2 id="documentation"><a class="header" href="#documentation">Documentation</a></h2>
+<p>You can find the official Web3 Functions documentation <a href="https://docs.gelato.network/developer-services/web3-functions">here</a>.</p>
+<h2 id="private-beta-restriction"><a class="header" href="#private-beta-restriction">Private Beta Restriction</a></h2>
+<p>Web3 Functions are currently in private Beta and can only be used by whitelisted users. If you would like to be added to the waitlist, please reach out to the team on <a href="https://discord.com/invite/ApbA39BKyJ">Discord</a> or apply using this <a href="https://form.typeform.com/to/RrEiARiI">form</a>.</p>
+<h2 id="table-of-content"><a class="header" href="#table-of-content">Table of Content</a></h2>
+<ul>
+<li><a href="#what-are-web3-functions">What are Web3 Functions?</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#private-beta-restriction">Private Beta Restriction</a></li>
+<li><a href="#project-setup-web3-functions">Project Setup Web3 Functions</a></li>
+<li><a href="#project-setup-foundry">Project Setup Foundry</a>
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#compile">Compile</a></li>
+<li><a href="#test">Test</a></li>
+<li><a href="#format-code">Format Code</a></li>
+<li><a href="#coverage">Coverage</a></li>
+<li><a href="#setup-coverage-html">Setup coverage html</a></li>
+<li><a href="#contracts-documentation">Contracts documentation</a></li>
+</ul>
+</li>
+<li><a href="#test-the-csa-web3-function">Test the CSA web3 function</a>
+<ul>
+<li><a href="#calling-your-web3-function">Calling your Web3 Function</a></li>
+</ul>
+</li>
+<li><a href="#deploy-csa-web3function-on-ipfs">Deploy CSA Web3Function on IPFS</a></li>
+</ul>
+<h2 id="project-setup-web3-functions"><a class="header" href="#project-setup-web3-functions">Project Setup Web3 Functions</a></h2>
+<ol>
+<li>Install project dependencies</li>
+</ol>
+<pre><code class="language-sh">yarn install
+</code></pre>
+<ol start="2">
+<li>Configure your local environment:</li>
+</ol>
+<ul>
+<li>Copy <code>.env.example</code> to init your own <code>.env</code> file</li>
+</ul>
+<pre><code class="language-sh">cp .env.example .env
+</code></pre>
+<ul>
+<li>Complete your <code>.env</code> file with your private settings</li>
+</ul>
+<p>Make sure to set the <code>PRIVATE_KEY</code> to a whitelisted Gelato account as said in <a href="#private-beta-restriction">Private Beta Restriction</a>.</p>
+<h2 id="project-setup-foundry"><a class="header" href="#project-setup-foundry">Project Setup Foundry</a></h2>
+<p>You will need a copy of <a href="https://github.com/foundry-rs/foundry">Foundry</a> installed before proceeding. See the <a href="https://github.com/foundry-rs/foundry#installation">installation guide</a> for details.</p>
+<h3 id="setup"><a class="header" href="#setup">Setup</a></h3>
+<pre><code class="language-sh">forge install
+</code></pre>
+<h3 id="compile"><a class="header" href="#compile">Compile</a></h3>
+<pre><code class="language-sh">forge build
+</code></pre>
+<h3 id="test"><a class="header" href="#test">Test</a></h3>
+<pre><code class="language-sh">forge test -vvv -f &lt;POLYGON_POS_RPC_URL&gt;
+</code></pre>
+<h3 id="format-code"><a class="header" href="#format-code">Format code</a></h3>
+<pre><code class="language-sh">forge fmt
+</code></pre>
+<h3 id="coverage"><a class="header" href="#coverage">Coverage</a></h3>
+<pre><code class="language-sh">forge coverage --ir-minimum -f &lt;POLYGON_POS_RPC_URL&gt;
+</code></pre>
+<h4 id="coverage-with-debug-logs"><a class="header" href="#coverage-with-debug-logs">Coverage with debug logs</a></h4>
+<pre><code class="language-sh">forge coverage --ir-minimum -f &lt;POLYGON_POS_RPC_URL&gt; --report debug
+</code></pre>
+<h3 id="setup-coverage-html"><a class="header" href="#setup-coverage-html">Setup coverage html</a></h3>
+<h4 id="install-genhtml"><a class="header" href="#install-genhtml">Install genhtml</a></h4>
+<pre><code class="language-sh">brew install genhtml
+</code></pre>
+<h4 id="create-a-coverage-directory-in-your-foundry-project"><a class="header" href="#create-a-coverage-directory-in-your-foundry-project">Create a coverage directory in your foundry project</a></h4>
+<pre><code class="language-sh">mkdir coverage
+</code></pre>
+<h4 id="run-the-following-command"><a class="header" href="#run-the-following-command">Run the following command</a></h4>
+<pre><code class="language-sh">forge coverage --ir-minimum -f &lt;POLYGON_POS_RPC_URL&gt; --report lcov &amp;&amp; genhtml lcov.info --branch-coverage --output-dir coverage
+</code></pre>
+<h4 id="open-the-indexhtml-file-in-the-coverage-directory"><a class="header" href="#open-the-indexhtml-file-in-the-coverage-directory">Open the index.html file in the coverage directory</a></h4>
+<p><code>coverage/index.html</code></p>
+<h4 id="common-error-no-available-formula-with-the-name-genhtml-did-you-mean-ekhtml"><a class="header" href="#common-error-no-available-formula-with-the-name-genhtml-did-you-mean-ekhtml">Common error: No available formula with the name &quot;genhtml&quot;. Did you mean ekhtml?</a></h4>
+<p>If you get this error, do:</p>
+<pre><code class="language-sh">brew install ekhtml
+</code></pre>
+<h3 id="contracts-documentation"><a class="header" href="#contracts-documentation">Contracts documentation</a></h3>
+<h4 id="generate-the-documentation"><a class="header" href="#generate-the-documentation">Generate the documentation</a></h4>
+<pre><code class="language-sh">forge doc --build
+</code></pre>
+<h4 id="serve-the-documentation"><a class="header" href="#serve-the-documentation">Serve the documentation</a></h4>
+<pre><code class="language-sh">forge doc --serve --port 4000
+</code></pre>
+<h2 id="test-the-csa-web3-function"><a class="header" href="#test-the-csa-web3-function">Test the CSA web3 function</a></h2>
+<h3 id="calling-your-web3-function"><a class="header" href="#calling-your-web3-function">Calling your web3 function</a></h3>
+<ul>
+<li>
+<p>Use <code>npx w3f test src/web3-functions/CSA-oracle/index.ts</code> command to test the CSA oracle function</p>
+</li>
+<li>
+<p>Options:</p>
+<ul>
+<li><code>--logs</code> Show internal Web3 Function logs</li>
+<li><code>--debug</code> Show Runtime debug messages</li>
+<li><code>--chain-id=[number]</code> Specify the chainId to be used for your Web3 Function (default: <code>5</code> for Goerli)</li>
+</ul>
+</li>
+</ul>
+<h2 id="deploy-csa-web3function-on-ipfs"><a class="header" href="#deploy-csa-web3function-on-ipfs">Deploy CSA Web3Function on IPFS</a></h2>
+<p>Use <code>npx w3f deploy src/web3-functions/CSA-oracle/index.ts</code> command to deploy your web3 function.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="src/CSAC.sol/contract.CSAC.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="src/CSAC.sol/contract.CSAC.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

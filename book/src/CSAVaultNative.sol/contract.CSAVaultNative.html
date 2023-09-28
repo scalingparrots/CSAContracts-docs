@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSAVaultNative</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../book.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="../../src/CSAC.sol/contract.CSAC.html">CSAC</a></li><li class="chapter-item "><a href="../../src/CSAConverter.sol/contract.CSAConverter.html">CSAConverter</a></li><li class="chapter-item "><a href="../../src/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="../../src/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="../../src/CSAMarketplaceNative.sol/contract.CSAMarketplaceNative.html">CSAMarketplaceNative</a></li><li class="chapter-item "><a href="../../src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="../../src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="../../src/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="../../src/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="../../src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item expanded "><a href="../../src/CSAVaultNative.sol/contract.CSAVaultNative.html" class="active">CSAVaultNative</a></li><li class="chapter-item "><a href="../../src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="../../src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="csavaultnative"><a class="header" href="#csavaultnative">CSAVaultNative</a></h1>
+<p><strong>Inherits:</strong>
+AccessControl, Pausable, AutomationCompatibleInterface</p>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p><em>A smart contract that manages deposits and withdrawals in native currency with fees and supports pausing functionalities.
+This contract is also compatible with Chainlink's Automation Interface for upkeep functionalities,
+that can be set to check the balances and pause the contract if some funds have been somehow stolen.
+This contract is made to interact with the CSAMarketplace contract, which is the only contract that can deposit funds.</em></p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="pauser_role"><a class="header" href="#pauser_role">PAUSER_ROLE</a></h3>
+<p><em>Role identifier for pausers.</em></p>
+<pre><code class="language-solidity">bytes32 public constant PAUSER_ROLE = keccak256(&quot;PAUSER_ROLE&quot;);
+</code></pre>
+<h3 id="marketplace_role"><a class="header" href="#marketplace_role">MARKETPLACE_ROLE</a></h3>
+<p><em>Role identifier for marketplace.</em></p>
+<pre><code class="language-solidity">bytes32 public constant MARKETPLACE_ROLE = keccak256(&quot;MARKETPLACE_ROLE&quot;);
+</code></pre>
+<h3 id="fee"><a class="header" href="#fee">fee</a></h3>
+<p><em>Fee in percentage, 10000 = 100%, 1 = 0.01%.</em></p>
+<pre><code class="language-solidity">uint256 public fee;
+</code></pre>
+<h3 id="fee_precision"><a class="header" href="#fee_precision">FEE_PRECISION</a></h3>
+<p><em>Precision for fee calculations.</em></p>
+<pre><code class="language-solidity">uint256 public constant FEE_PRECISION = 10000;
+</code></pre>
+<h3 id="balances"><a class="header" href="#balances">balances</a></h3>
+<p><em>Mapping to store balances of users.</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; uint256) public balances;
+</code></pre>
+<h3 id="isonuserslist"><a class="header" href="#isonuserslist">isOnUsersList</a></h3>
+<p><em>Mapping to store user's data.</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; User) public isOnUsersList;
+</code></pre>
+<h3 id="userslist"><a class="header" href="#userslist">usersList</a></h3>
+<p><em>Array to store users addresses.</em></p>
+<pre><code class="language-solidity">address[] public usersList;
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p><em>Contract constructor.</em></p>
+<pre><code class="language-solidity">constructor(uint256 _fee);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_fee</code></td><td><code>uint256</code></td><td>Initial fee percentage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="pause"><a class="header" href="#pause">pause</a></h3>
+<p><em>Allows pausers to pause the contract.</em></p>
+<pre><code class="language-solidity">function pause() external;
+</code></pre>
+<h3 id="unpause"><a class="header" href="#unpause">unpause</a></h3>
+<p><em>Allows pausers to unpause the contract.</em></p>
+<pre><code class="language-solidity">function unpause() external;
+</code></pre>
+<h3 id="deposit"><a class="header" href="#deposit">deposit</a></h3>
+<p><em>Allows marketplace to deposit on behalf of users.</em></p>
+<pre><code class="language-solidity">function deposit(address[] calldata owners, uint256[] calldata _amounts) external payable whenNotPaused;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>owners</code></td><td><code>address[]</code></td><td>Addresses of the owners.</td></tr>
+<tr><td><code>_amounts</code></td><td><code>uint256[]</code></td><td>Corresponding amounts to deposit.</td></tr>
+</tbody></table>
+</div>
+<h3 id="withdraw"><a class="header" href="#withdraw">withdraw</a></h3>
+<p><em>Allows users to withdraw their balances.</em></p>
+<pre><code class="language-solidity">function withdraw(uint256 _amount) external whenNotPaused;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount to withdraw.</td></tr>
+</tbody></table>
+</div>
+<h3 id="withdrawfee"><a class="header" href="#withdrawfee">withdrawFee</a></h3>
+<p><em>Allows admins to withdraw fees.</em></p>
+<pre><code class="language-solidity">function withdrawFee(uint256 _amount) external whenNotPaused;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of fees to withdraw.</td></tr>
+</tbody></table>
+</div>
+<h3 id="emergencywithdraw"><a class="header" href="#emergencywithdraw">emergencyWithdraw</a></h3>
+<p><em>Allows admins to perform emergency withdrawals.</em></p>
+<pre><code class="language-solidity">function emergencyWithdraw(uint256 _amount, address payable _to) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount to withdraw.</td></tr>
+<tr><td><code>_to</code></td><td><code>address payable</code></td><td>Address to send the withdrawn amount to.</td></tr>
+</tbody></table>
+</div>
+<h3 id="checkupkeep"><a class="header" href="#checkupkeep">checkUpkeep</a></h3>
+<p><em>Checks if the contract balance is enough to continue operating.
+This function should be called off-chain by the pauser.
+It loops through the usersList and checks if the balance of the contract is enough to continue operating.</em></p>
+<pre><code class="language-solidity">function checkUpkeep(bytes calldata checkData) external view returns (bool upkeepNeeded, bytes memory performData);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>checkData</code></td><td><code>bytes</code></td><td>Data to check upkeep.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>upkeepNeeded</code></td><td><code>bool</code></td><td>Flag indicating if upkeep is needed.</td></tr>
+<tr><td><code>performData</code></td><td><code>bytes</code></td><td>Data to perform upkeep.</td></tr>
+</tbody></table>
+</div>
+<h3 id="performupkeep"><a class="header" href="#performupkeep">performUpkeep</a></h3>
+<p><em>Pauses the contract in case of emergency.
+This function should be called on-chain by the pauser. After pausing, the admin should then call emergencyWithdraw
+to withdraw the funds to a safe address.</em></p>
+<pre><code class="language-solidity">function performUpkeep(bytes calldata performData) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>performData</code></td><td><code>bytes</code></td><td>Data to perform upkeep.</td></tr>
+</tbody></table>
+</div>
+<h3 id="setfee"><a class="header" href="#setfee">setFee</a></h3>
+<p><em>Allows admins to set the fee percentage.</em></p>
+<pre><code class="language-solidity">function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_fee</code></td><td><code>uint256</code></td><td>New fee percentage.</td></tr>
+</tbody></table>
+</div>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="deposit-1"><a class="header" href="#deposit-1">Deposit</a></h3>
+<p><em>Event emitted when a deposit is made.</em></p>
+<pre><code class="language-solidity">event Deposit(address indexed _address, uint256 _amount);
+</code></pre>
+<h3 id="withdraw-1"><a class="header" href="#withdraw-1">Withdraw</a></h3>
+<p><em>Event emitted when a withdrawal is made.</em></p>
+<pre><code class="language-solidity">event Withdraw(address indexed _address, uint256 _amount);
+</code></pre>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
+<h3 id="notpauser"><a class="header" href="#notpauser">NotPauser</a></h3>
+<p><em>Error to show when the caller is not a pauser.</em></p>
+<pre><code class="language-solidity">error NotPauser(address _address);
+</code></pre>
+<h3 id="notmarketplace"><a class="header" href="#notmarketplace">NotMarketplace</a></h3>
+<p><em>Error to show when the caller is not a marketplace.</em></p>
+<pre><code class="language-solidity">error NotMarketplace(address _address);
+</code></pre>
+<h3 id="notadmin"><a class="header" href="#notadmin">NotAdmin</a></h3>
+<p><em>Error to show when the caller is not an admin.</em></p>
+<pre><code class="language-solidity">error NotAdmin(address _address);
+</code></pre>
+<h3 id="notenaughamount"><a class="header" href="#notenaughamount">NotEnaughAmount</a></h3>
+<p><em>Error to show when the sent amount is not enough.</em></p>
+<pre><code class="language-solidity">error NotEnaughAmount();
+</code></pre>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="user"><a class="header" href="#user">User</a></h3>
+<p><em>User struct to manage user data.</em></p>
+<pre><code class="language-solidity">struct User {
+    uint160 index;
+    bool isOnList;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../src/CSAVault.sol/contract.CSAVault.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../src/IBurnableMintable.sol/interface.Mintable.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../src/CSAVault.sol/contract.CSAVault.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../src/IBurnableMintable.sol/interface.Mintable.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
