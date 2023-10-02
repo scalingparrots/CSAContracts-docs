@@ -186,7 +186,7 @@
 <p>Below are the verified contracts deployed on Polygon POS.</p>
 <div class="table-wrapper"><table><thead><tr><th>Contract Name</th><th>Address</th><th>Additional Information</th></tr></thead><tbody>
 <tr><td>CSAOracleV2</td><td><a href="https://polygonscan.com/address/0x0ec57c17a94f67980672db9489b7f390fdd60645">0x0ec57c17a94f67980672db9489b7f390fdd60645</a></td><td><a href="src/CSAOracleV2.sol/contract.CSAOracleV2.html">Documentation</a></td></tr>
-<tr><td>web3function</td><td><a href="https://beta.app.gelato.network/task/0xbffdd2367e3b47816c83b4d2a11769eef5e3ab585c89bcd4f344f94001127201?chainId=137">Link to Task</a></td><td><a href="https://beta.app.gelato.network">Beta App Gelato Network</a></td></tr>
+<tr><td>web3function</td><td><a href="https://beta.app.gelato.network/task/0x4fbad2628c2b76da12ff912688fb9bfb6f486a221a0a25454a1c2af9c12cdff5?chainId=137">Link to Task</a></td><td><a href="https://beta.app.gelato.network">Beta App Gelato Network</a></td></tr>
 <tr><td>CSASwap</td><td><a href="https://polygonscan.com/address/0x171b63cf580fb0016bffe7b87f0daa0ae9a015ef">0x171b63cf580fb0016bffe7b87f0daa0ae9a015ef</a></td><td><a href="src/CSASwap.sol/contract.CSASwap.html">Documentation</a></td></tr>
 <tr><td>CSAEngineV2</td><td><a href="https://polygonscan.com/address/0xfd193a7e3508de78bdebb78acb26a6033252bbb4">0xfd193a7e3508de78bdebb78acb26a6033252bbb4</a></td><td><a href="src/CSAEngineV2.sol/contract.CSAEngineV2.html">Documentation</a></td></tr>
 <tr><td>CSAMarketplace</td><td><a href="https://polygonscan.com/address/0x9f25ef1da3789037002a42670915f8f0b6e94f6e">0x9f25ef1da3789037002a42670915f8f0b6e94f6e</a></td><td><a href="src/CSAMarketplace.sol/contract.CSAMarketplace.html">Documentation</a></td></tr>
@@ -1255,7 +1255,7 @@ The contract also has a vault to store the tokens and a fee system for the marke
 </code></pre>
 <h3 id="vault-1"><a class="header" href="#vault-1">vault</a></h3>
 <p><em>Vault to hold the tokens</em></p>
-<pre><code class="language-solidity">CSAVault public vault;
+<pre><code class="language-solidity">CSAVaultNative public vault;
 </code></pre>
 <h3 id="pricefee-1"><a class="header" href="#pricefee-1">priceFee</a></h3>
 <p><em>Fee percentage</em></p>
@@ -1494,75 +1494,39 @@ and goes down until it finds an order that is enough.</em></p>
 </div>
 <h2 id="events-3"><a class="header" href="#events-3">Events</a></h2>
 <h3 id="make-1"><a class="header" href="#make-1">Make</a></h3>
-<p><em>Event emitted when a new order is created</em></p>
-<pre><code class="language-solidity">event Make(address indexed buyer, uint256 amountIn);
-</code></pre>
-<h3 id="take-1"><a class="header" href="#take-1">Take</a></h3>
-<p><em>Event emitted when an order is executed</em></p>
-<pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
-</code></pre>
-<h3 id="make-2"><a class="header" href="#make-2">Make</a></h3>
 <p><em>Emitted when a user makes a buy order.</em></p>
 <pre><code class="language-solidity">event Make(address indexed buyer, uint256 amountIn);
 </code></pre>
-<h3 id="take-2"><a class="header" href="#take-2">Take</a></h3>
+<h3 id="take-1"><a class="header" href="#take-1">Take</a></h3>
 <p><em>Emitted when a user takes a sell order.</em></p>
 <pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
 </code></pre>
 <h2 id="errors-3"><a class="header" href="#errors-3">Errors</a></h2>
 <h3 id="pricelessthanzero-1"><a class="header" href="#pricelessthanzero-1">PriceLessThanZero</a></h3>
-<p><em>Error thrown when the price of an order is less than zero</em></p>
-<pre><code class="language-solidity">error PriceLessThanZero();
-</code></pre>
-<h3 id="notenoughbalance-1"><a class="header" href="#notenoughbalance-1">NotEnoughBalance</a></h3>
-<p><em>Error thrown when a user does not have enough balance to execute an order</em></p>
-<pre><code class="language-solidity">error NotEnoughBalance();
-</code></pre>
-<h3 id="fallbackordernotenough-1"><a class="header" href="#fallbackordernotenough-1">FallbackOrderNotEnough</a></h3>
-<p><em>Error thrown when a fallback order is created but there is not enough balance to execute it</em></p>
-<pre><code class="language-solidity">error FallbackOrderNotEnough();
-</code></pre>
-<h3 id="noorderisenoughtobefallback-1"><a class="header" href="#noorderisenoughtobefallback-1">NoOrderIsEnoughToBeFallback</a></h3>
-<p><em>Error thrown when a fallback order is requested but there are no orders available to use as fallback</em></p>
-<pre><code class="language-solidity">error NoOrderIsEnoughToBeFallback();
-</code></pre>
-<h3 id="notorderowner-1"><a class="header" href="#notorderowner-1">NotOrderOwner</a></h3>
-<p><em>Error thrown when a user tries to execute an order they do not own</em></p>
-<pre><code class="language-solidity">error NotOrderOwner();
-</code></pre>
-<h3 id="userdoesnothaveorders-1"><a class="header" href="#userdoesnothaveorders-1">UserDoesNotHaveOrders</a></h3>
-<p><em>Error thrown when a user tries to execute an order but they do not have any orders</em></p>
-<pre><code class="language-solidity">error UserDoesNotHaveOrders();
-</code></pre>
-<h3 id="sellordertoosmall-1"><a class="header" href="#sellordertoosmall-1">SellOrderTooSmall</a></h3>
-<p><em>Error thrown when a sell order is too small to be executed</em></p>
-<pre><code class="language-solidity">error SellOrderTooSmall();
-</code></pre>
-<h3 id="pricelessthanzero-2"><a class="header" href="#pricelessthanzero-2">PriceLessThanZero</a></h3>
 <p><em>Error thrown when the price of an order is less than or equal to zero.</em></p>
 <pre><code class="language-solidity">error PriceLessThanZero();
 </code></pre>
-<h3 id="notenoughbalance-2"><a class="header" href="#notenoughbalance-2">NotEnoughBalance</a></h3>
+<h3 id="notenoughbalance-1"><a class="header" href="#notenoughbalance-1">NotEnoughBalance</a></h3>
 <p><em>Error thrown when a user does not have enough balance to execute an order.</em></p>
 <pre><code class="language-solidity">error NotEnoughBalance();
 </code></pre>
-<h3 id="fallbackordernotenough-2"><a class="header" href="#fallbackordernotenough-2">FallbackOrderNotEnough</a></h3>
+<h3 id="fallbackordernotenough-1"><a class="header" href="#fallbackordernotenough-1">FallbackOrderNotEnough</a></h3>
 <p><em>Error thrown when a fallback order does not have enough balance to be executed.</em></p>
 <pre><code class="language-solidity">error FallbackOrderNotEnough();
 </code></pre>
-<h3 id="noorderisenoughtobefallback-2"><a class="header" href="#noorderisenoughtobefallback-2">NoOrderIsEnoughToBeFallback</a></h3>
+<h3 id="noorderisenoughtobefallback-1"><a class="header" href="#noorderisenoughtobefallback-1">NoOrderIsEnoughToBeFallback</a></h3>
 <p><em>Error thrown when there is no order that can be used as fallback.</em></p>
 <pre><code class="language-solidity">error NoOrderIsEnoughToBeFallback();
 </code></pre>
-<h3 id="notorderowner-2"><a class="header" href="#notorderowner-2">NotOrderOwner</a></h3>
+<h3 id="notorderowner-1"><a class="header" href="#notorderowner-1">NotOrderOwner</a></h3>
 <p><em>Error thrown when a user tries to execute an order that they do not own.</em></p>
 <pre><code class="language-solidity">error NotOrderOwner();
 </code></pre>
-<h3 id="userdoesnothaveorders-2"><a class="header" href="#userdoesnothaveorders-2">UserDoesNotHaveOrders</a></h3>
+<h3 id="userdoesnothaveorders-1"><a class="header" href="#userdoesnothaveorders-1">UserDoesNotHaveOrders</a></h3>
 <p><em>Error thrown when a user does not have any orders.</em></p>
 <pre><code class="language-solidity">error UserDoesNotHaveOrders();
 </code></pre>
-<h3 id="sellordertoosmall-2"><a class="header" href="#sellordertoosmall-2">SellOrderTooSmall</a></h3>
+<h3 id="sellordertoosmall-1"><a class="header" href="#sellordertoosmall-1">SellOrderTooSmall</a></h3>
 <p><em>Error thrown when a sell order is too small to be executed.</em></p>
 <pre><code class="language-solidity">error SellOrderTooSmall();
 </code></pre>

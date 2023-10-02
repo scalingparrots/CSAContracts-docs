@@ -196,7 +196,7 @@ The contract also has a vault to store the tokens and a fee system for the marke
 </code></pre>
 <h3 id="vault"><a class="header" href="#vault">vault</a></h3>
 <p><em>Vault to hold the tokens</em></p>
-<pre><code class="language-solidity">CSAVault public vault;
+<pre><code class="language-solidity">CSAVaultNative public vault;
 </code></pre>
 <h3 id="pricefee"><a class="header" href="#pricefee">priceFee</a></h3>
 <p><em>Fee percentage</em></p>
@@ -435,75 +435,39 @@ and goes down until it finds an order that is enough.</em></p>
 </div>
 <h2 id="events"><a class="header" href="#events">Events</a></h2>
 <h3 id="make"><a class="header" href="#make">Make</a></h3>
-<p><em>Event emitted when a new order is created</em></p>
-<pre><code class="language-solidity">event Make(address indexed buyer, uint256 amountIn);
-</code></pre>
-<h3 id="take"><a class="header" href="#take">Take</a></h3>
-<p><em>Event emitted when an order is executed</em></p>
-<pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
-</code></pre>
-<h3 id="make-1"><a class="header" href="#make-1">Make</a></h3>
 <p><em>Emitted when a user makes a buy order.</em></p>
 <pre><code class="language-solidity">event Make(address indexed buyer, uint256 amountIn);
 </code></pre>
-<h3 id="take-1"><a class="header" href="#take-1">Take</a></h3>
+<h3 id="take"><a class="header" href="#take">Take</a></h3>
 <p><em>Emitted when a user takes a sell order.</em></p>
 <pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
 </code></pre>
 <h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <h3 id="pricelessthanzero"><a class="header" href="#pricelessthanzero">PriceLessThanZero</a></h3>
-<p><em>Error thrown when the price of an order is less than zero</em></p>
-<pre><code class="language-solidity">error PriceLessThanZero();
-</code></pre>
-<h3 id="notenoughbalance"><a class="header" href="#notenoughbalance">NotEnoughBalance</a></h3>
-<p><em>Error thrown when a user does not have enough balance to execute an order</em></p>
-<pre><code class="language-solidity">error NotEnoughBalance();
-</code></pre>
-<h3 id="fallbackordernotenough"><a class="header" href="#fallbackordernotenough">FallbackOrderNotEnough</a></h3>
-<p><em>Error thrown when a fallback order is created but there is not enough balance to execute it</em></p>
-<pre><code class="language-solidity">error FallbackOrderNotEnough();
-</code></pre>
-<h3 id="noorderisenoughtobefallback"><a class="header" href="#noorderisenoughtobefallback">NoOrderIsEnoughToBeFallback</a></h3>
-<p><em>Error thrown when a fallback order is requested but there are no orders available to use as fallback</em></p>
-<pre><code class="language-solidity">error NoOrderIsEnoughToBeFallback();
-</code></pre>
-<h3 id="notorderowner"><a class="header" href="#notorderowner">NotOrderOwner</a></h3>
-<p><em>Error thrown when a user tries to execute an order they do not own</em></p>
-<pre><code class="language-solidity">error NotOrderOwner();
-</code></pre>
-<h3 id="userdoesnothaveorders"><a class="header" href="#userdoesnothaveorders">UserDoesNotHaveOrders</a></h3>
-<p><em>Error thrown when a user tries to execute an order but they do not have any orders</em></p>
-<pre><code class="language-solidity">error UserDoesNotHaveOrders();
-</code></pre>
-<h3 id="sellordertoosmall"><a class="header" href="#sellordertoosmall">SellOrderTooSmall</a></h3>
-<p><em>Error thrown when a sell order is too small to be executed</em></p>
-<pre><code class="language-solidity">error SellOrderTooSmall();
-</code></pre>
-<h3 id="pricelessthanzero-1"><a class="header" href="#pricelessthanzero-1">PriceLessThanZero</a></h3>
 <p><em>Error thrown when the price of an order is less than or equal to zero.</em></p>
 <pre><code class="language-solidity">error PriceLessThanZero();
 </code></pre>
-<h3 id="notenoughbalance-1"><a class="header" href="#notenoughbalance-1">NotEnoughBalance</a></h3>
+<h3 id="notenoughbalance"><a class="header" href="#notenoughbalance">NotEnoughBalance</a></h3>
 <p><em>Error thrown when a user does not have enough balance to execute an order.</em></p>
 <pre><code class="language-solidity">error NotEnoughBalance();
 </code></pre>
-<h3 id="fallbackordernotenough-1"><a class="header" href="#fallbackordernotenough-1">FallbackOrderNotEnough</a></h3>
+<h3 id="fallbackordernotenough"><a class="header" href="#fallbackordernotenough">FallbackOrderNotEnough</a></h3>
 <p><em>Error thrown when a fallback order does not have enough balance to be executed.</em></p>
 <pre><code class="language-solidity">error FallbackOrderNotEnough();
 </code></pre>
-<h3 id="noorderisenoughtobefallback-1"><a class="header" href="#noorderisenoughtobefallback-1">NoOrderIsEnoughToBeFallback</a></h3>
+<h3 id="noorderisenoughtobefallback"><a class="header" href="#noorderisenoughtobefallback">NoOrderIsEnoughToBeFallback</a></h3>
 <p><em>Error thrown when there is no order that can be used as fallback.</em></p>
 <pre><code class="language-solidity">error NoOrderIsEnoughToBeFallback();
 </code></pre>
-<h3 id="notorderowner-1"><a class="header" href="#notorderowner-1">NotOrderOwner</a></h3>
+<h3 id="notorderowner"><a class="header" href="#notorderowner">NotOrderOwner</a></h3>
 <p><em>Error thrown when a user tries to execute an order that they do not own.</em></p>
 <pre><code class="language-solidity">error NotOrderOwner();
 </code></pre>
-<h3 id="userdoesnothaveorders-1"><a class="header" href="#userdoesnothaveorders-1">UserDoesNotHaveOrders</a></h3>
+<h3 id="userdoesnothaveorders"><a class="header" href="#userdoesnothaveorders">UserDoesNotHaveOrders</a></h3>
 <p><em>Error thrown when a user does not have any orders.</em></p>
 <pre><code class="language-solidity">error UserDoesNotHaveOrders();
 </code></pre>
-<h3 id="sellordertoosmall-1"><a class="header" href="#sellordertoosmall-1">SellOrderTooSmall</a></h3>
+<h3 id="sellordertoosmall"><a class="header" href="#sellordertoosmall">SellOrderTooSmall</a></h3>
 <p><em>Error thrown when a sell order is too small to be executed.</em></p>
 <pre><code class="language-solidity">error SellOrderTooSmall();
 </code></pre>

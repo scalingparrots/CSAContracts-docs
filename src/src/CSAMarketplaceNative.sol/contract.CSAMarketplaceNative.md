@@ -54,7 +54,7 @@ AggregatorV3Interface public TokenUSDOracle;
 
 
 ```solidity
-CSAVault public vault;
+CSAVaultNative public vault;
 ```
 
 
@@ -441,22 +441,6 @@ function getAllQueueOrdersOwnedBy(address owner) external view returns (uint48[]
 
 ## Events
 ### Make
-*Event emitted when a new order is created*
-
-
-```solidity
-event Make(address indexed buyer, uint256 amountIn);
-```
-
-### Take
-*Event emitted when an order is executed*
-
-
-```solidity
-event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
-```
-
-### Make
 *Emitted when a user makes a buy order.*
 
 
@@ -473,62 +457,6 @@ event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
 ```
 
 ## Errors
-### PriceLessThanZero
-*Error thrown when the price of an order is less than zero*
-
-
-```solidity
-error PriceLessThanZero();
-```
-
-### NotEnoughBalance
-*Error thrown when a user does not have enough balance to execute an order*
-
-
-```solidity
-error NotEnoughBalance();
-```
-
-### FallbackOrderNotEnough
-*Error thrown when a fallback order is created but there is not enough balance to execute it*
-
-
-```solidity
-error FallbackOrderNotEnough();
-```
-
-### NoOrderIsEnoughToBeFallback
-*Error thrown when a fallback order is requested but there are no orders available to use as fallback*
-
-
-```solidity
-error NoOrderIsEnoughToBeFallback();
-```
-
-### NotOrderOwner
-*Error thrown when a user tries to execute an order they do not own*
-
-
-```solidity
-error NotOrderOwner();
-```
-
-### UserDoesNotHaveOrders
-*Error thrown when a user tries to execute an order but they do not have any orders*
-
-
-```solidity
-error UserDoesNotHaveOrders();
-```
-
-### SellOrderTooSmall
-*Error thrown when a sell order is too small to be executed*
-
-
-```solidity
-error SellOrderTooSmall();
-```
-
 ### PriceLessThanZero
 *Error thrown when the price of an order is less than or equal to zero.*
 
