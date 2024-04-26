@@ -1,6 +1,6 @@
 # CSAQueueLib
 **Author:**
-Maurizio Murru
+Maurizio Murru https://github.com/akerbabber
 
 *A library that provides a basic Queue data structure with Order elements.
 It provides functions to add, remove, update, and get elements from the Queue.
@@ -59,7 +59,7 @@ function remove(Queue storage self, uint48 orderId) internal returns (Receipt me
 
 |Name|Type|Description|
 |----|----|-----------|
-|`receipt`|`Receipt`|The receipt of the removed order. Emits an {OrderNotFound} event if the order is not found in the queue.|
+|`receipt`|`Receipt`|The receipt of the removed order. Emits an [OrderNotFound](/src/CSAQueueLib.sol/library.CSAQueueLib.md#ordernotfound) event if the order is not found in the queue.|
 
 
 ### multipleRemove

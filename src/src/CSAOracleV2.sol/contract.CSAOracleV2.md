@@ -148,6 +148,15 @@ event FootballerScoreUpdated(
 );
 ```
 
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`playerId`|`uint256`|The unique identifier of the footballer.|
+|`score`|`uint24`|The updated score of the footballer.|
+|`nextMatchTimestamp`|`uint32`|The updated timestamp of the next match.|
+|`lastMatchTimestamp`|`uint32`|The updated timestamp of the last match.|
+
 ## Errors
 ### NotUpdater
 *Custom error to throw if the caller does not have updater role.*
@@ -170,4 +179,13 @@ struct Footballer {
     uint32 lastMatchTimestamp;
 }
 ```
+
+**Properties**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`score`|`uint24`|The score associated with the footballer.|
+|`nextMatchTimestamp`|`uint32`|The timestamp of the footballer's next match.|
+|`previousNextMatchTimestamp`|`uint32`|The timestamp of the previous 'next match' before the latest update.|
+|`lastMatchTimestamp`|`uint32`|The timestamp of the footballer's last match.|
 

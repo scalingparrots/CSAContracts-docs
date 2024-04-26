@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../../favicon.svg">
         <link rel="shortcut icon" href="../../favicon.png">
@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="../../book.css">
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -62,31 +62,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="../../src/CSAC.sol/contract.CSAC.html">CSAC</a></li><li class="chapter-item "><a href="../../src/CSAConverter.sol/contract.CSAConverter.html">CSAConverter</a></li><li class="chapter-item "><a href="../../src/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="../../src/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="../../src/CSAMarketplaceNative.sol/contract.CSAMarketplaceNative.html">CSAMarketplaceNative</a></li><li class="chapter-item "><a href="../../src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="../../src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="../../src/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="../../src/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item expanded "><a href="../../src/CSAVault.sol/contract.CSAVault.html" class="active">CSAVault</a></li><li class="chapter-item "><a href="../../src/CSAVaultNative.sol/contract.CSAVaultNative.html">CSAVaultNative</a></li><li class="chapter-item "><a href="../../src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="../../src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="../../src/CSAEngineV2/index.html">❱ CSAEngineV2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/CSAEngineV2/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="../../src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></li></ol></li><li class="chapter-item "><a href="../../src/CSAMarketplace/index.html">❱ CSAMarketplace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="../../src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html">CSAMarketplaceStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../src/CSASwap/index.html">❱ CSASwap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/CSASwap/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="../../src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../src/CSAT/index.html">❱ CSAT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../src/CSAT/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="../../src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="../../src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="../../src/CSATBuyer.sol/contract.CSATBuyer.html">CSATBuyer</a></li><li class="chapter-item expanded "><a href="../../src/CSAVault.sol/contract.CSAVault.html" class="active">CSAVault</a></li><li class="chapter-item "><a href="../../src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="../../src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li><li class="chapter-item "><a href="../../src/TransferManager.sol/contract.TransferManager.html">TransferManager</a></li><li class="chapter-item "><a href="../../src/USDCMock.sol/contract.USDCMock.html">USDCMock</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -117,9 +124,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -169,7 +176,7 @@
                     <main>
                         <h1 id="csavault"><a class="header" href="#csavault">CSAVault</a></h1>
 <p><strong>Inherits:</strong>
-AccessControl, Pausable, AutomationCompatibleInterface</p>
+AccessControl, Pausable, AutomationCompatibleInterface, ERC2771Context, ReentrancyGuard</p>
 <p><strong>Author:</strong>
 Maurizio Murru https://github.com/akerbabber</p>
 <p><em>A smart contract that manages deposits and withdrawals with fees and supports pausing functionalities.
@@ -179,15 +186,19 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
 <h3 id="token"><a class="header" href="#token">token</a></h3>
 <p><em>Address of the ERC20 token.</em></p>
-<pre><code class="language-solidity">address public token;
+<pre><code class="language-solidity">address public immutable token;
 </code></pre>
 <h3 id="pauser_role"><a class="header" href="#pauser_role">PAUSER_ROLE</a></h3>
 <p><em>Role identifier for pausers.</em></p>
-<pre><code class="language-solidity">bytes32 public constant PAUSER_ROLE = keccak256(&quot;PAUSER_ROLE&quot;);
+<pre><code class="language-solidity">bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 </code></pre>
 <h3 id="marketplace_role"><a class="header" href="#marketplace_role">MARKETPLACE_ROLE</a></h3>
 <p><em>Role identifier for marketplace.</em></p>
-<pre><code class="language-solidity">bytes32 public constant MARKETPLACE_ROLE = keccak256(&quot;MARKETPLACE_ROLE&quot;);
+<pre><code class="language-solidity">bytes32 public constant MARKETPLACE_ROLE = keccak256("MARKETPLACE_ROLE");
+</code></pre>
+<h3 id="fee_setter_role"><a class="header" href="#fee_setter_role">FEE_SETTER_ROLE</a></h3>
+<p><em>Role identifier for fee setters.</em></p>
+<pre><code class="language-solidity">bytes32 public constant FEE_SETTER_ROLE = keccak256("FEE_SETTER_ROLE");
 </code></pre>
 <h3 id="fee"><a class="header" href="#fee">fee</a></h3>
 <p><em>Fee in percentage, 10000 = 100%, 1 = 0.01%.</em></p>
@@ -212,12 +223,13 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
 <h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
 <p><em>Contract constructor.</em></p>
-<pre><code class="language-solidity">constructor(address _token, uint256 _fee);
+<pre><code class="language-solidity">constructor(address _token, uint256 _fee, address trustedForwarder) ERC2771Context(trustedForwarder);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_token</code></td><td><code>address</code></td><td>Address of the ERC20 token.</td></tr>
 <tr><td><code>_fee</code></td><td><code>uint256</code></td><td>Initial fee percentage.</td></tr>
+<tr><td><code>trustedForwarder</code></td><td><code>address</code></td><td></td></tr>
 </tbody></table>
 </div>
 <h3 id="pause"><a class="header" href="#pause">pause</a></h3>
@@ -230,13 +242,12 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 </code></pre>
 <h3 id="deposit"><a class="header" href="#deposit">deposit</a></h3>
 <p><em>Allows marketplace to deposit on behalf of users.</em></p>
-<pre><code class="language-solidity">function deposit(address[] calldata owners, uint256[] calldata _amounts, address buyer) external whenNotPaused;
+<pre><code class="language-solidity">function deposit(address[] calldata owners, uint256[] calldata _amounts) external whenNotPaused nonReentrant;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>owners</code></td><td><code>address[]</code></td><td>Addresses of the owners.</td></tr>
 <tr><td><code>_amounts</code></td><td><code>uint256[]</code></td><td>Corresponding amounts to deposit.</td></tr>
-<tr><td><code>buyer</code></td><td><code>address</code></td><td>Buyer's address.</td></tr>
 </tbody></table>
 </div>
 <h3 id="withdraw"><a class="header" href="#withdraw">withdraw</a></h3>
@@ -267,6 +278,9 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <tr><td><code>_to</code></td><td><code>address</code></td><td>Address to send the withdrawn amount to.</td></tr>
 </tbody></table>
 </div>
+<h3 id="recoveruserfunds"><a class="header" href="#recoveruserfunds">recoverUserFunds</a></h3>
+<pre><code class="language-solidity">function recoverUserFunds(address _user, address _to) external;
+</code></pre>
 <h3 id="checkupkeep"><a class="header" href="#checkupkeep">checkUpkeep</a></h3>
 <p><em>Checks if the contract balance is enough to continue operating.</em></p>
 <pre><code class="language-solidity">function checkUpkeep(bytes calldata checkData) external view returns (bool upkeepNeeded, bytes memory performData);
@@ -293,22 +307,43 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 </div>
 <h3 id="setfee"><a class="header" href="#setfee">setFee</a></h3>
 <p><em>Allows admins to set the fee percentage.</em></p>
-<pre><code class="language-solidity">function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
+<pre><code class="language-solidity">function setFee(uint256 _fee) public onlyRole(FEE_SETTER_ROLE);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_fee</code></td><td><code>uint256</code></td><td>New fee percentage.</td></tr>
 </tbody></table>
 </div>
+<h3 id="_msgsender"><a class="header" href="#_msgsender">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(Context, ERC2771Context) returns (address sender);
+</code></pre>
+<h3 id="_msgdata"><a class="header" href="#_msgdata">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(Context, ERC2771Context) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength"><a class="header" href="#_contextsuffixlength">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength() internal view override(Context, ERC2771Context) returns (uint256);
+</code></pre>
 <h2 id="events"><a class="header" href="#events">Events</a></h2>
 <h3 id="deposit-1"><a class="header" href="#deposit-1">Deposit</a></h3>
 <p><em>Event emitted when a deposit is made.</em></p>
 <pre><code class="language-solidity">event Deposit(address indexed _address, uint256 _amount);
 </code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address of the user who deposited.</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount deposited.</td></tr>
+</tbody></table>
+</div>
 <h3 id="withdraw-1"><a class="header" href="#withdraw-1">Withdraw</a></h3>
 <p><em>Event emitted when a withdrawal is made.</em></p>
 <pre><code class="language-solidity">event Withdraw(address indexed _address, uint256 _amount);
 </code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address of the user who withdrew.</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount withdrawn.</td></tr>
+</tbody></table>
+</div>
 <h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <h3 id="notpauser"><a class="header" href="#notpauser">NotPauser</a></h3>
 <p><em>Error to show when the caller is not a pauser.</em></p>
@@ -335,11 +370,11 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../src/CSAT.sol/contract.CSAT.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../src/CSATBuyer.sol/contract.CSATBuyer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../../src/CSAVaultNative.sol/contract.CSAVaultNative.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../src/IBurnableMintable.sol/interface.Mintable.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -349,17 +384,33 @@ This contract is made to interact with the CSAMarketplace contract, which is the
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../src/CSAT.sol/contract.CSAT.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../src/CSATBuyer.sol/contract.CSATBuyer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../../src/CSAVaultNative.sol/contract.CSAVaultNative.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../src/IBurnableMintable.sol/interface.Mintable.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

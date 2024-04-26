@@ -3,9 +3,9 @@ src = "src"
 title = ""
 
 [output.html]
-additional-css = ["book.css"]
-additional-js = ["solidity.min.js"]
 no-section-label = true
+additional-js = ["solidity.min.js"]
+additional-css = ["book.css"]
 
 [output.html.fold]
 enable = true

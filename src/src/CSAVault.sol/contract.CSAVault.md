@@ -1,6 +1,6 @@
 # CSAVault
 **Inherits:**
-AccessControl, Pausable, AutomationCompatibleInterface
+AccessControl, Pausable, AutomationCompatibleInterface, ERC2771Context, ReentrancyGuard
 
 **Author:**
 Maurizio Murru https://github.com/akerbabber
@@ -17,7 +17,7 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 
 
 ```solidity
-address public token;
+address public immutable token;
 ```
 
 
@@ -36,6 +36,15 @@ bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 
 ```solidity
 bytes32 public constant MARKETPLACE_ROLE = keccak256("MARKETPLACE_ROLE");
+```
+
+
+### FEE_SETTER_ROLE
+*Role identifier for fee setters.*
+
+
+```solidity
+bytes32 public constant FEE_SETTER_ROLE = keccak256("FEE_SETTER_ROLE");
 ```
 
 
@@ -91,7 +100,7 @@ address[] public usersList;
 
 
 ```solidity
-constructor(address _token, uint256 _fee);
+constructor(address _token, uint256 _fee, address trustedForwarder) ERC2771Context(trustedForwarder);
 ```
 **Parameters**
 
@@ -99,6 +108,7 @@ constructor(address _token, uint256 _fee);
 |----|----|-----------|
 |`_token`|`address`|Address of the ERC20 token.|
 |`_fee`|`uint256`|Initial fee percentage.|
+|`trustedForwarder`|`address`||
 
 
 ### pause
@@ -125,7 +135,7 @@ function unpause() external;
 
 
 ```solidity
-function deposit(address[] calldata owners, uint256[] calldata _amounts, address buyer) external whenNotPaused;
+function deposit(address[] calldata owners, uint256[] calldata _amounts) external whenNotPaused nonReentrant;
 ```
 **Parameters**
 
@@ -133,7 +143,6 @@ function deposit(address[] calldata owners, uint256[] calldata _amounts, address
 |----|----|-----------|
 |`owners`|`address[]`|Addresses of the owners.|
 |`_amounts`|`uint256[]`|Corresponding amounts to deposit.|
-|`buyer`|`address`|Buyer's address.|
 
 
 ### withdraw
@@ -182,6 +191,13 @@ function emergencyWithdraw(uint256 _amount, address _to) external;
 |`_to`|`address`|Address to send the withdrawn amount to.|
 
 
+### recoverUserFunds
+
+
+```solidity
+function recoverUserFunds(address _user, address _to) external;
+```
+
 ### checkUpkeep
 
 *Checks if the contract balance is enough to continue operating.*
@@ -225,7 +241,7 @@ function performUpkeep(bytes calldata performData) external;
 
 
 ```solidity
-function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
+function setFee(uint256 _fee) public onlyRole(FEE_SETTER_ROLE);
 ```
 **Parameters**
 
@@ -233,6 +249,27 @@ function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
 |----|----|-----------|
 |`_fee`|`uint256`|New fee percentage.|
 
+
+### _msgSender
+
+
+```solidity
+function _msgSender() internal view override(Context, ERC2771Context) returns (address sender);
+```
+
+### _msgData
+
+
+```solidity
+function _msgData() internal view override(Context, ERC2771Context) returns (bytes calldata);
+```
+
+### _contextSuffixLength
+
+
+```solidity
+function _contextSuffixLength() internal view override(Context, ERC2771Context) returns (uint256);
+```
 
 ## Events
 ### Deposit
@@ -243,6 +280,13 @@ function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
 event Deposit(address indexed _address, uint256 _amount);
 ```
 
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_address`|`address`|Address of the user who deposited.|
+|`_amount`|`uint256`|Amount deposited.|
+
 ### Withdraw
 *Event emitted when a withdrawal is made.*
 
@@ -250,6 +294,13 @@ event Deposit(address indexed _address, uint256 _amount);
 ```solidity
 event Withdraw(address indexed _address, uint256 _amount);
 ```
+
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_address`|`address`|Address of the user who withdrew.|
+|`_amount`|`uint256`|Amount withdrawn.|
 
 ## Errors
 ### NotPauser

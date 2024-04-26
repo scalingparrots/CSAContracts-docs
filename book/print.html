@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title></title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="book.css">
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -63,31 +63,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="src/CSAC.sol/contract.CSAC.html">CSAC</a></li><li class="chapter-item "><a href="src/CSAConverter.sol/contract.CSAConverter.html">CSAConverter</a></li><li class="chapter-item "><a href="src/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="src/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="src/CSAMarketplaceNative.sol/contract.CSAMarketplaceNative.html">CSAMarketplaceNative</a></li><li class="chapter-item "><a href="src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="src/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="src/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item "><a href="src/CSAVaultNative.sol/contract.CSAVaultNative.html">CSAVaultNative</a></li><li class="chapter-item "><a href="src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="src/CSAEngineV2/index.html">❱ CSAEngineV2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/CSAEngineV2/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></li></ol></li><li class="chapter-item "><a href="src/CSAMarketplace/index.html">❱ CSAMarketplace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html">CSAMarketplaceStorageContract</a></li></ol></li><li class="chapter-item "><a href="src/CSASwap/index.html">❱ CSASwap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/CSASwap/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></li></ol></li><li class="chapter-item "><a href="src/CSAT/index.html">❱ CSAT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="src/CSAT/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></li></ol></li><li class="chapter-item "><a href="src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="src/CSATBuyer.sol/contract.CSATBuyer.html">CSATBuyer</a></li><li class="chapter-item "><a href="src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item "><a href="src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li><li class="chapter-item "><a href="src/TransferManager.sol/contract.TransferManager.html">TransferManager</a></li><li class="chapter-item "><a href="src/USDCMock.sol/contract.USDCMock.html">USDCMock</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -118,9 +125,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -276,7 +283,7 @@
 </code></pre>
 <h4 id="open-the-indexhtml-file-in-the-coverage-directory"><a class="header" href="#open-the-indexhtml-file-in-the-coverage-directory">Open the index.html file in the coverage directory</a></h4>
 <p><code>coverage/index.html</code></p>
-<h4 id="common-error-no-available-formula-with-the-name-genhtml-did-you-mean-ekhtml"><a class="header" href="#common-error-no-available-formula-with-the-name-genhtml-did-you-mean-ekhtml">Common error: No available formula with the name &quot;genhtml&quot;. Did you mean ekhtml?</a></h4>
+<h4 id="common-error-no-available-formula-with-the-name-genhtml-did-you-mean-ekhtml"><a class="header" href="#common-error-no-available-formula-with-the-name-genhtml-did-you-mean-ekhtml">Common error: No available formula with the name "genhtml". Did you mean ekhtml?</a></h4>
 <p>If you get this error, do:</p>
 <pre><code class="language-sh">brew install ekhtml
 </code></pre>
@@ -304,248 +311,39 @@
 </ul>
 <h2 id="deploy-csa-web3function-on-ipfs"><a class="header" href="#deploy-csa-web3function-on-ipfs">Deploy CSA Web3Function on IPFS</a></h2>
 <p>Use <code>npx w3f deploy src/web3-functions/CSA-oracle/index.ts</code> command to deploy your web3 function.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csac"><a class="header" href="#csac">CSAC</a></h1>
-<p><strong>Inherits:</strong>
-AccessControl</p>
-<p><strong>Author:</strong>
-Maurizio Murru https://github.com/akerbabber</p>
-<p><em>This contract enables swapping of tokens and maintaining supply,
-enforcing access controls for minting and burning functionalities.</em></p>
-<p><em>Note: This contract does NOT adhere to the ERC20 standard and the
-tokens are non-transferable.</em></p>
-<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
-<h3 id="_amounts"><a class="header" href="#_amounts">_amounts</a></h3>
-<p><em>Mapping of the amounts of tokens owned by each address.</em></p>
-<pre><code class="language-solidity">mapping(address =&gt; uint256) private _amounts;
-</code></pre>
-<h3 id="_totalsupply"><a class="header" href="#_totalsupply">_totalSupply</a></h3>
-<p><em>Total number of tokens in existence.</em></p>
-<pre><code class="language-solidity">uint256 private _totalSupply;
-</code></pre>
-<h3 id="csat"><a class="header" href="#csat">CSAT</a></h3>
-<p>The address of the CSAT token contract</p>
-<pre><code class="language-solidity">address public immutable CSAT;
-</code></pre>
-<h3 id="enabled_contract_role"><a class="header" href="#enabled_contract_role">ENABLED_CONTRACT_ROLE</a></h3>
-<p>Role identifier for enabling contract role</p>
-<pre><code class="language-solidity">bytes32 public constant ENABLED_CONTRACT_ROLE = keccak256(&quot;ENABLED_CONTRACT_ROLE&quot;);
-</code></pre>
-<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
-<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
-<p>Creates a new instance of the CSAC contract</p>
-<p><em>Assigns the sender the default admin role</em></p>
-<pre><code class="language-solidity">constructor(address _CSAT);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_CSAT</code></td><td><code>address</code></td><td>The address of the CSAT token contract</td></tr>
-</tbody></table>
-</div>
-<h3 id="decimals"><a class="header" href="#decimals">decimals</a></h3>
-<p>Returns the number of decimals the token uses</p>
-<pre><code class="language-solidity">function decimals() public view virtual returns (uint8);
-</code></pre>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint8</code></td><td>The number of decimals</td></tr>
-</tbody></table>
-</div>
-<h3 id="totalsupply"><a class="header" href="#totalsupply">totalSupply</a></h3>
-<p>Returns the total supply of tokens</p>
-<pre><code class="language-solidity">function totalSupply() public view virtual returns (uint256);
-</code></pre>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The total supply</td></tr>
-</tbody></table>
-</div>
-<h3 id="amountof"><a class="header" href="#amountof">amountOf</a></h3>
-<p>Gets the amount of tokens owned by <code>account</code>.</p>
-<pre><code class="language-solidity">function amountOf(address account) public view virtual returns (uint256);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>account</code></td><td><code>address</code></td><td>The address to query.</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The amount of tokens owned by <code>account</code>.</td></tr>
-</tbody></table>
-</div>
-<h3 id="swapfromcsat"><a class="header" href="#swapfromcsat">swapFromCSAT</a></h3>
-<p>Swaps <code>amount</code> CSAT tokens to this contract's token</p>
-<p><em>Mints tokens to the sender and burns the same amount from sender's CSAT balance</em></p>
-<pre><code class="language-solidity">function swapFromCSAT(uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of tokens to swap</td></tr>
-</tbody></table>
-</div>
-<h3 id="swaptocsat"><a class="header" href="#swaptocsat">swapToCSAT</a></h3>
-<p>Swaps <code>amount</code> of this contract's tokens to CSAT tokens</p>
-<p><em>Burns tokens from the sender and mints the same amount to sender's CSAT balance</em></p>
-<pre><code class="language-solidity">function swapToCSAT(uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of tokens to swap</td></tr>
-</tbody></table>
-</div>
-<h3 id="_mint"><a class="header" href="#_mint">_mint</a></h3>
-<p><em>Mints <code>amount</code> tokens to <code>account</code>, increasing total supply.</em></p>
-<pre><code class="language-solidity">function _mint(address account, uint256 amount) internal virtual;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>account</code></td><td><code>address</code></td><td>The address to mint tokens to.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of tokens to mint.</td></tr>
-</tbody></table>
-</div>
-<h3 id="_burn"><a class="header" href="#_burn">_burn</a></h3>
-<p><em>Burns <code>amount</code> tokens from <code>account</code>, decreasing total supply.</em></p>
-<pre><code class="language-solidity">function _burn(address account, uint256 amount) internal virtual;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>account</code></td><td><code>address</code></td><td>The address to burn tokens from.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of tokens to burn.</td></tr>
-</tbody></table>
-</div>
-<h3 id="mint"><a class="header" href="#mint">mint</a></h3>
-<p>Mints <code>amount</code> tokens to <code>to</code> address</p>
-<p><em>Can only be called by addresses with the <code>ENABLED_CONTRACT_ROLE</code> role</em></p>
-<pre><code class="language-solidity">function mint(address to, uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>to</code></td><td><code>address</code></td><td>The address to mint tokens to.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of tokens to mint.</td></tr>
-</tbody></table>
-</div>
-<h3 id="burn"><a class="header" href="#burn">burn</a></h3>
-<p>Burns <code>amount</code> tokens from <code>from</code> address</p>
-<p><em>Can only be called by addresses with the <code>ENABLED_CONTRACT_ROLE</code> role</em></p>
-<pre><code class="language-solidity">function burn(address from, uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>from</code></td><td><code>address</code></td><td>The address to burn tokens from.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of tokens to burn.</td></tr>
-</tbody></table>
-</div>
-<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
-<h3 id="noenabledcontractrole"><a class="header" href="#noenabledcontractrole">NoEnabledContractRole</a></h3>
-<p><em>Throws if called by any account other than one with the enabled contract role</em></p>
-<pre><code class="language-solidity">error NoEnabledContractRole(address from);
-</code></pre>
-<h3 id="minttozeroaddress"><a class="header" href="#minttozeroaddress">MintToZeroAddress</a></h3>
-<p><em>Throws if trying to mint to the zero address</em></p>
-<pre><code class="language-solidity">error MintToZeroAddress();
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csaconverter"><a class="header" href="#csaconverter">CSAConverter</a></h1>
-<p><strong>Author:</strong>
-Maurizio Murru https://github.com/akerbabber</p>
-<p><em>This contract is designed to convert between CSAT and CSAC tokens.
-It emits events for each conversion and utilizes interfaces for burning and minting tokens.</em></p>
-<h2 id="state-variables-1"><a class="header" href="#state-variables-1">State Variables</a></h2>
-<h3 id="csat-1"><a class="header" href="#csat-1">CSAT</a></h3>
-<p>The address of the CSAT token contract</p>
-<pre><code class="language-solidity">address public immutable CSAT;
-</code></pre>
-<h3 id="csac-1"><a class="header" href="#csac-1">CSAC</a></h3>
-<p>The address of the CSAC token contract</p>
-<pre><code class="language-solidity">address public immutable CSAC;
-</code></pre>
-<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
-<h3 id="constructor-1"><a class="header" href="#constructor-1">constructor</a></h3>
-<p>Initializes the contract with addresses of CSAT and CSAC contracts</p>
-<pre><code class="language-solidity">constructor(address _CSAT, address _CSAC);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_CSAT</code></td><td><code>address</code></td><td>The address of the CSAT token contract</td></tr>
-<tr><td><code>_CSAC</code></td><td><code>address</code></td><td>The address of the CSAC token contract</td></tr>
-</tbody></table>
-</div>
-<h3 id="csattocsac"><a class="header" href="#csattocsac">csatToCsac</a></h3>
-<p>Converts <code>amount</code> CSAT tokens to CSAC tokens.</p>
-<p><em>Emits a {CsatToCsac} event.</em></p>
-<pre><code class="language-solidity">function csatToCsac(uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of CSAT tokens to convert</td></tr>
-</tbody></table>
-</div>
-<h3 id="csactocsat"><a class="header" href="#csactocsat">csacToCsat</a></h3>
-<p>Converts <code>amount</code> CSAC tokens to CSAT tokens.</p>
-<p><em>Emits a {CsacToCsat} event.</em></p>
-<pre><code class="language-solidity">function csacToCsat(uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of CSAC tokens to convert</td></tr>
-</tbody></table>
-</div>
-<h2 id="events"><a class="header" href="#events">Events</a></h2>
-<h3 id="csattocsac-1"><a class="header" href="#csattocsac-1">CsatToCsac</a></h3>
-<p><em>Emitted when CSAT tokens are converted to CSAC</em></p>
-<pre><code class="language-solidity">event CsatToCsac(address indexed from, uint256 amount);
-</code></pre>
-<h3 id="csactocsat-1"><a class="header" href="#csactocsat-1">CsacToCsat</a></h3>
-<p><em>Emitted when CSAC tokens are converted to CSAT</em></p>
-<pre><code class="language-solidity">event CsacToCsat(address indexed from, uint256 amount);
-</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents"><a class="header" href="#contents">Contents</a></h1>
+<ul>
+<li><a href="src/CSAEngineV2/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li>
+<li><a href="src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="csaenginev2"><a class="header" href="#csaenginev2">CSAEngineV2</a></h1>
 <p><strong>Inherits:</strong>
-AccessControl</p>
+Initializable, AccessControlUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, <a href="src/CSAEngineV2/CSAEngineV2.sol//src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></p>
 <p><strong>Author:</strong>
 Maurizio Murru https://github.com/akerbabber</p>
 <p>This contract handles positions opened on footballer's scores. It interacts with the oracle to fetch footballer scores and allows users to open positions based on those scores. It allows admin to halt and un-halt footballers and to change the oracle address. It also provides various utility functions to calculate PnL, check if a footballer is updated after a match, and to check if a footballer is halted.</p>
-<p><em>This contract uses OpenZeppelin contracts for Access Control and Safe ERC20 operations. It also uses CSAOracleV2 for fetching footballer data and CSAC token for burning and minting operations.</em></p>
-<h2 id="state-variables-2"><a class="header" href="#state-variables-2">State Variables</a></h2>
-<h3 id="oracle"><a class="header" href="#oracle">oracle</a></h3>
-<p>Address of the CSAOracleV2 contract which provides footballer data.</p>
-<pre><code class="language-solidity">CSAOracleV2 public oracle;
-</code></pre>
-<h3 id="csac-2"><a class="header" href="#csac-2">csac</a></h3>
-<p>Address of the CSAC contract which is a burnable and mintable token.</p>
-<pre><code class="language-solidity">CSAC public csac;
-</code></pre>
-<h3 id="positions"><a class="header" href="#positions">positions</a></h3>
-<p>Mapping to store positions with their ID.</p>
-<pre><code class="language-solidity">mapping(uint256 =&gt; Position) public positions;
-</code></pre>
-<h3 id="lastpositionid"><a class="header" href="#lastpositionid">lastPositionId</a></h3>
-<p>The ID of the last position opened.</p>
-<pre><code class="language-solidity">uint256 public lastPositionId;
-</code></pre>
-<h3 id="balances"><a class="header" href="#balances">balances</a></h3>
-<p>Mapping to store balances of addresses.</p>
-<pre><code class="language-solidity">mapping(address =&gt; uint256) public balances;
-</code></pre>
-<h3 id="halted"><a class="header" href="#halted">halted</a></h3>
-<p>Mapping to store information about halted footballers.</p>
-<pre><code class="language-solidity">mapping(uint256 =&gt; Halted[]) public halted;
-</code></pre>
-<h3 id="halter_role"><a class="header" href="#halter_role">HALTER_ROLE</a></h3>
-<p>Role identifier for halter role, capable of halting and un-halting footballers.</p>
-<pre><code class="language-solidity">bytes32 public constant HALTER_ROLE = keccak256(&quot;HALTER_ROLE&quot;);
-</code></pre>
-<h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
-<h3 id="constructor-2"><a class="header" href="#constructor-2">constructor</a></h3>
+<p><em>This contract uses OpenZeppelin contracts for Access Control and Safe ERC20 operations. It also uses CSAOracleV2 for fetching footballer data and CSAT token for burning and minting operations.</em></p>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
 <p><em>Constructor function for CSAEngineV2 contract.</em></p>
-<pre><code class="language-solidity">constructor(address _oracle, address _halter, CSAC _csac);
+<pre><code class="language-solidity">constructor(address _oracle, CSAT _csat, address _trustedForwarder)
+    ERC2771ContextUpgradeable(_trustedForwarder)
+    CSAEngineV2StorageContract(_oracle, _csat);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_oracle</code></td><td><code>address</code></td><td>The address of the CSAOracleV2 contract.</td></tr>
-<tr><td><code>_halter</code></td><td><code>address</code></td><td>The address of the account that has the HALTER_ROLE.</td></tr>
-<tr><td><code>_csac</code></td><td><code>CSAC</code></td><td>The address of the CSAC contract.</td></tr>
+<tr><td><code>_csat</code></td><td><code>CSAT</code></td><td>The address of the CSAT contract.</td></tr>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td></td></tr>
 </tbody></table>
 </div>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<pre><code class="language-solidity">function initialize(address halter) public initializer;
+</code></pre>
+<h3 id="_authorizeupgrade"><a class="header" href="#_authorizeupgrade">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
+</code></pre>
 <h3 id="getfootballer"><a class="header" href="#getfootballer">getFootballer</a></h3>
 <p><em>Returns the footballer information for a given footballer ID.</em></p>
 <pre><code class="language-solidity">function getFootballer(uint24 _footballerId) public view returns (CSAOracleV2.Footballer memory);
@@ -741,15 +539,6 @@ Transfers the PnL to the position owner by minting new tokens to their address.<
 <tr><td><code>_footballerIds</code></td><td><code>uint24[]</code></td><td>An array of uint24 representing the IDs of the footballers to unhalt.</td></tr>
 </tbody></table>
 </div>
-<h3 id="setoracle"><a class="header" href="#setoracle">setOracle</a></h3>
-<p><em>Sets the address of the oracle contract.</em></p>
-<pre><code class="language-solidity">function setOracle(address _oracle) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_oracle</code></td><td><code>address</code></td><td>The address of the CSAOracleV2 contract. Requirements: - The caller must have the DEFAULT_ADMIN_ROLE.</td></tr>
-</tbody></table>
-</div>
 <h3 id="gethalted"><a class="header" href="#gethalted">getHalted</a></h3>
 <p><em>Returns an array of Halted structs for a given footballer ID.</em></p>
 <pre><code class="language-solidity">function getHalted(uint24 _footballerId) public view returns (Halted[] memory);
@@ -817,7 +606,39 @@ Transfers the PnL to the position owner by minting new tokens to their address.<
 <tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>An array of position IDs owned by the given address.</td></tr>
 </tbody></table>
 </div>
-<h2 id="events-1"><a class="header" href="#events-1">Events</a></h2>
+<h3 id="positionsownedbyfromstarttoendposition"><a class="header" href="#positionsownedbyfromstarttoendposition">positionsOwnedByFromStartToEndPosition</a></h3>
+<p><em>Returns an array of position IDs owned by the given address within a given range.</em></p>
+<pre><code class="language-solidity">function positionsOwnedByFromStartToEndPosition(address _owner, uint256 _start, uint256 _end)
+    public
+    view
+    returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_owner</code></td><td><code>address</code></td><td>The address to check for owned positions.</td></tr>
+<tr><td><code>_start</code></td><td><code>uint256</code></td><td>The starting position ID to check.</td></tr>
+<tr><td><code>_end</code></td><td><code>uint256</code></td><td>The ending position ID to check.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>An array of position IDs owned by the given address within the given range.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_msgsender"><a class="header" href="#_msgsender">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
+</code></pre>
+<h3 id="_msgdata"><a class="header" href="#_msgdata">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength"><a class="header" href="#_contextsuffixlength">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
+</code></pre>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
 <h3 id="openposition-1"><a class="header" href="#openposition-1">OpenPosition</a></h3>
 <p>Event emitted when a position is opened.</p>
 <pre><code class="language-solidity">event OpenPosition(
@@ -846,41 +667,221 @@ Transfers the PnL to the position owner by minting new tokens to their address.<
 <p>Event emitted when balance is withdrawn.</p>
 <pre><code class="language-solidity">event WithdrawBalance(address indexed owner, uint256 amount);
 </code></pre>
-<h2 id="errors-1"><a class="header" href="#errors-1">Errors</a></h2>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
 <h3 id="notadmin"><a class="header" href="#notadmin">NotAdmin</a></h3>
+<p>Error to show when the caller is not an admin.</p>
 <pre><code class="language-solidity">error NotAdmin(address from);
 </code></pre>
 <h3 id="nothalter"><a class="header" href="#nothalter">NotHalter</a></h3>
+<p>Error to show when the caller is not a halter.</p>
 <pre><code class="language-solidity">error NotHalter(address from);
 </code></pre>
 <h3 id="notpositionowner"><a class="header" href="#notpositionowner">NotPositionOwner</a></h3>
+<p>Error to show when the caller is not the owner of the position and tries to close it.</p>
 <pre><code class="language-solidity">error NotPositionOwner(address from, uint256 positionId);
 </code></pre>
 <h3 id="positionnotfound"><a class="header" href="#positionnotfound">PositionNotFound</a></h3>
+<p>Error to show when the position is not found.</p>
 <pre><code class="language-solidity">error PositionNotFound(uint256 positionId);
 </code></pre>
 <h3 id="footballeryettoreceivescoreupdatefromlastmatch"><a class="header" href="#footballeryettoreceivescoreupdatefromlastmatch">FootballerYetToReceiveScoreUpdateFromLastMatch</a></h3>
+<p>Error to show when the footballer has not received the score update after the last match.</p>
 <pre><code class="language-solidity">error FootballerYetToReceiveScoreUpdateFromLastMatch(uint24 footballerId);
 </code></pre>
 <h3 id="nodataforfootballer"><a class="header" href="#nodataforfootballer">NoDataForFootballer</a></h3>
+<p>Error to show when there is no data available for the footballer.</p>
 <pre><code class="language-solidity">error NoDataForFootballer(uint24 footballerId);
 </code></pre>
 <h3 id="footballeralreadyhalted"><a class="header" href="#footballeralreadyhalted">FootballerAlreadyHalted</a></h3>
+<p>Error to show when the caller is not an upgrader.</p>
 <pre><code class="language-solidity">error FootballerAlreadyHalted(uint24 footballerId);
 </code></pre>
 <h3 id="footballernothalted"><a class="header" href="#footballernothalted">FootballerNotHalted</a></h3>
+<p>Error to show when the caller is not a halter.</p>
 <pre><code class="language-solidity">error FootballerNotHalted(uint24 footballerId);
 </code></pre>
-<h3 id="nothingtowithdraw"><a class="header" href="#nothingtowithdraw">NothingToWithdraw</a></h3>
-<pre><code class="language-solidity">error NothingToWithdraw(address from);
-</code></pre>
 <h3 id="openpositionlessthan10ether"><a class="header" href="#openpositionlessthan10ether">OpenPositionLessThan10Ether</a></h3>
+<p>Error to show when the amount is less than 10 ether (10e18 CSAT).</p>
 <pre><code class="language-solidity">error OpenPositionLessThan10Ether(address from, uint256 amount);
 </code></pre>
 <h3 id="footballerishalted"><a class="header" href="#footballerishalted">FootballerIsHalted</a></h3>
+<p>Error to show when the caller is not a halter.</p>
 <pre><code class="language-solidity">error FootballerIsHalted(uint24 footballerId);
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csaenginev2storagecontract"><a class="header" href="#csaenginev2storagecontract">CSAEngineV2StorageContract</a></h1>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p><em>This contract is used to store the storage layout of the CSAEngineV2 contract.</em></p>
+<p><em>It includes the storage layout of the CSAEngineV2 contract and the necessary getter functions.</em></p>
+<p><em>It also includes the necessary structs and enums used in the CSAEngineV2 contract.</em></p>
+<p><em>This contract is used to avoid memory slot collisions with the CSAEngineV2 contract.</em></p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="oracle"><a class="header" href="#oracle">oracle</a></h3>
+<p>Address of the CSAOracleV2 contract which provides footballer data.</p>
+<pre><code class="language-solidity">CSAOracleV2 public immutable oracle;
+</code></pre>
+<h3 id="csat"><a class="header" href="#csat">csat</a></h3>
+<p>Address of the CSAT contract which is a burnable and mintable token.</p>
+<pre><code class="language-solidity">CSAT public immutable csat;
+</code></pre>
+<h3 id="halter_role"><a class="header" href="#halter_role">HALTER_ROLE</a></h3>
+<p>Role identifier for halter role, capable of halting and un-halting footballers.</p>
+<pre><code class="language-solidity">bytes32 public constant HALTER_ROLE = keccak256("HALTER_ROLE");
+</code></pre>
+<h3 id="upgrader_role"><a class="header" href="#upgrader_role">UPGRADER_ROLE</a></h3>
+<p>Role identifier for upgrader role, capable of upgrading the contract.</p>
+<pre><code class="language-solidity">bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
+</code></pre>
+<h3 id="csaenginev2lastpositionidstoragelocation"><a class="header" href="#csaenginev2lastpositionidstoragelocation">CSAEngineV2LastPositionIdStorageLocation</a></h3>
+<p>The storage slot for the last position ID.</p>
+<pre><code class="language-solidity">bytes32 private constant CSAEngineV2LastPositionIdStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAEngineV2LastPositionId")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csaenginev2positionsstoragelocation"><a class="header" href="#csaenginev2positionsstoragelocation">CSAEngineV2PositionsStorageLocation</a></h3>
+<p>The storage slot for the positions.</p>
+<pre><code class="language-solidity">bytes32 private constant CSAEngineV2PositionsStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAEngineV2Positions")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csaenginev2balancesstoragelocation"><a class="header" href="#csaenginev2balancesstoragelocation">CSAEngineV2BalancesStorageLocation</a></h3>
+<p>The storage slot for the balances.</p>
+<pre><code class="language-solidity">bytes32 private constant CSAEngineV2BalancesStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAEngineV2Balances")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csaenginev2haltedstoragelocation"><a class="header" href="#csaenginev2haltedstoragelocation">CSAEngineV2HaltedStorageLocation</a></h3>
+<p>The storage slot for the halted footballers.</p>
+<pre><code class="language-solidity">bytes32 private constant CSAEngineV2HaltedStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAEngineV2Halted")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
+<h3 id="constructor-1"><a class="header" href="#constructor-1">constructor</a></h3>
+<p><em>Constructor function for CSAEngineV2 contract.</em></p>
+<pre><code class="language-solidity">constructor(address _oracle, CSAT _csat);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_oracle</code></td><td><code>address</code></td><td>The address of the CSAOracleV2 contract.</td></tr>
+<tr><td><code>_csat</code></td><td><code>CSAT</code></td><td>The address of the CSAT contract.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsaenginev2lastpositionidstorage"><a class="header" href="#_getcsaenginev2lastpositionidstorage">_getCSAEngineV2LastPositionIdStorage</a></h3>
+<p><em>This function is used to get the CSAEngineV2LastPositionIdStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAEngineV2LastPositionIdStorage() internal pure returns (CSAEngineV2LastPositionIdStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAEngineV2LastPositionIdStorage</code></td><td>The storage pointer to the CSAEngineV2LastPositionIdStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsaenginev2positionsstorage"><a class="header" href="#_getcsaenginev2positionsstorage">_getCSAEngineV2PositionsStorage</a></h3>
+<p><em>This function is used to get the CSAEngineV2PositionsStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAEngineV2PositionsStorage() internal pure returns (CSAEngineV2PositionsStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAEngineV2PositionsStorage</code></td><td>The storage pointer to the CSAEngineV2PositionsStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsaenginev2balancesstorage"><a class="header" href="#_getcsaenginev2balancesstorage">_getCSAEngineV2BalancesStorage</a></h3>
+<p><em>This function is used to get the CSAEngineV2BalancesStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAEngineV2BalancesStorage() internal pure returns (CSAEngineV2BalancesStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAEngineV2BalancesStorage</code></td><td>The storage pointer to the CSAEngineV2BalancesStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsaenginev2haltedstorage"><a class="header" href="#_getcsaenginev2haltedstorage">_getCSAEngineV2HaltedStorage</a></h3>
+<p><em>This function is used to get the CSAEngineV2HaltedStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAEngineV2HaltedStorage() internal pure returns (CSAEngineV2HaltedStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAEngineV2HaltedStorage</code></td><td>The storage pointer to the CSAEngineV2HaltedStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="lastpositionid"><a class="header" href="#lastpositionid">lastPositionId</a></h3>
+<p><em>This function is used to get the Last Position ID.</em></p>
+<pre><code class="language-solidity">function lastPositionId() public view returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The ID of the last position.</td></tr>
+</tbody></table>
+</div>
+<h3 id="positions"><a class="header" href="#positions">positions</a></h3>
+<p><em>This function is used to get the position details.</em></p>
+<pre><code class="language-solidity">function positions(uint256 _positionId) external view returns (Position memory position);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_positionId</code></td><td><code>uint256</code></td><td>The ID of the position.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>position</code></td><td><code>Position</code></td><td>The position struct as a tuple.</td></tr>
+</tbody></table>
+</div>
+<h3 id="balances"><a class="header" href="#balances">balances</a></h3>
+<p><em>This function is used to get the balance of an address.</em></p>
+<pre><code class="language-solidity">function balances(address _address) external view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address of the user.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The balance of the address.</td></tr>
+</tbody></table>
+</div>
+<h3 id="halted"><a class="header" href="#halted">halted</a></h3>
+<p><em>This function is used to get the halted footballer details.</em></p>
+<pre><code class="language-solidity">function halted(uint256 _footballerId, uint256 _index) external view returns (uint32, uint24, uint24, uint32);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint256</code></td><td>The ID of the footballer.</td></tr>
+<tr><td><code>_index</code></td><td><code>uint256</code></td><td>The index of the halted footballer.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint32</code></td><td>The halted struct as a tuple.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint24</code></td><td></td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint24</code></td><td></td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint32</code></td><td></td></tr>
+</tbody></table>
+</div>
 <h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="csaenginev2lastpositionidstorage"><a class="header" href="#csaenginev2lastpositionidstorage">CSAEngineV2LastPositionIdStorage</a></h3>
+<p>The ID of the last position opened.</p>
+<pre><code class="language-solidity">struct CSAEngineV2LastPositionIdStorage {
+    uint256 lastPositionId;
+}
+</code></pre>
+<h3 id="csaenginev2positionsstorage"><a class="header" href="#csaenginev2positionsstorage">CSAEngineV2PositionsStorage</a></h3>
+<p>Struct to store the storage layout of the CSAEngineV2 contract.</p>
+<p>Mapping to store positions with their ID.</p>
+<pre><code class="language-solidity">struct CSAEngineV2PositionsStorage {
+    mapping(uint256 =&gt; Position) positions;
+}
+</code></pre>
+<h3 id="csaenginev2balancesstorage"><a class="header" href="#csaenginev2balancesstorage">CSAEngineV2BalancesStorage</a></h3>
+<p>Struct to store the storage layout of the CSAEngineV2 contract.</p>
+<p>Mapping to store balances of addresses.</p>
+<pre><code class="language-solidity">struct CSAEngineV2BalancesStorage {
+    mapping(address =&gt; uint256) balances;
+}
+</code></pre>
+<h3 id="csaenginev2haltedstorage"><a class="header" href="#csaenginev2haltedstorage">CSAEngineV2HaltedStorage</a></h3>
+<p>Struct to store the storage layout of the CSAEngineV2 contract.</p>
+<p>Mapping to store information about halted footballers.</p>
+<pre><code class="language-solidity">struct CSAEngineV2HaltedStorage {
+    mapping(uint256 =&gt; Halted[]) halted;
+}
+</code></pre>
 <h3 id="position"><a class="header" href="#position">Position</a></h3>
 <p><em>Struct to represent a Position with necessary details.</em></p>
 <pre><code class="language-solidity">struct Position {
@@ -892,6 +893,16 @@ Transfers the PnL to the position owner by minting new tokens to their address.<
     Direction direction;
 }
 </code></pre>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount of CSA tokens held in the position.</td></tr>
+<tr><td><code>owner</code></td><td><code>address</code></td><td>The address of the owner of the position.</td></tr>
+<tr><td><code>openTimestamp</code></td><td><code>uint32</code></td><td>The timestamp when the position was opened.</td></tr>
+<tr><td><code>footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer associated with the position.</td></tr>
+<tr><td><code>entryScore</code></td><td><code>uint24</code></td><td>The score of the footballer at the time the position was opened.</td></tr>
+<tr><td><code>direction</code></td><td><code>Direction</code></td><td>The direction of the position, either Long or Short.</td></tr>
+</tbody></table>
+</div>
 <h3 id="halted-1"><a class="header" href="#halted-1">Halted</a></h3>
 <p><em>Struct to represent a halted footballer with necessary details.</em></p>
 <pre><code class="language-solidity">struct Halted {
@@ -901,6 +912,14 @@ Transfers the PnL to the position owner by minting new tokens to their address.<
     uint32 unHaltedTimestamp;
 }
 </code></pre>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>timestamp</code></td><td><code>uint32</code></td><td>The timestamp when the footballer was halted.</td></tr>
+<tr><td><code>footballerId</code></td><td><code>uint24</code></td><td>The ID of the halted footballer.</td></tr>
+<tr><td><code>score</code></td><td><code>uint24</code></td><td>The score of the halted footballer.</td></tr>
+<tr><td><code>unHaltedTimestamp</code></td><td><code>uint32</code></td><td>The timestamp when the footballer was un-halted.</td></tr>
+</tbody></table>
+</div>
 <h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
 <h3 id="direction"><a class="header" href="#direction">Direction</a></h3>
 <p><em>Enum representing the direction of the position, LONG or SHORT.</em></p>
@@ -909,9 +928,14 @@ Transfers the PnL to the position owner by minting new tokens to their address.<
     SHORT
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-1"><a class="header" href="#contents-1">Contents</a></h1>
+<ul>
+<li><a href="src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li>
+<li><a href="src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html">CSAMarketplaceStorageContract</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="csamarketplace"><a class="header" href="#csamarketplace">CSAMarketplace</a></h1>
 <p><strong>Inherits:</strong>
-AccessControl</p>
+Initializable, AccessControlUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, <a href="src/CSAMarketplace/CSAMarketplace.sol//src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html">CSAMarketplaceStorageContract</a></p>
 <p><strong>Author:</strong>
 Maurizio Murru https://github.com/akerbabber</p>
 <p><em>This contract implements a marketplace for buying and selling CSAT tokens.
@@ -919,100 +943,47 @@ CSAT can be exchanged with a token chosen at deployment time.
 It uses a queue data structure to match sell orders with buy orders.
 The price of the token is determined by two Chainlink oracles: EUR/USD and Token/USD.
 The contract also has a vault to store the tokens and a fee system for the marketplace.</em></p>
-<h2 id="state-variables-3"><a class="header" href="#state-variables-3">State Variables</a></h2>
-<h3 id="csat-2"><a class="header" href="#csat-2">csat</a></h3>
-<p><em>CSA token</em></p>
-<pre><code class="language-solidity">IERC20 public csat;
-</code></pre>
-<h3 id="tokenout"><a class="header" href="#tokenout">tokenOut</a></h3>
-<p><em>Token to be exchanged for</em></p>
-<pre><code class="language-solidity">IERC20 public tokenOut;
-</code></pre>
-<h3 id="eurusdoracle"><a class="header" href="#eurusdoracle">EURUSDOracle</a></h3>
-<p><em>Oracle to get the price of EUR/USD</em></p>
-<pre><code class="language-solidity">AggregatorV3Interface public EURUSDOracle;
-</code></pre>
-<h3 id="tokenusdoracle"><a class="header" href="#tokenusdoracle">TokenUSDOracle</a></h3>
-<p><em>Oracle to get the price of Token/USD</em></p>
-<pre><code class="language-solidity">AggregatorV3Interface public TokenUSDOracle;
-</code></pre>
-<h3 id="vault"><a class="header" href="#vault">vault</a></h3>
-<p><em>Vault to hold the tokens</em></p>
-<pre><code class="language-solidity">CSAVault public vault;
-</code></pre>
-<h3 id="pricefee"><a class="header" href="#pricefee">priceFee</a></h3>
-<p><em>Fee percentage</em></p>
-<pre><code class="language-solidity">uint16 public priceFee;
-</code></pre>
-<h3 id="eurusd_decimals"><a class="header" href="#eurusd_decimals">EURUSD_DECIMALS</a></h3>
-<p><em>Decimals for EUR/USD oracle</em></p>
-<pre><code class="language-solidity">uint16 public immutable EURUSD_DECIMALS;
-</code></pre>
-<h3 id="tokenusd_decimals"><a class="header" href="#tokenusd_decimals">TokenUSD_DECIMALS</a></h3>
-<p><em>Decimals for Token/USD oracle</em></p>
-<pre><code class="language-solidity">uint16 public immutable TokenUSD_DECIMALS;
-</code></pre>
-<h3 id="sellorders"><a class="header" href="#sellorders">sellOrders</a></h3>
-<p><em>Queue of sell orders</em></p>
-<pre><code class="language-solidity">CSAQueueLib.Queue public sellOrders;
-</code></pre>
-<h3 id="max_fee"><a class="header" href="#max_fee">MAX_FEE</a></h3>
-<p><em>Maximum fee percentage (100%)</em></p>
-<pre><code class="language-solidity">uint256 public constant MAX_FEE = 10000;
-</code></pre>
-<h3 id="max_n_orders"><a class="header" href="#max_n_orders">MAX_N_ORDERS</a></h3>
-<p><em>Maximum number of orders to match at the head of the queue</em></p>
-<pre><code class="language-solidity">uint256 public constant MAX_N_ORDERS = 4;
-</code></pre>
-<h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
-<h3 id="constructor-3"><a class="header" href="#constructor-3">constructor</a></h3>
+<h2 id="functions-2"><a class="header" href="#functions-2">Functions</a></h2>
+<h3 id="constructor-2"><a class="header" href="#constructor-2">constructor</a></h3>
 <p><em>Constructor function for the CSAMarketplace contract.</em></p>
 <pre><code class="language-solidity">constructor(
     address _csat,
     address _tokenOut,
-    address _EURUSDOracle,
-    address _TokenUSDOracle,
+    AggregatorV3Interface _EURUSDOracle,
+    AggregatorV3Interface _TokenUSDOracle,
     address _vault,
-    uint16 _priceFee
-);
+    uint256 _minBuyAmount,
+    uint256 _dustAmount,
+    address _trustedForwarder
+)
+    ERC2771ContextUpgradeable(_trustedForwarder)
+    CSAMarketplaceStorageContract(_csat, _tokenOut, _EURUSDOracle, _TokenUSDOracle, _vault, _minBuyAmount, _dustAmount);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_csat</code></td><td><code>address</code></td><td>The address of the CSAT token contract.</td></tr>
 <tr><td><code>_tokenOut</code></td><td><code>address</code></td><td>The address of the token contract exchanged for CSAT.</td></tr>
-<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>The address of the EUR/USD price oracle contract.</td></tr>
-<tr><td><code>_TokenUSDOracle</code></td><td><code>address</code></td><td>The address of the token/USD price oracle contract.</td></tr>
+<tr><td><code>_EURUSDOracle</code></td><td><code>AggregatorV3Interface</code></td><td>The address of the EUR/USD price oracle contract.</td></tr>
+<tr><td><code>_TokenUSDOracle</code></td><td><code>AggregatorV3Interface</code></td><td>The address of the token/USD price oracle contract.</td></tr>
 <tr><td><code>_vault</code></td><td><code>address</code></td><td>The address of the CSAVault contract.</td></tr>
+<tr><td><code>_minBuyAmount</code></td><td><code>uint256</code></td><td></td></tr>
+<tr><td><code>_dustAmount</code></td><td><code>uint256</code></td><td></td></tr>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td>The address of the trusted EIP-2771 forwarder.</td></tr>
+</tbody></table>
+</div>
+<h3 id="initialize-1"><a class="header" href="#initialize-1">initialize</a></h3>
+<p><em>Initialize function for the CSAMarketplace contract.</em></p>
+<pre><code class="language-solidity">function initialize(uint16 _priceFee) public initializer;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_priceFee</code></td><td><code>uint16</code></td><td>The fee percentage charged on the token price.</td></tr>
 </tbody></table>
 </div>
-<h3 id="changeeurusdoracle"><a class="header" href="#changeeurusdoracle">changeEURUSDOracle</a></h3>
-<p><em>Allows the DEFAULT_ADMIN_ROLE to change the address of the EUR/USD oracle.</em></p>
-<pre><code class="language-solidity">function changeEURUSDOracle(address _EURUSDOracle) public onlyRole(DEFAULT_ADMIN_ROLE);
+<h3 id="_authorizeupgrade-1"><a class="header" href="#_authorizeupgrade-1">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
 </code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>The new address of the EUR/USD oracle.</td></tr>
-</tbody></table>
-</div>
-<h3 id="changetokenusdoracle"><a class="header" href="#changetokenusdoracle">changeTokenUSDOracle</a></h3>
-<p><em>Allows the DEFAULT_ADMIN_ROLE to change the address of the token/USD oracle.</em></p>
-<pre><code class="language-solidity">function changeTokenUSDOracle(address _TokenUSDOracle) public onlyRole(DEFAULT_ADMIN_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_TokenUSDOracle</code></td><td><code>address</code></td><td>The new address of the token/USD oracle.</td></tr>
-</tbody></table>
-</div>
-<h3 id="setvault"><a class="header" href="#setvault">setVault</a></h3>
-<p><em>Allows the DEFAULT_ADMIN_ROLE to set the address of the vault.</em></p>
-<pre><code class="language-solidity">function setVault(address _vault) public onlyRole(DEFAULT_ADMIN_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_vault</code></td><td><code>address</code></td><td>The address of the vault.</td></tr>
-</tbody></table>
-</div>
 <h3 id="makecsatsellorder"><a class="header" href="#makecsatsellorder">makeCsatSellOrder</a></h3>
 <p>The sell order will only be created if the amount is greater than or equal to 5 ether.</p>
 <p>The CSAT tokens will be transferred from the seller's account to the marketplace contract.</p>
@@ -1032,7 +1003,7 @@ The contract also has a vault to store the tokens and a fee system for the marke
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_orderId</code></td><td><code>uint48</code></td><td>The ID of the sell order to be cancelled. Emits a {NotOrderOwner} error if the caller is not the owner of the sell order.</td></tr>
+<tr><td><code>_orderId</code></td><td><code>uint48</code></td><td>The ID of the sell order to be cancelled. Emits a <a href="src/CSAMarketplace/CSAMarketplace.sol//src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html#notorderowner">NotOrderOwner</a> error if the caller is not the owner of the sell order.</td></tr>
 </tbody></table>
 </div>
 <h3 id="buy"><a class="header" href="#buy">buy</a></h3>
@@ -1045,6 +1016,30 @@ If up until the fourth is not enough, a fallback id can be supplied to finish ma
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_amountIn</code></td><td><code>uint256</code></td><td>The amount of tokens to buy.</td></tr>
 <tr><td><code>_fallbackId</code></td><td><code>uint48</code></td><td>The fallback id to use if the first four sell orders are not enough to match the buy order.</td></tr>
+</tbody></table>
+</div>
+<h3 id="buyfor"><a class="header" href="#buyfor">buyFor</a></h3>
+<p><em>This function allows a user to buy CSAT for another address from the marketplace by matching the user's buy order with the first sell order in the queue.
+If the first sell order is not enough, it will look up for the second and repeat up until the fourth.
+If up until the fourth is not enough, a fallback id can be supplied to finish matching the order.</em></p>
+<pre><code class="language-solidity">function buyFor(uint256 _amountIn, uint48 _fallbackId, address receiver) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amountIn</code></td><td><code>uint256</code></td><td>The amount of tokens to buy.</td></tr>
+<tr><td><code>_fallbackId</code></td><td><code>uint48</code></td><td>The fallback id to use if the first four sell orders are not enough to match the buy order.</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td>The address to receive the CSAT tokens.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_buy"><a class="header" href="#_buy">_buy</a></h3>
+<p><em>Internal function to execute a buy order.</em></p>
+<pre><code class="language-solidity">function _buy(uint256 _amountIn, uint48 _fallbackId, address receiver) internal;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amountIn</code></td><td><code>uint256</code></td><td>The amount of tokens to buy.</td></tr>
+<tr><td><code>_fallbackId</code></td><td><code>uint48</code></td><td>The fallback id to use if the first four sell orders are not enough to match the buy order.</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td>The address to receive the CSAT tokens.</td></tr>
 </tbody></table>
 </div>
 <h3 id="convertamountstotokenin"><a class="header" href="#convertamountstotokenin">convertAmountsToTokenIn</a></h3>
@@ -1188,16 +1183,53 @@ and goes down until it finds an order that is enough.</em></p>
 <tr><td><code>&lt;none&gt;</code></td><td><code>uint48[]</code></td><td>An array of uint48 order IDs owned by the specified address.</td></tr>
 </tbody></table>
 </div>
-<h2 id="events-2"><a class="header" href="#events-2">Events</a></h2>
+<h3 id="setfee"><a class="header" href="#setfee">setFee</a></h3>
+<p>This function can only be called by an admin.</p>
+<p><em>Sets the fee percentage charged on the token price.</em></p>
+<pre><code class="language-solidity">function setFee(uint16 _priceFee) external onlyRole(FEE_SETTER_ROLE);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_priceFee</code></td><td><code>uint16</code></td><td>The new fee percentage to set.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_checkexecutionlimit"><a class="header" href="#_checkexecutionlimit">_checkExecutionLimit</a></h3>
+<p>This function is used to check if the user has reached the limit of daily orders.
+This measure is in place to prevent users from spamming the marketplace with orders, leveraging the gasless feature.</p>
+<p><em>Checks if an address has not reached the execution limit.</em></p>
+<pre><code class="language-solidity">function _checkExecutionLimit(address _user) internal;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>The address to check the execution limit for.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_msgsender-1"><a class="header" href="#_msgsender-1">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
+</code></pre>
+<h3 id="_msgdata-1"><a class="header" href="#_msgdata-1">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength-1"><a class="header" href="#_contextsuffixlength-1">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
+</code></pre>
+<h2 id="events-1"><a class="header" href="#events-1">Events</a></h2>
 <h3 id="make"><a class="header" href="#make">Make</a></h3>
 <p><em>Event emitted when a new order is created</em></p>
 <pre><code class="language-solidity">event Make(address indexed buyer, uint256 amountIn);
 </code></pre>
 <h3 id="take"><a class="header" href="#take">Take</a></h3>
 <p><em>Event emitted when an order is executed</em></p>
-<pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
+<pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut, uint256[] amountsCSAT, address[] owners);
 </code></pre>
-<h2 id="errors-2"><a class="header" href="#errors-2">Errors</a></h2>
+<h3 id="cancelorder"><a class="header" href="#cancelorder">CancelOrder</a></h3>
+<pre><code class="language-solidity">event CancelOrder(address indexed owner, uint256 amount);
+</code></pre>
+<h2 id="errors-1"><a class="header" href="#errors-1">Errors</a></h2>
 <h3 id="pricelessthanzero"><a class="header" href="#pricelessthanzero">PriceLessThanZero</a></h3>
 <p><em>Error thrown when the price of an order is less than zero</em></p>
 <pre><code class="language-solidity">error PriceLessThanZero();
@@ -1226,309 +1258,689 @@ and goes down until it finds an order that is enough.</em></p>
 <p><em>Error thrown when a sell order is too small to be executed</em></p>
 <pre><code class="language-solidity">error SellOrderTooSmall();
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csamarketplacenative"><a class="header" href="#csamarketplacenative">CSAMarketplaceNative</a></h1>
-<p><strong>Inherits:</strong>
-AccessControl</p>
+<h3 id="executionlimitreached"><a class="header" href="#executionlimitreached">ExecutionLimitReached</a></h3>
+<pre><code class="language-solidity">error ExecutionLimitReached(address user);
+</code></pre>
+<h3 id="buyordertoosmall"><a class="header" href="#buyordertoosmall">BuyOrderTooSmall</a></h3>
+<p><em>Error thrown when a buy order is too small to be executed</em></p>
+<pre><code class="language-solidity">error BuyOrderTooSmall();
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csamarketplacestoragecontract"><a class="header" href="#csamarketplacestoragecontract">CSAMarketplaceStorageContract</a></h1>
 <p><strong>Author:</strong>
-Maurizio Murru https://github.com/akerbabber</p>
-<p><em>This contract implements a marketplace for buying and selling CSAT tokens.
-CSAT can be exchanged with the blockchain native token (ETH, MATIC, etc.).
-It uses a queue data structure to match sell orders with buy orders.
-The price of the token is determined by two Chainlink oracles: EUR/USD and Token/USD.
-The contract also has a vault to store the tokens and a fee system for the marketplace.</em></p>
-<h2 id="state-variables-4"><a class="header" href="#state-variables-4">State Variables</a></h2>
-<h3 id="csat-3"><a class="header" href="#csat-3">csat</a></h3>
-<p><em>CSA token</em></p>
-<pre><code class="language-solidity">IERC20 public csat;
-</code></pre>
-<h3 id="tokenout-1"><a class="header" href="#tokenout-1">tokenOut</a></h3>
-<p><em>Token to be exchanged for</em></p>
-<pre><code class="language-solidity">IERC20 public tokenOut;
-</code></pre>
-<h3 id="eurusdoracle-1"><a class="header" href="#eurusdoracle-1">EURUSDOracle</a></h3>
-<p><em>Oracle to get the price of EUR/USD</em></p>
-<pre><code class="language-solidity">AggregatorV3Interface public EURUSDOracle;
-</code></pre>
-<h3 id="tokenusdoracle-1"><a class="header" href="#tokenusdoracle-1">TokenUSDOracle</a></h3>
-<p><em>Oracle to get the price of Token/USD</em></p>
-<pre><code class="language-solidity">AggregatorV3Interface public TokenUSDOracle;
-</code></pre>
-<h3 id="vault-1"><a class="header" href="#vault-1">vault</a></h3>
-<p><em>Vault to hold the tokens</em></p>
-<pre><code class="language-solidity">CSAVaultNative public vault;
-</code></pre>
-<h3 id="pricefee-1"><a class="header" href="#pricefee-1">priceFee</a></h3>
-<p><em>Fee percentage</em></p>
-<pre><code class="language-solidity">uint16 public priceFee;
-</code></pre>
-<h3 id="eurusd_decimals-1"><a class="header" href="#eurusd_decimals-1">EURUSD_DECIMALS</a></h3>
+Maurizio Murru</p>
+<p><em>This contract is the storage definition of the CSAMarketplace contract.</em></p>
+<h2 id="state-variables-1"><a class="header" href="#state-variables-1">State Variables</a></h2>
+<h3 id="eurusd_decimals"><a class="header" href="#eurusd_decimals">EURUSD_DECIMALS</a></h3>
 <p><em>Decimals for EUR/USD oracle</em></p>
 <pre><code class="language-solidity">uint16 public immutable EURUSD_DECIMALS;
 </code></pre>
-<h3 id="tokenusd_decimals-1"><a class="header" href="#tokenusd_decimals-1">TokenUSD_DECIMALS</a></h3>
+<h3 id="tokenusd_decimals"><a class="header" href="#tokenusd_decimals">TokenUSD_DECIMALS</a></h3>
 <p><em>Decimals for Token/USD oracle</em></p>
 <pre><code class="language-solidity">uint16 public immutable TokenUSD_DECIMALS;
 </code></pre>
-<h3 id="sellorders-1"><a class="header" href="#sellorders-1">sellOrders</a></h3>
-<p><em>Queue of sell orders</em></p>
-<pre><code class="language-solidity">CSAQueueLib.Queue public sellOrders;
+<h3 id="csat-1"><a class="header" href="#csat-1">CSAT</a></h3>
+<p><em>CSA token</em></p>
+<pre><code class="language-solidity">IERC20 public immutable CSAT;
 </code></pre>
-<h3 id="max_fee-1"><a class="header" href="#max_fee-1">MAX_FEE</a></h3>
+<h3 id="token_out"><a class="header" href="#token_out">TOKEN_OUT</a></h3>
+<p><em>Token to be exchanged for</em></p>
+<pre><code class="language-solidity">IERC20 public immutable TOKEN_OUT;
+</code></pre>
+<h3 id="min_buy_amount"><a class="header" href="#min_buy_amount">MIN_BUY_AMOUNT</a></h3>
+<p><em>Minimum buy amount to avoid meta tx exploitation</em></p>
+<pre><code class="language-solidity">uint256 public immutable MIN_BUY_AMOUNT;
+</code></pre>
+<h3 id="dust_amount"><a class="header" href="#dust_amount">DUST_AMOUNT</a></h3>
+<p><em>Amount of CSAT left in a sell order to be considered dust and be removed</em></p>
+<pre><code class="language-solidity">uint256 public immutable DUST_AMOUNT;
+</code></pre>
+<h3 id="eurusd_oracle"><a class="header" href="#eurusd_oracle">EURUSD_ORACLE</a></h3>
+<p><em>Oracle to get the price of EUR/USD</em></p>
+<pre><code class="language-solidity">AggregatorV3Interface public immutable EURUSD_ORACLE;
+</code></pre>
+<h3 id="tokenusd_oracle"><a class="header" href="#tokenusd_oracle">TOKENUSD_ORACLE</a></h3>
+<p><em>Oracle to get the price of Token/USD</em></p>
+<pre><code class="language-solidity">AggregatorV3Interface public immutable TOKENUSD_ORACLE;
+</code></pre>
+<h3 id="vault"><a class="header" href="#vault">VAULT</a></h3>
+<p><em>Vault to hold the tokens</em></p>
+<pre><code class="language-solidity">CSAVault public immutable VAULT;
+</code></pre>
+<h3 id="max_fee"><a class="header" href="#max_fee">MAX_FEE</a></h3>
+<p><em>Fee percentage</em></p>
 <p><em>Maximum fee percentage (100%)</em></p>
 <pre><code class="language-solidity">uint256 public constant MAX_FEE = 10000;
 </code></pre>
-<h3 id="max_n_orders-1"><a class="header" href="#max_n_orders-1">MAX_N_ORDERS</a></h3>
+<h3 id="max_n_orders"><a class="header" href="#max_n_orders">MAX_N_ORDERS</a></h3>
 <p><em>Maximum number of orders to match at the head of the queue</em></p>
 <pre><code class="language-solidity">uint256 public constant MAX_N_ORDERS = 4;
 </code></pre>
+<h3 id="upgrader_role-1"><a class="header" href="#upgrader_role-1">UPGRADER_ROLE</a></h3>
+<p><em>Role identifier for pausers.</em></p>
+<pre><code class="language-solidity">bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
+</code></pre>
+<h3 id="fee_setter_role"><a class="header" href="#fee_setter_role">FEE_SETTER_ROLE</a></h3>
+<p><em>Role identifier for fee setters.</em></p>
+<pre><code class="language-solidity">bytes32 public constant FEE_SETTER_ROLE = keccak256("FEE_SETTER_ROLE");
+</code></pre>
+<h3 id="csamarketplacestoragelocation"><a class="header" href="#csamarketplacestoragelocation">CSAMarketplaceStorageLocation</a></h3>
+<p><em>Storage location for CSAMarketplaceStorage</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSAMarketplaceStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAMarketplace")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csamarketplacequeuestoragelocation"><a class="header" href="#csamarketplacequeuestoragelocation">CSAMarketplaceQueueStorageLocation</a></h3>
+<p><em>Storage location for CSAMarketplaceQueueStorage</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSAMarketplaceQueueStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAMarketplaceQueue")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csamarketplaceuselimiterstoragelocation"><a class="header" href="#csamarketplaceuselimiterstoragelocation">CSAMarketplaceUseLimiterStorageLocation</a></h3>
+<p><em>Storage location for CSAMarketplaceUseLimiterStorage</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSAMarketplaceUseLimiterStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAMarketplaceUseLimiter")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h2 id="functions-3"><a class="header" href="#functions-3">Functions</a></h2>
+<h3 id="constructor-3"><a class="header" href="#constructor-3">constructor</a></h3>
+<p><em>Constructor for the CSAMarketplaceStorageContract</em></p>
+<pre><code class="language-solidity">constructor(
+    address _csat,
+    address _tokenOut,
+    AggregatorV3Interface _EURUSDOracle,
+    AggregatorV3Interface _TokenUSDOracle,
+    address _vault,
+    uint256 _minBuyAmount,
+    uint256 _dustAmount
+);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_csat</code></td><td><code>address</code></td><td>Address of the CSA token</td></tr>
+<tr><td><code>_tokenOut</code></td><td><code>address</code></td><td>Address of the token to be exchanged for</td></tr>
+<tr><td><code>_EURUSDOracle</code></td><td><code>AggregatorV3Interface</code></td><td>Address of the Oracle to get the price of EUR/USD</td></tr>
+<tr><td><code>_TokenUSDOracle</code></td><td><code>AggregatorV3Interface</code></td><td>Address of the Oracle to get the price of Token/USD</td></tr>
+<tr><td><code>_vault</code></td><td><code>address</code></td><td>Address of the vault to send swapped tokens</td></tr>
+<tr><td><code>_minBuyAmount</code></td><td><code>uint256</code></td><td>Minimum buy amount to avoid meta tx exploitation</td></tr>
+<tr><td><code>_dustAmount</code></td><td><code>uint256</code></td><td>Amount of CSAT left in a sell order to be considered dust and be removed.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsamarketplacestorage"><a class="header" href="#_getcsamarketplacestorage">_getCSAMarketplaceStorage</a></h3>
+<p><em>This function is used to get the CSAMarketplaceStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAMarketplaceStorage() internal pure returns (CSAMarketplaceStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAMarketplaceStorage</code></td><td>The storage pointer to the CSAMarketplaceStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsamarketplacequeuestorage"><a class="header" href="#_getcsamarketplacequeuestorage">_getCSAMarketplaceQueueStorage</a></h3>
+<p><em>This function is used to get the CSAMarketplaceQueueStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAMarketplaceQueueStorage() internal pure returns (CSAMarketplaceQueueStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAMarketplaceQueueStorage</code></td><td>The storage pointer to the CSAMarketplaceQueueStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsamarketplaceuselimiterstorage"><a class="header" href="#_getcsamarketplaceuselimiterstorage">_getCSAMarketplaceUseLimiterStorage</a></h3>
+<p><em>This function is used to get the CSAMarketplaceUseLimiterStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAMarketplaceUseLimiterStorage() internal pure returns (CSAMarketpalceUseLimiterStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAMarketpalceUseLimiterStorage</code></td><td>The storage pointer to the CSAMarketplaceUseLimiterStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="csat-2"><a class="header" href="#csat-2">csat</a></h3>
+<p><em>Gets the CSAT contract address</em></p>
+<pre><code class="language-solidity">function csat() external view returns (IERC20);
+</code></pre>
+<h3 id="tokenout"><a class="header" href="#tokenout">tokenOut</a></h3>
+<p><em>Gets the token to be exchanged for</em></p>
+<pre><code class="language-solidity">function tokenOut() external view returns (IERC20);
+</code></pre>
+<h3 id="eurusdoracle"><a class="header" href="#eurusdoracle">EURUSDOracle</a></h3>
+<p><em>Gets the EUR/USD oracle contract.</em></p>
+<pre><code class="language-solidity">function EURUSDOracle() external view returns (AggregatorV3Interface);
+</code></pre>
+<h3 id="tokenusdoracle"><a class="header" href="#tokenusdoracle">TokenUSDOracle</a></h3>
+<p><em>Gets the Token/USD oracle contract.</em></p>
+<pre><code class="language-solidity">function TokenUSDOracle() external view returns (AggregatorV3Interface);
+</code></pre>
+<h3 id="vault-1"><a class="header" href="#vault-1">vault</a></h3>
+<p><em>Gets the vault contract.</em></p>
+<pre><code class="language-solidity">function vault() external view returns (CSAVault);
+</code></pre>
+<h3 id="pricefee"><a class="header" href="#pricefee">priceFee</a></h3>
+<p><em>Gets the Marketplace fee percentage.</em></p>
+<pre><code class="language-solidity">function priceFee() external view returns (uint16);
+</code></pre>
+<h2 id="structs-1"><a class="header" href="#structs-1">Structs</a></h2>
+<h3 id="csamarketplacestorage"><a class="header" href="#csamarketplacestorage">CSAMarketplaceStorage</a></h3>
+<p><em>Marketplace storage struct</em></p>
+<pre><code class="language-solidity">struct CSAMarketplaceStorage {
+    uint16 priceFee;
+}
+</code></pre>
+<h3 id="csamarketplacequeuestorage"><a class="header" href="#csamarketplacequeuestorage">CSAMarketplaceQueueStorage</a></h3>
+<p><em>Marketplace queue storage struct</em></p>
+<pre><code class="language-solidity">struct CSAMarketplaceQueueStorage {
+    CSAQueueLib.Queue sellOrders;
+}
+</code></pre>
+<h3 id="csamarketplaceuselimiterstruct"><a class="header" href="#csamarketplaceuselimiterstruct">CSAMarketplaceUseLimiterStruct</a></h3>
+<p><em>Marketplace use limiter storage struct</em></p>
+<pre><code class="language-solidity">struct CSAMarketplaceUseLimiterStruct {
+    uint40 firstUseTodayTimestamp;
+    uint16 usesToday;
+}
+</code></pre>
+<h3 id="csamarketpalceuselimiterstorage"><a class="header" href="#csamarketpalceuselimiterstorage">CSAMarketpalceUseLimiterStorage</a></h3>
+<p><em>Marketplace use limiter storage</em></p>
+<pre><code class="language-solidity">struct CSAMarketpalceUseLimiterStorage {
+    mapping(address =&gt; CSAMarketplaceUseLimiterStruct) useLimiter;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-2"><a class="header" href="#contents-2">Contents</a></h1>
+<ul>
+<li><a href="src/CSASwap/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li>
+<li><a href="src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csaswap"><a class="header" href="#csaswap">CSASwap</a></h1>
+<p><strong>Inherits:</strong>
+Initializable, AccessControlUpgradeable, PausableUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, <a href="src/CSASwap/CSASwap.sol//src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></p>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p>This contract is used to swap various tokens and the native token for CSAT tokens.
+It uses Chainlink oracles to get the prices of tokens and supports pausing functionality.</p>
 <h2 id="functions-4"><a class="header" href="#functions-4">Functions</a></h2>
 <h3 id="constructor-4"><a class="header" href="#constructor-4">constructor</a></h3>
-<p><em>Constructor function for the CSAMarketplaceNative contract.</em></p>
-<pre><code class="language-solidity">constructor(address _csat, address _EURUSDOracle, address _TokenUSDOracle, address _vault, uint16 _priceFee);
+<p>Constructor for the CSASwap contract.</p>
+<p><em>All variables are immutable, as such their values are hardcoded into the contract code</em></p>
+<p><em>Changing them requires an upgrade of the contract</em></p>
+<pre><code class="language-solidity">constructor(address _trustedForwarder, address _csat, address _EURUSDOracle, address _vault)
+    CSASwapStorageContract(_csat, _EURUSDOracle, _vault)
+    ERC2771ContextUpgradeable(_trustedForwarder);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_csat</code></td><td><code>address</code></td><td>The address of the CSAT token contract.</td></tr>
-<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>The address of the EUR/USD price oracle contract.</td></tr>
-<tr><td><code>_TokenUSDOracle</code></td><td><code>address</code></td><td>The address of the token/USD price oracle contract.</td></tr>
-<tr><td><code>_vault</code></td><td><code>address</code></td><td>The address of the CSAVaultNative contract.</td></tr>
-<tr><td><code>_priceFee</code></td><td><code>uint16</code></td><td>The fee percentage charged on each transaction.</td></tr>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td></td></tr>
+<tr><td><code>_csat</code></td><td><code>address</code></td><td>Address of the CSAT token contract</td></tr>
+<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>Address of the EUR/USD Oracle contract</td></tr>
+<tr><td><code>_vault</code></td><td><code>address</code></td><td>Address of the vault to send swapped tokens</td></tr>
 </tbody></table>
 </div>
-<h3 id="changeeurusdoracle-1"><a class="header" href="#changeeurusdoracle-1">changeEURUSDOracle</a></h3>
-<p><em>Changes the address of the EUR/USD price oracle contract.</em></p>
-<pre><code class="language-solidity">function changeEURUSDOracle(address _EURUSDOracle) public onlyRole(DEFAULT_ADMIN_ROLE);
+<h3 id="initialize-2"><a class="header" href="#initialize-2">initialize</a></h3>
+<p>Initializes the CSASwap contract.</p>
+<pre><code class="language-solidity">function initialize(uint16 _fee) external initializer;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>The new address of the EUR/USD price oracle contract.</td></tr>
+<tr><td><code>_fee</code></td><td><code>uint16</code></td><td>Initial fee percentage</td></tr>
 </tbody></table>
 </div>
-<h3 id="changetokenusdoracle-1"><a class="header" href="#changetokenusdoracle-1">changeTokenUSDOracle</a></h3>
-<p><em>Changes the address of the token/USD price oracle contract.</em></p>
-<pre><code class="language-solidity">function changeTokenUSDOracle(address _TokenUSDOracle) public onlyRole(DEFAULT_ADMIN_ROLE);
+<h3 id="_authorizeupgrade-2"><a class="header" href="#_authorizeupgrade-2">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
+</code></pre>
+<h3 id="addwhitelistedtoken"><a class="header" href="#addwhitelistedtoken">addWhitelistedToken</a></h3>
+<p>Adds a token to the whitelist.</p>
+<pre><code class="language-solidity">function addWhitelistedToken(address _tokenAddress, address _oracleAddress) external;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_TokenUSDOracle</code></td><td><code>address</code></td><td>The new address of the token/USD price oracle contract.</td></tr>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be whitelisted</td></tr>
+<tr><td><code>_oracleAddress</code></td><td><code>address</code></td><td>Address of the Oracle to get the price of the token in USD</td></tr>
 </tbody></table>
 </div>
-<h3 id="setvault-1"><a class="header" href="#setvault-1">setVault</a></h3>
-<p><em>Sets the address of the vault contract.</em></p>
-<pre><code class="language-solidity">function setVault(address _vault) public onlyRole(DEFAULT_ADMIN_ROLE);
+<h3 id="removewhitelistedtoken"><a class="header" href="#removewhitelistedtoken">removeWhitelistedToken</a></h3>
+<p>Removes a token from the whitelist.</p>
+<pre><code class="language-solidity">function removeWhitelistedToken(address _tokenAddress) external onlyRole(DEFAULT_ADMIN_ROLE);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_vault</code></td><td><code>address</code></td><td>The address of the vault contract.</td></tr>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be removed from the whitelist</td></tr>
 </tbody></table>
 </div>
-<h3 id="makecsatsellorder-1"><a class="header" href="#makecsatsellorder-1">makeCsatSellOrder</a></h3>
-<p><em>Creates a sell order for the specified amount of CSA tokens.</em></p>
-<pre><code class="language-solidity">function makeCsatSellOrder(uint256 _amount) external;
+<h3 id="geteurusdprice"><a class="header" href="#geteurusdprice">getEURUSDPrice</a></h3>
+<p>Gets the latest price of EUR in USD from the EURUSD Oracle.</p>
+<pre><code class="language-solidity">function getEURUSDPrice() public view returns (uint256);
 </code></pre>
-<p><strong>Parameters</strong></p>
+<p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount of CSA tokens to sell.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of EUR in USD</td></tr>
 </tbody></table>
 </div>
-<h3 id="cancelcsatsellorder-1"><a class="header" href="#cancelcsatsellorder-1">cancelCsatSellOrder</a></h3>
-<p><em>Cancels a sell order for CSA tokens in the marketplace.</em></p>
-<pre><code class="language-solidity">function cancelCsatSellOrder(uint48 _orderId) external;
+<h3 id="gettokenprice"><a class="header" href="#gettokenprice">getTokenPrice</a></h3>
+<p>Gets the latest price of the specified token in USD.</p>
+<pre><code class="language-solidity">function getTokenPrice(address _tokenAddress) public view returns (uint256);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_orderId</code></td><td><code>uint48</code></td><td>The ID of the sell order to cancel. Emits a {NotOrderOwner} error if the caller is not the owner of the order. Transfers the amount of CSA tokens back to the order owner.</td></tr>
-</tbody></table>
-</div>
-<h3 id="buy-1"><a class="header" href="#buy-1">buy</a></h3>
-<p><em>This function allows a user to buy CSAT from the marketplace by matching the user's buy order with the first sell order in the queue.
-If the first sell order is not enough, it will look up for the second and repeat up until the fourth.
-If up until the fourth is not enough, a fallback id can be supplied to finish matching the order.</em></p>
-<pre><code class="language-solidity">function buy(uint48 _fallbackId) external payable;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_fallbackId</code></td><td><code>uint48</code></td><td>The fallback id to use if the first four sell orders are not enough to match the buy order.</td></tr>
-</tbody></table>
-</div>
-<h3 id="convertamountstotokenin-1"><a class="header" href="#convertamountstotokenin-1">convertAmountsToTokenIn</a></h3>
-<p><em>This function converts an array of base amounts to a proportional array of amounts in a given token.
-The conversion is based on the proportion of each amount in the input array to the sum of all amounts
-in the input array, scaled by the given <code>amountIn</code>.</em></p>
-<pre><code class="language-solidity">function convertAmountsToTokenIn(uint256[] memory _amounts, uint256 amountIn) public pure returns (uint256[] memory);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amounts</code></td><td><code>uint256[]</code></td><td>An array of uint256 amounts representing the base amounts to be converted. Each element in this array will be converted to a corresponding amount in the token, based on its proportion to the sum of all elements in the array.</td></tr>
-<tr><td><code>amountIn</code></td><td><code>uint256</code></td><td>The uint256 amount in the token to be distributed among the <code>_amounts</code>. This amount is used to scale the proportionally distributed amounts in the resulting array.</td></tr>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token</td></tr>
 </tbody></table>
 </div>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>amountsIn An array of uint256 representing the converted amounts in the token. Each element in this array is the converted amount of the corresponding element in the input <code>_amounts</code>, scaled by the <code>amountIn</code>.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of the token in USD</td></tr>
 </tbody></table>
 </div>
-<h3 id="convertamounttoeurprice-1"><a class="header" href="#convertamounttoeurprice-1">convertAmountToEURPrice</a></h3>
-<p><em>Converts the given amount of tokens to its equivalent EUR price.</em></p>
-<pre><code class="language-solidity">function convertAmountToEURPrice(uint256 _amount) public view returns (uint256);
+<h3 id="_swap"><a class="header" href="#_swap">_swap</a></h3>
+<p>Swaps a specified amount of a token for CSAT tokens.</p>
+<pre><code class="language-solidity">function _swap(address _tokenAddress, uint256 _amount, address receiver) internal whenNotPaused;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount of tokens to convert.</td></tr>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be swapped</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the token to be swapped</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td></td></tr>
 </tbody></table>
 </div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The equivalent EUR price of the given amount of tokens. Requirements: - The token and EUR/USD oracles must have a positive price.</td></tr>
-</tbody></table>
-</div>
-<h3 id="convertamountincsattotokenprice-1"><a class="header" href="#convertamountincsattotokenprice-1">convertAmountInCsatToTokenPrice</a></h3>
-<p>This function uses the latest round data from the TokenUSDOracle and EURUSDOracle to calculate the token price.</p>
-<p>The token and CSAT decimals are obtained from their respective IERC20Metadata interfaces.</p>
-<p>If the TokenUSDPrice or EURUSDPrice is less than zero, a PriceLessThanZero error is thrown.</p>
-<p><em>Converts an amount in CSAT to its equivalent token price.</em></p>
-<pre><code class="language-solidity">function convertAmountInCsatToTokenPrice(uint256 _amount) public view returns (uint256);
+<h3 id="swap"><a class="header" href="#swap">swap</a></h3>
+<p>Swaps a specified amount of the native token for CSAT tokens.</p>
+<pre><code class="language-solidity">function swap(address _tokenAddress, uint256 _amount) external;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount in CSAT to convert.</td></tr>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the whitelisted token to be swapped</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the native token to be swapped</td></tr>
 </tbody></table>
 </div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The equivalent token price in the token's decimals.</td></tr>
-</tbody></table>
-</div>
-<h3 id="_getfallbackidorder-1"><a class="header" href="#_getfallbackidorder-1">_getFallbackIdOrder</a></h3>
-<p>This function is expensive and should not be called on-chain.</p>
-<p>The number of orders checked on top of the queue should not be included as fallbacks.</p>
-<p>If no order is enough to be a fallback, it will revert.</p>
-<p><em>Returns the fallback order ID for a given amount of tokens,
-it starts from the head of the queue, skips the first MAX_N_ORDERS orders
-and goes down until it finds an order that is enough.</em></p>
-<pre><code class="language-solidity">function _getFallbackIdOrder(uint256 _amount) internal view returns (uint48 currentId);
+<h3 id="swapfor"><a class="header" href="#swapfor">swapFor</a></h3>
+<p>Swaps a specified amount of the native token for CSAT tokens.</p>
+<pre><code class="language-solidity">function swapFor(address _tokenAddress, uint256 _amount, address receiver) external;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount of tokens to get the fallback order for.</td></tr>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the whitelisted token to be swapped</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the native token to be swapped</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td>Address of the receiver of the CSAT tokens</td></tr>
 </tbody></table>
 </div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>currentId</code></td><td><code>uint48</code></td><td>The ID of the fallback order.</td></tr>
-</tbody></table>
-</div>
-<h3 id="getfallbackidorderfromconvertedamount-1"><a class="header" href="#getfallbackidorderfromconvertedamount-1">getFallbackIdOrderFromConvertedAmount</a></h3>
-<p><em>Returns the ID of the fallback order for a given converted amount.</em></p>
-<pre><code class="language-solidity">function getFallbackIdOrderFromConvertedAmount(uint256 _amount) external view returns (uint48 currentId);
+<h3 id="pause"><a class="header" href="#pause">pause</a></h3>
+<p>Pauses the contract, preventing token swaps.</p>
+<pre><code class="language-solidity">function pause() public whenNotPaused;
+</code></pre>
+<h3 id="unpause"><a class="header" href="#unpause">unpause</a></h3>
+<p>Unpauses the contract, allowing token swaps.</p>
+<pre><code class="language-solidity">function unpause() public whenPaused;
+</code></pre>
+<h3 id="setfee-1"><a class="header" href="#setfee-1">setFee</a></h3>
+<p>Sets the fee for the swaps.</p>
+<pre><code class="language-solidity">function setFee(uint16 _fee) external;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The converted amount to get the fallback order ID for.</td></tr>
+<tr><td><code>_fee</code></td><td><code>uint16</code></td><td>The new fee percentage</td></tr>
 </tbody></table>
 </div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>currentId</code></td><td><code>uint48</code></td><td>The ID of the fallback order. This function should not be called on-chain as it is expensive.</td></tr>
-</tbody></table>
-</div>
-<h3 id="getfallbackidorder-1"><a class="header" href="#getfallbackidorder-1">getFallbackIdOrder</a></h3>
-<p><em>Returns the current fallback ID order for a given amount.</em></p>
-<pre><code class="language-solidity">function getFallbackIdOrder(uint256 _amount) external view returns (uint48 currentId);
+<h3 id="_msgsender-2"><a class="header" href="#_msgsender-2">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
+</code></pre>
+<h3 id="_msgdata-2"><a class="header" href="#_msgdata-2">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength-2"><a class="header" href="#_contextsuffixlength-2">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
+</code></pre>
+<h2 id="events-2"><a class="header" href="#events-2">Events</a></h2>
+<h3 id="addtowhitelist"><a class="header" href="#addtowhitelist">AddToWhitelist</a></h3>
+<pre><code class="language-solidity">event AddToWhitelist(address indexed _address);
+</code></pre>
+<h3 id="removefromwhitelist"><a class="header" href="#removefromwhitelist">RemoveFromWhitelist</a></h3>
+<pre><code class="language-solidity">event RemoveFromWhitelist(address indexed _address);
+</code></pre>
+<h3 id="changedeurusdoracle"><a class="header" href="#changedeurusdoracle">ChangedEURUSDOracle</a></h3>
+<pre><code class="language-solidity">event ChangedEURUSDOracle(address indexed _address);
+</code></pre>
+<h3 id="swap-1"><a class="header" href="#swap-1">Swap</a></h3>
+<pre><code class="language-solidity">event Swap(
+    address indexed _from, address indexed _tokenAddress, uint256 _amount, address indexed _to, uint256 _csatAmount
+);
+</code></pre>
+<h3 id="swapnativetoken"><a class="header" href="#swapnativetoken">SwapNativeToken</a></h3>
+<pre><code class="language-solidity">event SwapNativeToken(address indexed _from, uint256 _amount);
+</code></pre>
+<h3 id="changedfee"><a class="header" href="#changedfee">ChangedFee</a></h3>
+<pre><code class="language-solidity">event ChangedFee(uint16 _fee);
+</code></pre>
+<h2 id="errors-2"><a class="header" href="#errors-2">Errors</a></h2>
+<h3 id="notadmin-1"><a class="header" href="#notadmin-1">NotAdmin</a></h3>
+<pre><code class="language-solidity">error NotAdmin(address _address);
+</code></pre>
+<h3 id="notfeesetter"><a class="header" href="#notfeesetter">NotFeeSetter</a></h3>
+<pre><code class="language-solidity">error NotFeeSetter(address _address);
+</code></pre>
+<h3 id="notwhitelisted"><a class="header" href="#notwhitelisted">NotWhitelisted</a></h3>
+<pre><code class="language-solidity">error NotWhitelisted(address _address);
+</code></pre>
+<h3 id="invalidfee"><a class="header" href="#invalidfee">InvalidFee</a></h3>
+<pre><code class="language-solidity">error InvalidFee(uint16 _fee);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csaswapstoragecontract"><a class="header" href="#csaswapstoragecontract">CSASwapStorageContract</a></h1>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p><em>This contract is the storage definition of the CSASwap contract.</em></p>
+<h2 id="state-variables-2"><a class="header" href="#state-variables-2">State Variables</a></h2>
+<h3 id="csat-3"><a class="header" href="#csat-3">csat</a></h3>
+<p><em>Address for the CSASwap storage.</em></p>
+<pre><code class="language-solidity">CSAT public immutable csat;
+</code></pre>
+<h3 id="eurusdoracle-1"><a class="header" href="#eurusdoracle-1">EURUSDOracle</a></h3>
+<p><em>Address for the EUR/USD Oracle.</em></p>
+<pre><code class="language-solidity">AggregatorV3Interface public immutable EURUSDOracle;
+</code></pre>
+<h3 id="eurusdoracledecimals"><a class="header" href="#eurusdoracledecimals">EURUSDOracleDecimals</a></h3>
+<p><em>Number of decimals of the EUR/USD Oracle.</em></p>
+<pre><code class="language-solidity">uint8 public immutable EURUSDOracleDecimals;
+</code></pre>
+<h3 id="vault-2"><a class="header" href="#vault-2">vault</a></h3>
+<p><em>Address for the vault.</em></p>
+<pre><code class="language-solidity">address public immutable vault;
+</code></pre>
+<h3 id="csat_decimals"><a class="header" href="#csat_decimals">CSAT_DECIMALS</a></h3>
+<p><em>Number of decimals of the CSAT token.</em></p>
+<pre><code class="language-solidity">uint8 public immutable CSAT_DECIMALS;
+</code></pre>
+<h3 id="max_fee-1"><a class="header" href="#max_fee-1">MAX_FEE</a></h3>
+<p><em>Maximum allowable fee. 100% = 10000.</em></p>
+<pre><code class="language-solidity">uint256 public constant MAX_FEE = 10000;
+</code></pre>
+<h3 id="csaswapstoragelocation"><a class="header" href="#csaswapstoragelocation">CSASwapStorageLocation</a></h3>
+<p><em>CSASwapStorageLocation is a constant bytes32 variable that represents the storage location of the CSASwapStorage.</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSASwapStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSASwap")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="upgrader_role-2"><a class="header" href="#upgrader_role-2">UPGRADER_ROLE</a></h3>
+<p><em>UPGRADER_ROLE is a constant bytes32 variable that represents the role of an upgrader,
+an upgrader is enabled to upgrade the contract.</em></p>
+<pre><code class="language-solidity">bytes32 public constant UPGRADER_ROLE = 0x189ab7a9244df0848122154315af71fe140f3db0fe014031783b0946b8c9d2e3;
+</code></pre>
+<h3 id="fee_setter_role-1"><a class="header" href="#fee_setter_role-1">FEE_SETTER_ROLE</a></h3>
+<p><em>FEE_SETTER_ROLE is a constant bytes32 variable that represents the role of a fee setter.</em></p>
+<pre><code class="language-solidity">bytes32 public constant FEE_SETTER_ROLE = keccak256("FEE_SETTER_ROLE");
+</code></pre>
+<h2 id="functions-5"><a class="header" href="#functions-5">Functions</a></h2>
+<h3 id="_getcsaswapstorage"><a class="header" href="#_getcsaswapstorage">_getCSASwapStorage</a></h3>
+<p><em>This function is used to get the CSASwapStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSASwapStorage() internal pure returns (CSASwapStorage storage $);
+</code></pre>
+<h3 id="constructor-5"><a class="header" href="#constructor-5">constructor</a></h3>
+<p><em>Constructor for the CSASwapStorageContract.</em></p>
+<pre><code class="language-solidity">constructor(address _csat, address _EURUSDOracle, address _vault);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount to get the fallback ID order for.</td></tr>
+<tr><td><code>_csat</code></td><td><code>address</code></td><td>Address of the CSAT token contract</td></tr>
+<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>Address of the EUR/USD Oracle contract</td></tr>
+<tr><td><code>_vault</code></td><td><code>address</code></td><td>Address of the vault to send swapped tokens</td></tr>
 </tbody></table>
 </div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>currentId</code></td><td><code>uint48</code></td><td>The current fallback ID order. This function should not be called on-chain as it is expensive.</td></tr>
-</tbody></table>
-</div>
-<h3 id="getqueuehead-1"><a class="header" href="#getqueuehead-1">getQueueHead</a></h3>
-<p><em>Returns the head of the sell orders queue.</em></p>
-<pre><code class="language-solidity">function getQueueHead() public view returns (uint48);
-</code></pre>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint48</code></td><td>The head of the sell orders queue as a uint48 value.</td></tr>
-</tbody></table>
-</div>
-<h3 id="getqueuetail-1"><a class="header" href="#getqueuetail-1">getQueueTail</a></h3>
-<p><em>Returns the tail of the sell orders queue.</em></p>
-<pre><code class="language-solidity">function getQueueTail() public view returns (uint48);
-</code></pre>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint48</code></td><td>The tail of the sell orders queue.</td></tr>
-</tbody></table>
-</div>
-<h3 id="getqueueorder-1"><a class="header" href="#getqueueorder-1">getQueueOrder</a></h3>
-<p><em>Returns the order at the specified index in the sellOrders queue.</em></p>
-<pre><code class="language-solidity">function getQueueOrder(uint48 _orderId) public view returns (CSAQueueLib.Order memory);
+<h3 id="tokeninfos"><a class="header" href="#tokeninfos">tokenInfos</a></h3>
+<p><em>Function to get the TokenData of a token as a tuple.</em></p>
+<pre><code class="language-solidity">function tokenInfos(address _address) external view returns (address, bool, uint8);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_orderId</code></td><td><code>uint48</code></td><td>The ID of the order to retrieve.</td></tr>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address of the token</td></tr>
 </tbody></table>
 </div>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>CSAQueueLib.Order</code></td><td>The order at the specified index in the sellOrders queue.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>address</code></td><td>The Oracle address, the whitelisted flag and the number of decimals of the token.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td></td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint8</code></td><td></td></tr>
 </tbody></table>
 </div>
-<h3 id="getallqueueordersownedby-1"><a class="header" href="#getallqueueordersownedby-1">getAllQueueOrdersOwnedBy</a></h3>
-<p><em>Returns an array of all queue orders owned by a specific address.</em></p>
-<pre><code class="language-solidity">function getAllQueueOrdersOwnedBy(address owner) external view returns (uint48[] memory);
+<h3 id="tokeninfosstruct"><a class="header" href="#tokeninfosstruct">tokenInfosStruct</a></h3>
+<p><em>Function to get the TokenData of a token as a struct.</em></p>
+<pre><code class="language-solidity">function tokenInfosStruct(address _address) external view returns (TokenData memory);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>owner</code></td><td><code>address</code></td><td>The address of the owner to filter the orders by.</td></tr>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address of the token</td></tr>
 </tbody></table>
 </div>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint48[]</code></td><td>An array of uint48 order IDs owned by the specified address.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>TokenData</code></td><td>The TokenData struct of the token.</td></tr>
 </tbody></table>
 </div>
+<h3 id="fee"><a class="header" href="#fee">fee</a></h3>
+<p><em>Function to get the fee percentage.</em></p>
+<pre><code class="language-solidity">function fee() external view returns (uint16);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint16</code></td><td>The fee percentage.</td></tr>
+</tbody></table>
+</div>
+<h2 id="structs-2"><a class="header" href="#structs-2">Structs</a></h2>
+<h3 id="tokendata"><a class="header" href="#tokendata">TokenData</a></h3>
+<p><em>Struct to store the token data.
+This is used to store the Oracle address, the number of decimals and the whitelisted flag of the token.</em></p>
+<pre><code class="language-solidity">struct TokenData {
+    address oracleAddress;
+    bool isWhitelisted;
+    uint8 decimals;
+}
+</code></pre>
+<h3 id="csaswapstorage"><a class="header" href="#csaswapstorage">CSASwapStorage</a></h3>
+<p><em>Struct to store the CSASwap storage.
+This is used to store the fee and the token data.
+It is used to not create memory slot collisions with the CSASwap contract.</em></p>
+<pre><code class="language-solidity">struct CSASwapStorage {
+    uint16 fee;
+    mapping(address =&gt; TokenData) tokenInfos;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contents-3"><a class="header" href="#contents-3">Contents</a></h1>
+<ul>
+<li><a href="src/CSAT/CSAT.sol/contract.CSAT.html">CSAT</a></li>
+<li><a href="src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csat-4"><a class="header" href="#csat-4">CSAT</a></h1>
+<p><strong>Inherits:</strong>
+Initializable, ERC20Upgradeable, ERC20PermitUpgradeable, AccessControlUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, <a href="src/CSAT/CSAT.sol//src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></p>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p><em>This contract is a standard ERC20 token with additional access controls.</em></p>
+<p><em>This contract defines the roles and permissions for minting and whitelisting addresses.
+It also includes events for adding and removing addresses from the whitelist, and for opting in and out of the whitelist.
+Additionally, it defines error messages for when an address is not whitelisted, not a minter, not a whitelister, or not an admin.</em></p>
+<h2 id="functions-6"><a class="header" href="#functions-6">Functions</a></h2>
+<h3 id="whitelist"><a class="header" href="#whitelist">whitelist</a></h3>
+<p><em>Whitelists an address to enable transfers to and from that address.</em></p>
+<pre><code class="language-solidity">function whitelist(address _address) external view returns (bool);
+</code></pre>
+<h3 id="constructor-6"><a class="header" href="#constructor-6">constructor</a></h3>
+<p>Disables the ability to call initialize functions. This is done to follow the UUPS upgradeable pattern.</p>
+<pre><code class="language-solidity">constructor(address trustedForwarder) ERC2771ContextUpgradeable(trustedForwarder);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>trustedForwarder</code></td><td><code>address</code></td><td>The address of the trusted forwarder.</td></tr>
+</tbody></table>
+</div>
+<h3 id="initialize-3"><a class="header" href="#initialize-3">initialize</a></h3>
+<p>Initializes the contract, sets the token name and symbol, and assigns the admin role
+to the _msgSender().</p>
+<pre><code class="language-solidity">function initialize(string calldata name, string calldata symbol) external initializer;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>name</code></td><td><code>string</code></td><td>The name of the token.</td></tr>
+<tr><td><code>symbol</code></td><td><code>string</code></td><td>The symbol of the token.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_authorizeupgrade-3"><a class="header" href="#_authorizeupgrade-3">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
+</code></pre>
+<h3 id="mint"><a class="header" href="#mint">mint</a></h3>
+<p>Mints <code>amount</code> tokens to address <code>to</code>.</p>
+<p><em>Can only be called by addresses with the <code>MINTER_ROLE</code>.</em></p>
+<pre><code class="language-solidity">function mint(address to, uint256 amount) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>to</code></td><td><code>address</code></td><td>Address to receive the minted tokens.</td></tr>
+<tr><td><code>amount</code></td><td><code>uint256</code></td><td>Amount of tokens to mint.</td></tr>
+</tbody></table>
+</div>
+<h3 id="burn"><a class="header" href="#burn">burn</a></h3>
+<p>Burns <code>amount</code> tokens from address <code>from</code>.</p>
+<p><em>Can only be called by addresses with the <code>MINTER_ROLE</code>.</em></p>
+<pre><code class="language-solidity">function burn(address from, uint256 amount) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>from</code></td><td><code>address</code></td><td>Address to burn the tokens from.</td></tr>
+<tr><td><code>amount</code></td><td><code>uint256</code></td><td>Amount of tokens to burn.</td></tr>
+</tbody></table>
+</div>
+<h3 id="addtowhitelist-1"><a class="header" href="#addtowhitelist-1">addToWhitelist</a></h3>
+<p>Adds address <code>_address</code> to the whitelist.</p>
+<p><em>Can only be called by addresses with the <code>WHITELIST_ROLE</code>.</em></p>
+<pre><code class="language-solidity">function addToWhitelist(address _address) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address to be added to the whitelist.</td></tr>
+</tbody></table>
+</div>
+<h3 id="removefromwhitelist-1"><a class="header" href="#removefromwhitelist-1">removeFromWhitelist</a></h3>
+<p>Removes address <code>_address</code> from the whitelist.</p>
+<p><em>Can only be called by addresses with the <code>WHITELIST_ROLE</code>.</em></p>
+<pre><code class="language-solidity">function removeFromWhitelist(address _address) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address to be removed from the whitelist.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_update"><a class="header" href="#_update">_update</a></h3>
+<p><em>Overrides the internal function to add custom whitelist validation.</em></p>
+<pre><code class="language-solidity">function _update(address from, address to, uint256 amount) internal override;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>from</code></td><td><code>address</code></td><td>The sender address.</td></tr>
+<tr><td><code>to</code></td><td><code>address</code></td><td>The recipient address.</td></tr>
+<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount to be transferred.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_msgsender-3"><a class="header" href="#_msgsender-3">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
+</code></pre>
+<h3 id="_msgdata-3"><a class="header" href="#_msgdata-3">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength-3"><a class="header" href="#_contextsuffixlength-3">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
+</code></pre>
 <h2 id="events-3"><a class="header" href="#events-3">Events</a></h2>
-<h3 id="make-1"><a class="header" href="#make-1">Make</a></h3>
-<p><em>Emitted when a user makes a buy order.</em></p>
-<pre><code class="language-solidity">event Make(address indexed buyer, uint256 amountIn);
+<h3 id="addtowhitelist-2"><a class="header" href="#addtowhitelist-2">AddToWhitelist</a></h3>
+<p><em>AddToWhitelist is an event that is emitted when an address is added to the whitelist.</em></p>
+<pre><code class="language-solidity">event AddToWhitelist(address indexed _address, address indexed _msgSender);
 </code></pre>
-<h3 id="take-1"><a class="header" href="#take-1">Take</a></h3>
-<p><em>Emitted when a user takes a sell order.</em></p>
-<pre><code class="language-solidity">event Take(address indexed seller, uint256 amountIn, uint256 amountOut);
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address that was added to the whitelist.</td></tr>
+<tr><td><code>_msgSender</code></td><td><code>address</code></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="removefromwhitelist-2"><a class="header" href="#removefromwhitelist-2">RemoveFromWhitelist</a></h3>
+<p><em>RemoveFromWhitelist is an event that is emitted when an address is removed from the whitelist.</em></p>
+<pre><code class="language-solidity">event RemoveFromWhitelist(address indexed _address, address indexed _msgSender);
 </code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address that was removed from the whitelist.</td></tr>
+<tr><td><code>_msgSender</code></td><td><code>address</code></td><td></td></tr>
+</tbody></table>
+</div>
 <h2 id="errors-3"><a class="header" href="#errors-3">Errors</a></h2>
-<h3 id="pricelessthanzero-1"><a class="header" href="#pricelessthanzero-1">PriceLessThanZero</a></h3>
-<p><em>Error thrown when the price of an order is less than or equal to zero.</em></p>
-<pre><code class="language-solidity">error PriceLessThanZero();
+<h3 id="notwhitelisted-1"><a class="header" href="#notwhitelisted-1">NotWhitelisted</a></h3>
+<p><em>NotWhitelisted is an error message that is thrown when an address is not whitelisted.</em></p>
+<pre><code class="language-solidity">error NotWhitelisted(address _address);
 </code></pre>
-<h3 id="notenoughbalance-1"><a class="header" href="#notenoughbalance-1">NotEnoughBalance</a></h3>
-<p><em>Error thrown when a user does not have enough balance to execute an order.</em></p>
-<pre><code class="language-solidity">error NotEnoughBalance();
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address that is not whitelisted.</td></tr>
+</tbody></table>
+</div>
+<h3 id="notminter"><a class="header" href="#notminter">NotMinter</a></h3>
+<p><em>NotMinter is an error message that is thrown when an address is not a minter.</em></p>
+<pre><code class="language-solidity">error NotMinter(address _address);
 </code></pre>
-<h3 id="fallbackordernotenough-1"><a class="header" href="#fallbackordernotenough-1">FallbackOrderNotEnough</a></h3>
-<p><em>Error thrown when a fallback order does not have enough balance to be executed.</em></p>
-<pre><code class="language-solidity">error FallbackOrderNotEnough();
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address that is not a minter.</td></tr>
+</tbody></table>
+</div>
+<h3 id="notwhitelister"><a class="header" href="#notwhitelister">NotWhitelister</a></h3>
+<p><em>NotWhitelister is an error message that is thrown when an address is not a whitelister.</em></p>
+<pre><code class="language-solidity">error NotWhitelister(address _address);
 </code></pre>
-<h3 id="noorderisenoughtobefallback-1"><a class="header" href="#noorderisenoughtobefallback-1">NoOrderIsEnoughToBeFallback</a></h3>
-<p><em>Error thrown when there is no order that can be used as fallback.</em></p>
-<pre><code class="language-solidity">error NoOrderIsEnoughToBeFallback();
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address that is not a whitelister.</td></tr>
+</tbody></table>
+</div>
+<h3 id="notadmin-2"><a class="header" href="#notadmin-2">NotAdmin</a></h3>
+<p><em>NotAdmin is an error message that is thrown when an address is not an admin.</em></p>
+<pre><code class="language-solidity">error NotAdmin(address _address);
 </code></pre>
-<h3 id="notorderowner-1"><a class="header" href="#notorderowner-1">NotOrderOwner</a></h3>
-<p><em>Error thrown when a user tries to execute an order that they do not own.</em></p>
-<pre><code class="language-solidity">error NotOrderOwner();
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>The address that is not an admin.</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="csatstoragecontract"><a class="header" href="#csatstoragecontract">CSATStorageContract</a></h1>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p><em>This contract is the storage definition of the CSAT erc20 contract.</em></p>
+<h2 id="state-variables-3"><a class="header" href="#state-variables-3">State Variables</a></h2>
+<h3 id="minter_role"><a class="header" href="#minter_role">MINTER_ROLE</a></h3>
+<p><em>MINTER_ROLE is a constant bytes32 variable that represents the role of a minter.</em></p>
+<pre><code class="language-solidity">bytes32 public constant MINTER_ROLE = 0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6;
 </code></pre>
-<h3 id="userdoesnothaveorders-1"><a class="header" href="#userdoesnothaveorders-1">UserDoesNotHaveOrders</a></h3>
-<p><em>Error thrown when a user does not have any orders.</em></p>
-<pre><code class="language-solidity">error UserDoesNotHaveOrders();
+<h3 id="whitelist_role"><a class="header" href="#whitelist_role">WHITELIST_ROLE</a></h3>
+<p><em>WHITELIST_ROLE is a constant bytes32 variable that represents the role of a whitelister.</em></p>
+<pre><code class="language-solidity">bytes32 public constant WHITELIST_ROLE = 0xdc72ed553f2544c34465af23b847953efeb813428162d767f9ba5f4013be6760;
 </code></pre>
-<h3 id="sellordertoosmall-1"><a class="header" href="#sellordertoosmall-1">SellOrderTooSmall</a></h3>
-<p><em>Error thrown when a sell order is too small to be executed.</em></p>
-<pre><code class="language-solidity">error SellOrderTooSmall();
+<h3 id="upgrader_role-3"><a class="header" href="#upgrader_role-3">UPGRADER_ROLE</a></h3>
+<p>backend should be whitelister</p>
+<p><em>UPGRADER_ROLE is a constant bytes32 variable that represents the role of an upgrader,
+an upgrader is enabled to upgrade the contract.</em></p>
+<pre><code class="language-solidity">bytes32 public constant UPGRADER_ROLE = 0x189ab7a9244df0848122154315af71fe140f3db0fe014031783b0946b8c9d2e3;
+</code></pre>
+<h3 id="csatstoragelocation"><a class="header" href="#csatstoragelocation">CSATStorageLocation</a></h3>
+<p><em>CSATStorageLocation is a constant bytes32 variable that represents the storage location of the CSATStorage struct.</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSATStorageLocation = 0xb75b55d9ccc0b5bc765a13fbd2ff66896644535d0eac4b7bd8e35ee76d34bd00;
+</code></pre>
+<h2 id="functions-7"><a class="header" href="#functions-7">Functions</a></h2>
+<h3 id="_getcsatstorage"><a class="header" href="#_getcsatstorage">_getCSATStorage</a></h3>
+<p><em>get the storage struct of the contract.</em></p>
+<pre><code class="language-solidity">function _getCSATStorage() internal pure returns (CSATStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSATStorage</code></td><td>The storage struct of the contract.</td></tr>
+</tbody></table>
+</div>
+<h2 id="structs-3"><a class="header" href="#structs-3">Structs</a></h2>
+<h3 id="csatstorage"><a class="header" href="#csatstorage">CSATStorage</a></h3>
+<p><em>CSATStorage is a struct that stores the whitelist of the contract.</em></p>
+<pre><code class="language-solidity">struct CSATStorage {
+    mapping(address =&gt; bool) whitelist;
+}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="csaoraclev2"><a class="header" href="#csaoraclev2">CSAOracleV2</a></h1>
 <p><strong>Inherits:</strong>
@@ -1538,17 +1950,17 @@ Maurizio Murru https://github.com/akerbabber</p>
 <p><em>This contract functions as an oracle to store and manage information
 related to footballers' scores and match timestamps. It leverages the
 AccessControl contract from OpenZeppelin to manage access permissions and roles.</em></p>
-<h2 id="state-variables-5"><a class="header" href="#state-variables-5">State Variables</a></h2>
+<h2 id="state-variables-4"><a class="header" href="#state-variables-4">State Variables</a></h2>
 <h3 id="footballers"><a class="header" href="#footballers">footballers</a></h3>
 <p><em>Mapping from playerId to Footballer struct, storing footballer data.</em></p>
 <pre><code class="language-solidity">mapping(uint256 =&gt; Footballer) public footballers;
 </code></pre>
 <h3 id="updater_role"><a class="header" href="#updater_role">UPDATER_ROLE</a></h3>
 <p><em>Role identifier for users who can update footballer scores.</em></p>
-<pre><code class="language-solidity">bytes32 public constant UPDATER_ROLE = keccak256(&quot;UPDATER_ROLE&quot;);
+<pre><code class="language-solidity">bytes32 public constant UPDATER_ROLE = keccak256("UPDATER_ROLE");
 </code></pre>
-<h2 id="functions-5"><a class="header" href="#functions-5">Functions</a></h2>
-<h3 id="constructor-5"><a class="header" href="#constructor-5">constructor</a></h3>
+<h2 id="functions-8"><a class="header" href="#functions-8">Functions</a></h2>
+<h3 id="constructor-7"><a class="header" href="#constructor-7">constructor</a></h3>
 <p><em>Initializes the contract setting the deployer as the initial admin.</em></p>
 <pre><code class="language-solidity">constructor();
 </code></pre>
@@ -1631,12 +2043,20 @@ Emits multiple FootballerScoreUpdated events.</em></p>
     uint256 indexed playerId, uint24 score, uint32 nextMatchTimestamp, uint32 lastMatchTimestamp
 );
 </code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>playerId</code></td><td><code>uint256</code></td><td>The unique identifier of the footballer.</td></tr>
+<tr><td><code>score</code></td><td><code>uint24</code></td><td>The updated score of the footballer.</td></tr>
+<tr><td><code>nextMatchTimestamp</code></td><td><code>uint32</code></td><td>The updated timestamp of the next match.</td></tr>
+<tr><td><code>lastMatchTimestamp</code></td><td><code>uint32</code></td><td>The updated timestamp of the last match.</td></tr>
+</tbody></table>
+</div>
 <h2 id="errors-4"><a class="header" href="#errors-4">Errors</a></h2>
 <h3 id="notupdater"><a class="header" href="#notupdater">NotUpdater</a></h3>
 <p><em>Custom error to throw if the caller does not have updater role.</em></p>
 <pre><code class="language-solidity">error NotUpdater(address _address);
 </code></pre>
-<h2 id="structs-1"><a class="header" href="#structs-1">Structs</a></h2>
+<h2 id="structs-4"><a class="header" href="#structs-4">Structs</a></h2>
 <h3 id="footballer"><a class="header" href="#footballer">Footballer</a></h3>
 <p><em>Struct representing a Footballer.</em></p>
 <pre><code class="language-solidity">struct Footballer {
@@ -1646,18 +2066,25 @@ Emits multiple FootballerScoreUpdated events.</em></p>
     uint32 lastMatchTimestamp;
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csaqueuelib"><a class="header" href="#csaqueuelib">CSAQueueLib</a></h1>
+<p><strong>Properties</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>score</code></td><td><code>uint24</code></td><td>The score associated with the footballer.</td></tr>
+<tr><td><code>nextMatchTimestamp</code></td><td><code>uint32</code></td><td>The timestamp of the footballer's next match.</td></tr>
+<tr><td><code>previousNextMatchTimestamp</code></td><td><code>uint32</code></td><td>The timestamp of the previous 'next match' before the latest update.</td></tr>
+<tr><td><code>lastMatchTimestamp</code></td><td><code>uint32</code></td><td>The timestamp of the footballer's last match.</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="csaqueuelib"><a class="header" href="#csaqueuelib">CSAQueueLib</a></h1>
 <p><strong>Author:</strong>
-Maurizio Murru</p>
+Maurizio Murru https://github.com/akerbabber</p>
 <p><em>A library that provides a basic Queue data structure with Order elements.
 It provides functions to add, remove, update, and get elements from the Queue.
 The Queue keeps track of the head and tail, and each Order has a link to its previous
 and next Order, forming a doubly linked list.</em></p>
-<h2 id="state-variables-6"><a class="header" href="#state-variables-6">State Variables</a></h2>
+<h2 id="state-variables-5"><a class="header" href="#state-variables-5">State Variables</a></h2>
 <h3 id="max_orders_removable"><a class="header" href="#max_orders_removable">MAX_ORDERS_REMOVABLE</a></h3>
 <pre><code class="language-solidity">uint256 constant MAX_ORDERS_REMOVABLE = 10;
 </code></pre>
-<h2 id="functions-6"><a class="header" href="#functions-6">Functions</a></h2>
+<h2 id="functions-9"><a class="header" href="#functions-9">Functions</a></h2>
 <h3 id="add"><a class="header" href="#add">add</a></h3>
 <p><em>Adds a new order to the end of the queue.</em></p>
 <pre><code class="language-solidity">function add(Queue storage self, address _owner, uint256 _amount) internal returns (uint48);
@@ -1686,7 +2113,7 @@ and next Order, forming a doubly linked list.</em></p>
 </div>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>receipt</code></td><td><code>Receipt</code></td><td>The receipt of the removed order. Emits an {OrderNotFound} event if the order is not found in the queue.</td></tr>
+<tr><td><code>receipt</code></td><td><code>Receipt</code></td><td>The receipt of the removed order. Emits an <a href="src/CSAQueueLib.sol//src/CSAQueueLib.sol/library.CSAQueueLib.html#ordernotfound">OrderNotFound</a> event if the order is not found in the queue.</td></tr>
 </tbody></table>
 </div>
 <h3 id="multipleremove"><a class="header" href="#multipleremove">multipleRemove</a></h3>
@@ -1830,7 +2257,7 @@ and next Order, forming a doubly linked list.</em></p>
 <h3 id="toomanyorderstoremove"><a class="header" href="#toomanyorderstoremove">TooManyOrdersToRemove</a></h3>
 <pre><code class="language-solidity">error TooManyOrdersToRemove(uint256 amount);
 </code></pre>
-<h2 id="structs-2"><a class="header" href="#structs-2">Structs</a></h2>
+<h2 id="structs-5"><a class="header" href="#structs-5">Structs</a></h2>
 <h3 id="order"><a class="header" href="#order">Order</a></h3>
 <p><em>Represents an order in the Queue.</em></p>
 <pre><code class="language-solidity">struct Order {
@@ -1855,335 +2282,191 @@ and next Order, forming a doubly linked list.</em></p>
     mapping(uint128 =&gt; Order) orders;
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csaswap"><a class="header" href="#csaswap">CSASwap</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="csatbuyer"><a class="header" href="#csatbuyer">CSATBuyer</a></h1>
 <p><strong>Inherits:</strong>
-AccessControl, Pausable</p>
+Initializable, AccessControlUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, ReentrancyGuardUpgradeable</p>
 <p><strong>Author:</strong>
 Maurizio Murru https://github.com/akerbabber</p>
-<p>This contract is used to swap various tokens and the native token for CSAT tokens.
-It uses Chainlink oracles to get the prices of tokens and supports pausing functionality.</p>
-<h2 id="state-variables-7"><a class="header" href="#state-variables-7">State Variables</a></h2>
-<h3 id="csat-4"><a class="header" href="#csat-4">csat</a></h3>
-<pre><code class="language-solidity">CSAT public csat;
+<p><em>This contract is a buyer for CSAT tokens. It is able to buy CSAT tokens from the marketplace and from the swap in
+a single transaction. It is able to calculate the optimal amount to buy from the marketplace and from the swap.
+It is able to calculate the maximum amount that can be bought from the marketplace.
+It is able to calculate the fallback id in the marketplace for a given amount.
+It supports meta transactions and is upgradeable (UUPS).</em></p>
+<h2 id="state-variables-6"><a class="header" href="#state-variables-6">State Variables</a></h2>
+<h3 id="max_n_orders-1"><a class="header" href="#max_n_orders-1">MAX_N_ORDERS</a></h3>
+<p><em>Maximum number of orders to check in the CSAMarketplace, if the requested amount is greater than the sum of the first
+MAX_N_ORDERS, the remaining amount will be bought from the fallback order with the highest amount.
+If even the fallback is not enough, it will rely on the CSASwap.</em></p>
+<pre><code class="language-solidity">uint256 constant MAX_N_ORDERS = 4;
 </code></pre>
-<h3 id="tokeninfos"><a class="header" href="#tokeninfos">tokenInfos</a></h3>
-<pre><code class="language-solidity">mapping(address =&gt; TokenData) public tokenInfos;
+<h3 id="min_amount_in"><a class="header" href="#min_amount_in">MIN_AMOUNT_IN</a></h3>
+<p><em>Minimum amount of USDC that can be sold for CSAT using CSATBuyer. This limit is in place to avoid
+to make anti-economic making transactions with a very low amount of USDC. Otherwise the paymaster could
+be drained to pay for the gas fees of the transaction.</em></p>
+<pre><code class="language-solidity">uint256 constant MIN_AMOUNT_IN = 5e6;
 </code></pre>
-<h3 id="eurusdoracle-2"><a class="header" href="#eurusdoracle-2">EURUSDOracle</a></h3>
-<pre><code class="language-solidity">AggregatorV3Interface public EURUSDOracle;
+<h3 id="csaswap_address"><a class="header" href="#csaswap_address">CSASWAP_ADDRESS</a></h3>
+<p><em>Address of the CSASwap contract.</em></p>
+<pre><code class="language-solidity">address public immutable CSASWAP_ADDRESS;
 </code></pre>
-<h3 id="eurusdoracledecimals"><a class="header" href="#eurusdoracledecimals">EURUSDOracleDecimals</a></h3>
-<pre><code class="language-solidity">uint8 public EURUSDOracleDecimals;
+<h3 id="csamarketplace_address"><a class="header" href="#csamarketplace_address">CSAMARKETPLACE_ADDRESS</a></h3>
+<p><em>Address of the CSAMarketplace contract.</em></p>
+<pre><code class="language-solidity">address public immutable CSAMARKETPLACE_ADDRESS;
 </code></pre>
-<h3 id="fee"><a class="header" href="#fee">fee</a></h3>
-<pre><code class="language-solidity">uint16 public fee;
+<h3 id="usdc_address"><a class="header" href="#usdc_address">USDC_ADDRESS</a></h3>
+<p><em>Address of the USDC token contract.</em></p>
+<pre><code class="language-solidity">address public immutable USDC_ADDRESS;
 </code></pre>
-<h3 id="max_fee-2"><a class="header" href="#max_fee-2">MAX_FEE</a></h3>
-<pre><code class="language-solidity">uint256 public constant MAX_FEE = 10000;
+<h3 id="upgrader_role-4"><a class="header" href="#upgrader_role-4">UPGRADER_ROLE</a></h3>
+<p><em>Role for the upgrader, he can upgrade the contract.</em></p>
+<pre><code class="language-solidity">bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
 </code></pre>
-<h3 id="vault-2"><a class="header" href="#vault-2">vault</a></h3>
-<pre><code class="language-solidity">address payable public vault;
-</code></pre>
-<h3 id="nativetokenusdoracle"><a class="header" href="#nativetokenusdoracle">nativeTokenUSDOracle</a></h3>
-<pre><code class="language-solidity">address public nativeTokenUSDOracle;
-</code></pre>
-<h3 id="nativetokenusdoracledecimals"><a class="header" href="#nativetokenusdoracledecimals">nativeTokenUSDOracleDecimals</a></h3>
-<pre><code class="language-solidity">uint8 public nativeTokenUSDOracleDecimals;
-</code></pre>
-<h3 id="csat_decimals"><a class="header" href="#csat_decimals">CSAT_DECIMALS</a></h3>
-<pre><code class="language-solidity">uint256 public immutable CSAT_DECIMALS;
-</code></pre>
-<h2 id="functions-7"><a class="header" href="#functions-7">Functions</a></h2>
-<h3 id="constructor-6"><a class="header" href="#constructor-6">constructor</a></h3>
-<p>Constructs the CSASwap contract.</p>
-<pre><code class="language-solidity">constructor(address _csat, address _EURUSDOracle, address payable _vault, uint16 _fee, address _nativeTokenUSDOracle);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_csat</code></td><td><code>address</code></td><td>Address of the CSAT token contract</td></tr>
-<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>Address of the EUR/USD Oracle contract</td></tr>
-<tr><td><code>_vault</code></td><td><code>address payable</code></td><td>Address of the vault to send swapped tokens</td></tr>
-<tr><td><code>_fee</code></td><td><code>uint16</code></td><td>Initial fee percentage</td></tr>
-<tr><td><code>_nativeTokenUSDOracle</code></td><td><code>address</code></td><td>Address of the native token USD Oracle contract</td></tr>
-</tbody></table>
-</div>
-<h3 id="addwhitelistedtoken"><a class="header" href="#addwhitelistedtoken">addWhitelistedToken</a></h3>
-<p>Adds a token to the whitelist.</p>
-<pre><code class="language-solidity">function addWhitelistedToken(address _tokenAddress, address _oracleAddress) external onlyRole(DEFAULT_ADMIN_ROLE);
+<h2 id="functions-10"><a class="header" href="#functions-10">Functions</a></h2>
+<h3 id="constructor-8"><a class="header" href="#constructor-8">constructor</a></h3>
+<p>Constructor for the CSATBuyer contract.</p>
+<p><em>All variables are immutable, as such their values are hardcoded into the contract code</em></p>
+<p><em>Changing them requires an upgrade of the contract</em></p>
+<pre><code class="language-solidity">constructor(address _usdcAddress, address _csaswapAddress, address _csamarketplaceAddress, address _trustedForwarder)
+    ERC2771ContextUpgradeable(_trustedForwarder);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be whitelisted</td></tr>
-<tr><td><code>_oracleAddress</code></td><td><code>address</code></td><td>Address of the Oracle to get the price of the token in USD</td></tr>
+<tr><td><code>_usdcAddress</code></td><td><code>address</code></td><td>Address of the USDC token contract</td></tr>
+<tr><td><code>_csaswapAddress</code></td><td><code>address</code></td><td>Address of the CSASwap contract</td></tr>
+<tr><td><code>_csamarketplaceAddress</code></td><td><code>address</code></td><td>Address of the CSAMarketplace contract</td></tr>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td>Address of the trusted forwarder</td></tr>
 </tbody></table>
 </div>
-<h3 id="removewhitelistedtoken"><a class="header" href="#removewhitelistedtoken">removeWhitelistedToken</a></h3>
-<p>Removes a token from the whitelist.</p>
-<pre><code class="language-solidity">function removeWhitelistedToken(address _tokenAddress) external onlyRole(DEFAULT_ADMIN_ROLE);
+<h3 id="initialize-4"><a class="header" href="#initialize-4">initialize</a></h3>
+<p>Initializes the CSATBuyer contract.</p>
+<pre><code class="language-solidity">function initialize() public initializer;
 </code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be removed from the whitelist</td></tr>
-</tbody></table>
-</div>
-<h3 id="changeeurusdoracle-2"><a class="header" href="#changeeurusdoracle-2">changeEURUSDOracle</a></h3>
-<p>Changes the EUR/USD Oracle.</p>
-<pre><code class="language-solidity">function changeEURUSDOracle(address _EURUSDOracle) external onlyRole(DEFAULT_ADMIN_ROLE);
+<h3 id="_authorizeupgrade-4"><a class="header" href="#_authorizeupgrade-4">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
 </code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>Address of the new EUR/USD Oracle</td></tr>
-</tbody></table>
-</div>
-<h3 id="geteurusdprice"><a class="header" href="#geteurusdprice">getEURUSDPrice</a></h3>
-<p>Gets the latest price of EUR in USD from the EURUSD Oracle.</p>
-<pre><code class="language-solidity">function getEURUSDPrice() public view returns (uint256);
+<h3 id="maximumbuyonmarketplace"><a class="header" href="#maximumbuyonmarketplace">maximumBuyOnMarketplace</a></h3>
+<p>Returns the maximum amount that can be bought from the marketplace in a single transaction.</p>
+<p><em>This function is expensive, do not call it onchain.</em></p>
+<pre><code class="language-solidity">function maximumBuyOnMarketplace() public view returns (uint256);
 </code></pre>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of EUR in USD</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The maximum amount that can be bought from the marketplace.</td></tr>
 </tbody></table>
 </div>
-<h3 id="gettokenprice"><a class="header" href="#gettokenprice">getTokenPrice</a></h3>
-<p>Gets the latest price of the specified token in USD.</p>
-<pre><code class="language-solidity">function getTokenPrice(address _tokenAddress) public view returns (uint256);
+<h3 id="getfallbackidfrommarketplace"><a class="header" href="#getfallbackidfrommarketplace">getFallbackIdFromMarketplace</a></h3>
+<p>Returns the fallback id in the marketplace for a given amount.</p>
+<p><em>This function is expensive, do not call it onchain.</em></p>
+<pre><code class="language-solidity">function getFallbackIdFromMarketplace(uint256 _amount) external view returns (uint48);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount for which to get the fallback id.</td></tr>
 </tbody></table>
 </div>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of the token in USD</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint48</code></td><td>The fallback id in the marketplace for the given amount.</td></tr>
 </tbody></table>
 </div>
-<h3 id="getnativetokenprice"><a class="header" href="#getnativetokenprice">getNativeTokenPrice</a></h3>
-<p>Gets the latest price of the native token in USD.</p>
-<pre><code class="language-solidity">function getNativeTokenPrice() public view returns (uint256);
+<h3 id="getoptimalinput"><a class="header" href="#getoptimalinput">getOptimalInput</a></h3>
+<p>Returns the optimal input to pass to the buyCsatFor() function, for the given amount.</p>
+<p><em>This function is expensive, do not call it onchain.</em></p>
+<pre><code class="language-solidity">function getOptimalInput(uint256 _amount)
+    external
+    view
+    returns (uint256 _amountMarketplace, uint256 _amountSwap, uint48 _fallbackId);
 </code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount for which to get the optimal input.</td></tr>
+</tbody></table>
+</div>
 <p><strong>Returns</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of the native token in USD</td></tr>
+<tr><td><code>_amountMarketplace</code></td><td><code>uint256</code></td><td>The amount to buy from the marketplace.</td></tr>
+<tr><td><code>_amountSwap</code></td><td><code>uint256</code></td><td>The amount to buy from the swap.</td></tr>
+<tr><td><code>_fallbackId</code></td><td><code>uint48</code></td><td>The fallback id in the marketplace.</td></tr>
 </tbody></table>
 </div>
-<h3 id="swap"><a class="header" href="#swap">swap</a></h3>
-<p>Swaps a specified amount of a token for CSAT tokens.</p>
-<pre><code class="language-solidity">function swap(address _tokenAddress, uint256 _amount) external whenNotPaused;
+<h3 id="buycsatfor"><a class="header" href="#buycsatfor">buyCsatFor</a></h3>
+<p>Buys CSAT tokens for the given amount.</p>
+<pre><code class="language-solidity">function buyCsatFor(uint256 _amountMarketplace, uint256 _amountSwap, uint48 _fallbackId, address _receiver)
+    external
+    nonReentrant;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be swapped</td></tr>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the token to be swapped</td></tr>
+<tr><td><code>_amountMarketplace</code></td><td><code>uint256</code></td><td>The amount to buy from the marketplace.</td></tr>
+<tr><td><code>_amountSwap</code></td><td><code>uint256</code></td><td>The amount to buy from the swap.</td></tr>
+<tr><td><code>_fallbackId</code></td><td><code>uint48</code></td><td>The fallback id in the marketplace.</td></tr>
+<tr><td><code>_receiver</code></td><td><code>address</code></td><td>The address that will receive the CSAT tokens.</td></tr>
 </tbody></table>
 </div>
-<h3 id="swapnativetoken"><a class="header" href="#swapnativetoken">swapNativeToken</a></h3>
-<p>Swaps a specified amount of the native token for CSAT tokens.</p>
-<p><em>The native token is the token that is used to pay for gas fees.</em></p>
-<p><em>The native token is assumed to have 18 decimals.</em></p>
-<p><em>The native token is assumed to be whitelisted.</em></p>
-<p><em>Being a payable function, the amount received is stored in msg.value.</em></p>
-<pre><code class="language-solidity">function swapNativeToken() external payable whenNotPaused;
+<h3 id="_msgsender-4"><a class="header" href="#_msgsender-4">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
 </code></pre>
-<h3 id="pause"><a class="header" href="#pause">pause</a></h3>
-<p>Pauses the contract, preventing token swaps.</p>
-<pre><code class="language-solidity">function pause() public whenNotPaused;
+<h3 id="_msgdata-4"><a class="header" href="#_msgdata-4">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
 </code></pre>
-<h3 id="unpause"><a class="header" href="#unpause">unpause</a></h3>
-<p>Unpauses the contract, allowing token swaps.</p>
-<pre><code class="language-solidity">function unpause() public whenPaused;
+<h3 id="_contextsuffixlength-4"><a class="header" href="#_contextsuffixlength-4">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
 </code></pre>
-<h3 id="setfee"><a class="header" href="#setfee">setFee</a></h3>
-<p>Sets the fee for the swaps.</p>
-<pre><code class="language-solidity">function setFee(uint16 _fee) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_fee</code></td><td><code>uint16</code></td><td>The new fee percentage</td></tr>
-</tbody></table>
-</div>
 <h2 id="events-5"><a class="header" href="#events-5">Events</a></h2>
-<h3 id="addtowhitelist"><a class="header" href="#addtowhitelist">AddToWhitelist</a></h3>
-<pre><code class="language-solidity">event AddToWhitelist(address indexed _address);
+<h3 id="boughtcsat"><a class="header" href="#boughtcsat">BoughtCSAT</a></h3>
+<p><em>Event emitted when CSAT tokens are bought trough the CSATBuyer contract.</em></p>
+<pre><code class="language-solidity">event BoughtCSAT(
+    address indexed _buyer,
+    uint256 _amountMarketplace,
+    uint256 _fallbackId,
+    uint256 _amountSwap,
+    address indexed _receiver
+);
 </code></pre>
-<h3 id="removefromwhitelist"><a class="header" href="#removefromwhitelist">RemoveFromWhitelist</a></h3>
-<pre><code class="language-solidity">event RemoveFromWhitelist(address indexed _address);
-</code></pre>
-<h3 id="changedeurusdoracle"><a class="header" href="#changedeurusdoracle">ChangedEURUSDOracle</a></h3>
-<pre><code class="language-solidity">event ChangedEURUSDOracle(address indexed _address);
-</code></pre>
-<h3 id="swap-1"><a class="header" href="#swap-1">Swap</a></h3>
-<pre><code class="language-solidity">event Swap(address indexed _from, address indexed _tokenAddress, uint256 _amount);
-</code></pre>
-<h3 id="swapnativetoken-1"><a class="header" href="#swapnativetoken-1">SwapNativeToken</a></h3>
-<pre><code class="language-solidity">event SwapNativeToken(address indexed _from, uint256 _amount);
-</code></pre>
-<h3 id="changedfee"><a class="header" href="#changedfee">ChangedFee</a></h3>
-<pre><code class="language-solidity">event ChangedFee(uint16 _fee);
-</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_buyer</code></td><td><code>address</code></td><td>The address of the buyer.</td></tr>
+<tr><td><code>_amountMarketplace</code></td><td><code>uint256</code></td><td>The amount bought from the marketplace.</td></tr>
+<tr><td><code>_fallbackId</code></td><td><code>uint256</code></td><td>The fallback id in the marketplace.</td></tr>
+<tr><td><code>_amountSwap</code></td><td><code>uint256</code></td><td>The amount bought from the swap.</td></tr>
+<tr><td><code>_receiver</code></td><td><code>address</code></td><td>The address that will receive the CSAT tokens.</td></tr>
+</tbody></table>
+</div>
 <h2 id="errors-6"><a class="header" href="#errors-6">Errors</a></h2>
-<h3 id="notadmin-1"><a class="header" href="#notadmin-1">NotAdmin</a></h3>
-<pre><code class="language-solidity">error NotAdmin(address _address);
-</code></pre>
-<h3 id="notwhitelisted"><a class="header" href="#notwhitelisted">NotWhitelisted</a></h3>
-<pre><code class="language-solidity">error NotWhitelisted(address _address);
-</code></pre>
-<h3 id="invalidfee"><a class="header" href="#invalidfee">InvalidFee</a></h3>
-<pre><code class="language-solidity">error InvalidFee(uint16 _fee);
-</code></pre>
-<h2 id="structs-3"><a class="header" href="#structs-3">Structs</a></h2>
-<h3 id="tokendata"><a class="header" href="#tokendata">TokenData</a></h3>
-<pre><code class="language-solidity">struct TokenData {
-    address oracleAddress;
-    bool isWhitelisted;
-    uint8 decimals;
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csat-5"><a class="header" href="#csat-5">CSAT</a></h1>
-<p><strong>Inherits:</strong>
-ERC20, AccessControl</p>
-<p><strong>Author:</strong>
-Maurizio Murru https://github.com/akerbabber</p>
-<p><em>This contract is a standard ERC20 token with additional access controls.</em></p>
-<p><em>This contract defines the roles and permissions for minting and whitelisting addresses.
-It also includes events for adding and removing addresses from the whitelist, and for opting in and out of the whitelist.
-Additionally, it defines error messages for when an address is not whitelisted, not a minter, not a whitelister, or not an admin.</em></p>
-<h2 id="state-variables-8"><a class="header" href="#state-variables-8">State Variables</a></h2>
-<h3 id="minter_role"><a class="header" href="#minter_role">MINTER_ROLE</a></h3>
-<p><em>MINTER_ROLE is a constant bytes32 variable that represents the role of a minter.</em></p>
-<pre><code class="language-solidity">bytes32 public constant MINTER_ROLE = keccak256(&quot;MINTER_ROLE&quot;);
-</code></pre>
-<h3 id="whitelist_role"><a class="header" href="#whitelist_role">WHITELIST_ROLE</a></h3>
-<p><em>WHITELIST_ROLE is a constant bytes32 variable that represents the role of a whitelister.</em></p>
-<pre><code class="language-solidity">bytes32 public constant WHITELIST_ROLE = keccak256(&quot;WHITELIST_ROLE&quot;);
-</code></pre>
-<h3 id="whitelist"><a class="header" href="#whitelist">whitelist</a></h3>
-<p><em>whitelist is a mapping that stores whether an address is whitelisted or not.</em></p>
-<pre><code class="language-solidity">mapping(address =&gt; bool) public whitelist;
-</code></pre>
-<h3 id="iswhitelisted"><a class="header" href="#iswhitelisted">isWhitelisted</a></h3>
-<p><em>isWhitelisted is a boolean variable that represents whether the contract is currently in whitelist mode or not.</em></p>
-<pre><code class="language-solidity">bool public isWhitelisted;
-</code></pre>
-<h2 id="functions-8"><a class="header" href="#functions-8">Functions</a></h2>
-<h3 id="constructor-7"><a class="header" href="#constructor-7">constructor</a></h3>
-<p>Initializes the contract, sets the token name and symbol, and assigns the admin role
-to the msg.sender.</p>
-<pre><code class="language-solidity">constructor() ERC20(&quot;CSAT&quot;, &quot;CSAT&quot;);
-</code></pre>
-<h3 id="mint-1"><a class="header" href="#mint-1">mint</a></h3>
-<p>Mints <code>amount</code> tokens to address <code>to</code>.</p>
-<p><em>Can only be called by addresses with the <code>MINTER_ROLE</code>.</em></p>
-<pre><code class="language-solidity">function mint(address to, uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>to</code></td><td><code>address</code></td><td>Address to receive the minted tokens.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>Amount of tokens to mint.</td></tr>
-</tbody></table>
-</div>
-<h3 id="burn-1"><a class="header" href="#burn-1">burn</a></h3>
-<p>Burns <code>amount</code> tokens from address <code>from</code>.</p>
-<p><em>Can only be called by addresses with the <code>MINTER_ROLE</code>.</em></p>
-<pre><code class="language-solidity">function burn(address from, uint256 amount) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>from</code></td><td><code>address</code></td><td>Address to burn the tokens from.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>Amount of tokens to burn.</td></tr>
-</tbody></table>
-</div>
-<h3 id="addtowhitelist-1"><a class="header" href="#addtowhitelist-1">addToWhitelist</a></h3>
-<p>Adds address <code>_address</code> to the whitelist.</p>
-<p><em>Can only be called by addresses with the <code>WHITELIST_ROLE</code>.</em></p>
-<pre><code class="language-solidity">function addToWhitelist(address _address) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_address</code></td><td><code>address</code></td><td>Address to be added to the whitelist.</td></tr>
-</tbody></table>
-</div>
-<h3 id="removefromwhitelist-1"><a class="header" href="#removefromwhitelist-1">removeFromWhitelist</a></h3>
-<p>Removes address <code>_address</code> from the whitelist.</p>
-<p><em>Can only be called by addresses with the <code>WHITELIST_ROLE</code>.</em></p>
-<pre><code class="language-solidity">function removeFromWhitelist(address _address) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_address</code></td><td><code>address</code></td><td>Address to be removed from the whitelist.</td></tr>
-</tbody></table>
-</div>
-<h3 id="optoutwhitelist"><a class="header" href="#optoutwhitelist">optOutWhitelist</a></h3>
-<p>Opt-out from the whitelist functionality.</p>
-<p><em>Can only be called by addresses with the <code>DEFAULT_ADMIN_ROLE</code>.</em></p>
-<pre><code class="language-solidity">function optOutWhitelist() external;
-</code></pre>
-<h3 id="_beforetokentransfer"><a class="header" href="#_beforetokentransfer">_beforeTokenTransfer</a></h3>
-<p><em>Overrides the internal function to add custom whitelist validation.</em></p>
-<pre><code class="language-solidity">function _beforeTokenTransfer(address from, address to, uint256 amount) internal override;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>from</code></td><td><code>address</code></td><td>The sender address.</td></tr>
-<tr><td><code>to</code></td><td><code>address</code></td><td>The recipient address.</td></tr>
-<tr><td><code>amount</code></td><td><code>uint256</code></td><td>The amount to be transferred.</td></tr>
-</tbody></table>
-</div>
-<h2 id="events-6"><a class="header" href="#events-6">Events</a></h2>
-<h3 id="whitelistoptout"><a class="header" href="#whitelistoptout">WhitelistOptOut</a></h3>
-<p><em>WhitelistOptOut is an event that is emitted when the contract exits whitelist mode.</em></p>
-<pre><code class="language-solidity">event WhitelistOptOut(bool _isWhitelisted);
-</code></pre>
-<h3 id="whitelistoptin"><a class="header" href="#whitelistoptin">WhitelistOptIn</a></h3>
-<p><em>WhitelistOptIn is an event that is emitted when the contract enters whitelist mode.</em></p>
-<pre><code class="language-solidity">event WhitelistOptIn(bool _isWhitelisted);
-</code></pre>
-<h3 id="addtowhitelist-2"><a class="header" href="#addtowhitelist-2">AddToWhitelist</a></h3>
-<p><em>AddToWhitelist is an event that is emitted when an address is added to the whitelist.</em></p>
-<pre><code class="language-solidity">event AddToWhitelist(address indexed _address);
-</code></pre>
-<h3 id="removefromwhitelist-2"><a class="header" href="#removefromwhitelist-2">RemoveFromWhitelist</a></h3>
-<p><em>RemoveFromWhitelist is an event that is emitted when an address is removed from the whitelist.</em></p>
-<pre><code class="language-solidity">event RemoveFromWhitelist(address indexed _address);
-</code></pre>
-<h2 id="errors-7"><a class="header" href="#errors-7">Errors</a></h2>
-<h3 id="notwhitelisted-1"><a class="header" href="#notwhitelisted-1">NotWhitelisted</a></h3>
-<p><em>NotWhitelisted is an error message that is thrown when an address is not whitelisted.</em></p>
-<pre><code class="language-solidity">error NotWhitelisted(address _address);
-</code></pre>
-<h3 id="notminter"><a class="header" href="#notminter">NotMinter</a></h3>
-<p><em>NotMinter is an error message that is thrown when an address is not a minter.</em></p>
-<pre><code class="language-solidity">error NotMinter(address _address);
-</code></pre>
-<h3 id="notwhitelister"><a class="header" href="#notwhitelister">NotWhitelister</a></h3>
-<p><em>NotWhitelister is an error message that is thrown when an address is not a whitelister.</em></p>
-<pre><code class="language-solidity">error NotWhitelister(address _address);
-</code></pre>
-<h3 id="notadmin-2"><a class="header" href="#notadmin-2">NotAdmin</a></h3>
-<p><em>NotAdmin is an error message that is thrown when an address is not an admin.</em></p>
-<pre><code class="language-solidity">error NotAdmin(address _address);
+<h3 id="amounttoolow"><a class="header" href="#amounttoolow">AmountTooLow</a></h3>
+<p><em>Error emitted when the amount of USDC is too low to use the contract.</em></p>
+<pre><code class="language-solidity">error AmountTooLow(uint256 _amount);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="csavault"><a class="header" href="#csavault">CSAVault</a></h1>
 <p><strong>Inherits:</strong>
-AccessControl, Pausable, AutomationCompatibleInterface</p>
+AccessControl, Pausable, AutomationCompatibleInterface, ERC2771Context, ReentrancyGuard</p>
 <p><strong>Author:</strong>
 Maurizio Murru https://github.com/akerbabber</p>
 <p><em>A smart contract that manages deposits and withdrawals with fees and supports pausing functionalities.
 This contract is also compatible with Chainlink's Automation Interface for upkeep functionalities,
 that can be set to check the balances and pause the contract if some funds have been somehow stolen.
 This contract is made to interact with the CSAMarketplace contract, which is the only contract that can deposit funds.</em></p>
-<h2 id="state-variables-9"><a class="header" href="#state-variables-9">State Variables</a></h2>
+<h2 id="state-variables-7"><a class="header" href="#state-variables-7">State Variables</a></h2>
 <h3 id="token"><a class="header" href="#token">token</a></h3>
 <p><em>Address of the ERC20 token.</em></p>
-<pre><code class="language-solidity">address public token;
+<pre><code class="language-solidity">address public immutable token;
 </code></pre>
 <h3 id="pauser_role"><a class="header" href="#pauser_role">PAUSER_ROLE</a></h3>
 <p><em>Role identifier for pausers.</em></p>
-<pre><code class="language-solidity">bytes32 public constant PAUSER_ROLE = keccak256(&quot;PAUSER_ROLE&quot;);
+<pre><code class="language-solidity">bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
 </code></pre>
 <h3 id="marketplace_role"><a class="header" href="#marketplace_role">MARKETPLACE_ROLE</a></h3>
 <p><em>Role identifier for marketplace.</em></p>
-<pre><code class="language-solidity">bytes32 public constant MARKETPLACE_ROLE = keccak256(&quot;MARKETPLACE_ROLE&quot;);
+<pre><code class="language-solidity">bytes32 public constant MARKETPLACE_ROLE = keccak256("MARKETPLACE_ROLE");
+</code></pre>
+<h3 id="fee_setter_role-2"><a class="header" href="#fee_setter_role-2">FEE_SETTER_ROLE</a></h3>
+<p><em>Role identifier for fee setters.</em></p>
+<pre><code class="language-solidity">bytes32 public constant FEE_SETTER_ROLE = keccak256("FEE_SETTER_ROLE");
 </code></pre>
 <h3 id="fee-1"><a class="header" href="#fee-1">fee</a></h3>
 <p><em>Fee in percentage, 10000 = 100%, 1 = 0.01%.</em></p>
@@ -2205,15 +2488,16 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <p><em>Array to store users addresses.</em></p>
 <pre><code class="language-solidity">address[] public usersList;
 </code></pre>
-<h2 id="functions-9"><a class="header" href="#functions-9">Functions</a></h2>
-<h3 id="constructor-8"><a class="header" href="#constructor-8">constructor</a></h3>
+<h2 id="functions-11"><a class="header" href="#functions-11">Functions</a></h2>
+<h3 id="constructor-9"><a class="header" href="#constructor-9">constructor</a></h3>
 <p><em>Contract constructor.</em></p>
-<pre><code class="language-solidity">constructor(address _token, uint256 _fee);
+<pre><code class="language-solidity">constructor(address _token, uint256 _fee, address trustedForwarder) ERC2771Context(trustedForwarder);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_token</code></td><td><code>address</code></td><td>Address of the ERC20 token.</td></tr>
 <tr><td><code>_fee</code></td><td><code>uint256</code></td><td>Initial fee percentage.</td></tr>
+<tr><td><code>trustedForwarder</code></td><td><code>address</code></td><td></td></tr>
 </tbody></table>
 </div>
 <h3 id="pause-1"><a class="header" href="#pause-1">pause</a></h3>
@@ -2226,13 +2510,12 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 </code></pre>
 <h3 id="deposit"><a class="header" href="#deposit">deposit</a></h3>
 <p><em>Allows marketplace to deposit on behalf of users.</em></p>
-<pre><code class="language-solidity">function deposit(address[] calldata owners, uint256[] calldata _amounts, address buyer) external whenNotPaused;
+<pre><code class="language-solidity">function deposit(address[] calldata owners, uint256[] calldata _amounts) external whenNotPaused nonReentrant;
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>owners</code></td><td><code>address[]</code></td><td>Addresses of the owners.</td></tr>
 <tr><td><code>_amounts</code></td><td><code>uint256[]</code></td><td>Corresponding amounts to deposit.</td></tr>
-<tr><td><code>buyer</code></td><td><code>address</code></td><td>Buyer's address.</td></tr>
 </tbody></table>
 </div>
 <h3 id="withdraw"><a class="header" href="#withdraw">withdraw</a></h3>
@@ -2263,6 +2546,9 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <tr><td><code>_to</code></td><td><code>address</code></td><td>Address to send the withdrawn amount to.</td></tr>
 </tbody></table>
 </div>
+<h3 id="recoveruserfunds"><a class="header" href="#recoveruserfunds">recoverUserFunds</a></h3>
+<pre><code class="language-solidity">function recoverUserFunds(address _user, address _to) external;
+</code></pre>
 <h3 id="checkupkeep"><a class="header" href="#checkupkeep">checkUpkeep</a></h3>
 <p><em>Checks if the contract balance is enough to continue operating.</em></p>
 <pre><code class="language-solidity">function checkUpkeep(bytes calldata checkData) external view returns (bool upkeepNeeded, bytes memory performData);
@@ -2287,25 +2573,46 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <tr><td><code>performData</code></td><td><code>bytes</code></td><td>Data to perform upkeep.</td></tr>
 </tbody></table>
 </div>
-<h3 id="setfee-1"><a class="header" href="#setfee-1">setFee</a></h3>
+<h3 id="setfee-2"><a class="header" href="#setfee-2">setFee</a></h3>
 <p><em>Allows admins to set the fee percentage.</em></p>
-<pre><code class="language-solidity">function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
+<pre><code class="language-solidity">function setFee(uint256 _fee) public onlyRole(FEE_SETTER_ROLE);
 </code></pre>
 <p><strong>Parameters</strong></p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>_fee</code></td><td><code>uint256</code></td><td>New fee percentage.</td></tr>
 </tbody></table>
 </div>
-<h2 id="events-7"><a class="header" href="#events-7">Events</a></h2>
+<h3 id="_msgsender-5"><a class="header" href="#_msgsender-5">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(Context, ERC2771Context) returns (address sender);
+</code></pre>
+<h3 id="_msgdata-5"><a class="header" href="#_msgdata-5">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(Context, ERC2771Context) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength-5"><a class="header" href="#_contextsuffixlength-5">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength() internal view override(Context, ERC2771Context) returns (uint256);
+</code></pre>
+<h2 id="events-6"><a class="header" href="#events-6">Events</a></h2>
 <h3 id="deposit-1"><a class="header" href="#deposit-1">Deposit</a></h3>
 <p><em>Event emitted when a deposit is made.</em></p>
 <pre><code class="language-solidity">event Deposit(address indexed _address, uint256 _amount);
 </code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address of the user who deposited.</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount deposited.</td></tr>
+</tbody></table>
+</div>
 <h3 id="withdraw-1"><a class="header" href="#withdraw-1">Withdraw</a></h3>
 <p><em>Event emitted when a withdrawal is made.</em></p>
 <pre><code class="language-solidity">event Withdraw(address indexed _address, uint256 _amount);
 </code></pre>
-<h2 id="errors-8"><a class="header" href="#errors-8">Errors</a></h2>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_address</code></td><td><code>address</code></td><td>Address of the user who withdrew.</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount withdrawn.</td></tr>
+</tbody></table>
+</div>
+<h2 id="errors-7"><a class="header" href="#errors-7">Errors</a></h2>
 <h3 id="notpauser"><a class="header" href="#notpauser">NotPauser</a></h3>
 <p><em>Error to show when the caller is not a pauser.</em></p>
 <pre><code class="language-solidity">error NotPauser(address _address);
@@ -2318,173 +2625,8 @@ This contract is made to interact with the CSAMarketplace contract, which is the
 <p><em>Error to show when the caller is not an admin.</em></p>
 <pre><code class="language-solidity">error NotAdmin(address _address);
 </code></pre>
-<h2 id="structs-4"><a class="header" href="#structs-4">Structs</a></h2>
+<h2 id="structs-6"><a class="header" href="#structs-6">Structs</a></h2>
 <h3 id="user"><a class="header" href="#user">User</a></h3>
-<p><em>User struct to manage user data.</em></p>
-<pre><code class="language-solidity">struct User {
-    uint160 index;
-    bool isOnList;
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="csavaultnative"><a class="header" href="#csavaultnative">CSAVaultNative</a></h1>
-<p><strong>Inherits:</strong>
-AccessControl, Pausable, AutomationCompatibleInterface</p>
-<p><strong>Author:</strong>
-Maurizio Murru https://github.com/akerbabber</p>
-<p><em>A smart contract that manages deposits and withdrawals in native currency with fees and supports pausing functionalities.
-This contract is also compatible with Chainlink's Automation Interface for upkeep functionalities,
-that can be set to check the balances and pause the contract if some funds have been somehow stolen.
-This contract is made to interact with the CSAMarketplace contract, which is the only contract that can deposit funds.</em></p>
-<h2 id="state-variables-10"><a class="header" href="#state-variables-10">State Variables</a></h2>
-<h3 id="pauser_role-1"><a class="header" href="#pauser_role-1">PAUSER_ROLE</a></h3>
-<p><em>Role identifier for pausers.</em></p>
-<pre><code class="language-solidity">bytes32 public constant PAUSER_ROLE = keccak256(&quot;PAUSER_ROLE&quot;);
-</code></pre>
-<h3 id="marketplace_role-1"><a class="header" href="#marketplace_role-1">MARKETPLACE_ROLE</a></h3>
-<p><em>Role identifier for marketplace.</em></p>
-<pre><code class="language-solidity">bytes32 public constant MARKETPLACE_ROLE = keccak256(&quot;MARKETPLACE_ROLE&quot;);
-</code></pre>
-<h3 id="fee-2"><a class="header" href="#fee-2">fee</a></h3>
-<p><em>Fee in percentage, 10000 = 100%, 1 = 0.01%.</em></p>
-<pre><code class="language-solidity">uint256 public fee;
-</code></pre>
-<h3 id="fee_precision-1"><a class="header" href="#fee_precision-1">FEE_PRECISION</a></h3>
-<p><em>Precision for fee calculations.</em></p>
-<pre><code class="language-solidity">uint256 public constant FEE_PRECISION = 10000;
-</code></pre>
-<h3 id="balances-2"><a class="header" href="#balances-2">balances</a></h3>
-<p><em>Mapping to store balances of users.</em></p>
-<pre><code class="language-solidity">mapping(address =&gt; uint256) public balances;
-</code></pre>
-<h3 id="isonuserslist-1"><a class="header" href="#isonuserslist-1">isOnUsersList</a></h3>
-<p><em>Mapping to store user's data.</em></p>
-<pre><code class="language-solidity">mapping(address =&gt; User) public isOnUsersList;
-</code></pre>
-<h3 id="userslist-1"><a class="header" href="#userslist-1">usersList</a></h3>
-<p><em>Array to store users addresses.</em></p>
-<pre><code class="language-solidity">address[] public usersList;
-</code></pre>
-<h2 id="functions-10"><a class="header" href="#functions-10">Functions</a></h2>
-<h3 id="constructor-9"><a class="header" href="#constructor-9">constructor</a></h3>
-<p><em>Contract constructor.</em></p>
-<pre><code class="language-solidity">constructor(uint256 _fee);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_fee</code></td><td><code>uint256</code></td><td>Initial fee percentage.</td></tr>
-</tbody></table>
-</div>
-<h3 id="pause-2"><a class="header" href="#pause-2">pause</a></h3>
-<p><em>Allows pausers to pause the contract.</em></p>
-<pre><code class="language-solidity">function pause() external;
-</code></pre>
-<h3 id="unpause-2"><a class="header" href="#unpause-2">unpause</a></h3>
-<p><em>Allows pausers to unpause the contract.</em></p>
-<pre><code class="language-solidity">function unpause() external;
-</code></pre>
-<h3 id="deposit-2"><a class="header" href="#deposit-2">deposit</a></h3>
-<p><em>Allows marketplace to deposit on behalf of users.</em></p>
-<pre><code class="language-solidity">function deposit(address[] calldata owners, uint256[] calldata _amounts) external payable whenNotPaused;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>owners</code></td><td><code>address[]</code></td><td>Addresses of the owners.</td></tr>
-<tr><td><code>_amounts</code></td><td><code>uint256[]</code></td><td>Corresponding amounts to deposit.</td></tr>
-</tbody></table>
-</div>
-<h3 id="withdraw-2"><a class="header" href="#withdraw-2">withdraw</a></h3>
-<p><em>Allows users to withdraw their balances.</em></p>
-<pre><code class="language-solidity">function withdraw(uint256 _amount) external whenNotPaused;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount to withdraw.</td></tr>
-</tbody></table>
-</div>
-<h3 id="withdrawfee-1"><a class="header" href="#withdrawfee-1">withdrawFee</a></h3>
-<p><em>Allows admins to withdraw fees.</em></p>
-<pre><code class="language-solidity">function withdrawFee(uint256 _amount) external whenNotPaused;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of fees to withdraw.</td></tr>
-</tbody></table>
-</div>
-<h3 id="emergencywithdraw-1"><a class="header" href="#emergencywithdraw-1">emergencyWithdraw</a></h3>
-<p><em>Allows admins to perform emergency withdrawals.</em></p>
-<pre><code class="language-solidity">function emergencyWithdraw(uint256 _amount, address payable _to) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount to withdraw.</td></tr>
-<tr><td><code>_to</code></td><td><code>address payable</code></td><td>Address to send the withdrawn amount to.</td></tr>
-</tbody></table>
-</div>
-<h3 id="checkupkeep-1"><a class="header" href="#checkupkeep-1">checkUpkeep</a></h3>
-<p><em>Checks if the contract balance is enough to continue operating.
-This function should be called off-chain by the pauser.
-It loops through the usersList and checks if the balance of the contract is enough to continue operating.</em></p>
-<pre><code class="language-solidity">function checkUpkeep(bytes calldata checkData) external view returns (bool upkeepNeeded, bytes memory performData);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>checkData</code></td><td><code>bytes</code></td><td>Data to check upkeep.</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>upkeepNeeded</code></td><td><code>bool</code></td><td>Flag indicating if upkeep is needed.</td></tr>
-<tr><td><code>performData</code></td><td><code>bytes</code></td><td>Data to perform upkeep.</td></tr>
-</tbody></table>
-</div>
-<h3 id="performupkeep-1"><a class="header" href="#performupkeep-1">performUpkeep</a></h3>
-<p><em>Pauses the contract in case of emergency.
-This function should be called on-chain by the pauser. After pausing, the admin should then call emergencyWithdraw
-to withdraw the funds to a safe address.</em></p>
-<pre><code class="language-solidity">function performUpkeep(bytes calldata performData) external;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>performData</code></td><td><code>bytes</code></td><td>Data to perform upkeep.</td></tr>
-</tbody></table>
-</div>
-<h3 id="setfee-2"><a class="header" href="#setfee-2">setFee</a></h3>
-<p><em>Allows admins to set the fee percentage.</em></p>
-<pre><code class="language-solidity">function setFee(uint256 _fee) public onlyRole(DEFAULT_ADMIN_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>_fee</code></td><td><code>uint256</code></td><td>New fee percentage.</td></tr>
-</tbody></table>
-</div>
-<h2 id="events-8"><a class="header" href="#events-8">Events</a></h2>
-<h3 id="deposit-3"><a class="header" href="#deposit-3">Deposit</a></h3>
-<p><em>Event emitted when a deposit is made.</em></p>
-<pre><code class="language-solidity">event Deposit(address indexed _address, uint256 _amount);
-</code></pre>
-<h3 id="withdraw-3"><a class="header" href="#withdraw-3">Withdraw</a></h3>
-<p><em>Event emitted when a withdrawal is made.</em></p>
-<pre><code class="language-solidity">event Withdraw(address indexed _address, uint256 _amount);
-</code></pre>
-<h2 id="errors-9"><a class="header" href="#errors-9">Errors</a></h2>
-<h3 id="notpauser-1"><a class="header" href="#notpauser-1">NotPauser</a></h3>
-<p><em>Error to show when the caller is not a pauser.</em></p>
-<pre><code class="language-solidity">error NotPauser(address _address);
-</code></pre>
-<h3 id="notmarketplace-1"><a class="header" href="#notmarketplace-1">NotMarketplace</a></h3>
-<p><em>Error to show when the caller is not a marketplace.</em></p>
-<pre><code class="language-solidity">error NotMarketplace(address _address);
-</code></pre>
-<h3 id="notadmin-4"><a class="header" href="#notadmin-4">NotAdmin</a></h3>
-<p><em>Error to show when the caller is not an admin.</em></p>
-<pre><code class="language-solidity">error NotAdmin(address _address);
-</code></pre>
-<h3 id="notenaughamount"><a class="header" href="#notenaughamount">NotEnaughAmount</a></h3>
-<p><em>Error to show when the sent amount is not enough.</em></p>
-<pre><code class="language-solidity">error NotEnaughAmount();
-</code></pre>
-<h2 id="structs-5"><a class="header" href="#structs-5">Structs</a></h2>
-<h3 id="user-1"><a class="header" href="#user-1">User</a></h3>
 <p><em>User struct to manage user data.</em></p>
 <pre><code class="language-solidity">struct User {
     uint160 index;
@@ -2493,15 +2635,158 @@ to withdraw the funds to a safe address.</em></p>
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mintable"><a class="header" href="#mintable">Mintable</a></h1>
 <p><em>Interface for a contract that can mint tokens.</em></p>
-<h2 id="functions-11"><a class="header" href="#functions-11">Functions</a></h2>
-<h3 id="mint-2"><a class="header" href="#mint-2">mint</a></h3>
+<h2 id="functions-12"><a class="header" href="#functions-12">Functions</a></h2>
+<h3 id="mint-1"><a class="header" href="#mint-1">mint</a></h3>
 <pre><code class="language-solidity">function mint(address to, uint256 amount) external;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="burnable"><a class="header" href="#burnable">Burnable</a></h1>
 <p><em>Interface for a contract that can burn tokens.</em></p>
-<h2 id="functions-12"><a class="header" href="#functions-12">Functions</a></h2>
+<h2 id="functions-13"><a class="header" href="#functions-13">Functions</a></h2>
+<h3 id="burn-1"><a class="header" href="#burn-1">burn</a></h3>
+<pre><code class="language-solidity">function burn(address from, uint256 amount) external;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transfermanager"><a class="header" href="#transfermanager">TransferManager</a></h1>
+<p><strong>Inherits:</strong>
+Context, ERC2771Context</p>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p><em>A smart contract that manages token transfers and permits.
+This contract is used to limit the number of uses per day for each user.
+It also checks if the user is whitelisted.</em></p>
+<p><em>This contract uses the ERC2771Context contract to handle meta transactions. And enables the use of
+USDC permit function in conjunction with meta-txs.</em></p>
+<h2 id="state-variables-8"><a class="header" href="#state-variables-8">State Variables</a></h2>
+<h3 id="uselimiter"><a class="header" href="#uselimiter">useLimiter</a></h3>
+<p><em>Mapping to store the use limiter for each user.</em></p>
+<pre><code class="language-solidity">mapping(address =&gt; TransferManagerUseLimiterStruct) public useLimiter;
+</code></pre>
+<h3 id="csat-5"><a class="header" href="#csat-5">csat</a></h3>
+<p><em>CSAT contract address.</em></p>
+<pre><code class="language-solidity">CSAT public immutable csat;
+</code></pre>
+<h2 id="functions-14"><a class="header" href="#functions-14">Functions</a></h2>
+<h3 id="constructor-10"><a class="header" href="#constructor-10">constructor</a></h3>
+<p>Constructor for the TransferManager contract.</p>
+<p><em>All variables are immutable, as such their values are hardcoded into the contract code</em></p>
+<p><em>Changing them requires an upgrade of the contract</em></p>
+<pre><code class="language-solidity">constructor(CSAT _csat, address _trustedForwarder) ERC2771Context(_trustedForwarder);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_csat</code></td><td><code>CSAT</code></td><td>Address of the CSAT token contract</td></tr>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td>Address of the trusted forwarder</td></tr>
+</tbody></table>
+</div>
+<h3 id="permit"><a class="header" href="#permit">permit</a></h3>
+<p>Function to permit a spender to spend a certain amount of tokens on behalf of the token owner.
+This function is used to enable the use of the USDC permit function in conjunction with meta-txs.</p>
+<pre><code class="language-solidity">function permit(address _token, address _spender, uint256 _amount, uint256 _deadline, uint8 v, bytes32 r, bytes32 s)
+    external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_token</code></td><td><code>address</code></td><td>Address of the token</td></tr>
+<tr><td><code>_spender</code></td><td><code>address</code></td><td>Address of the spender</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of tokens</td></tr>
+<tr><td><code>_deadline</code></td><td><code>uint256</code></td><td>Expiration time for the permit</td></tr>
+<tr><td><code>v</code></td><td><code>uint8</code></td><td>Signature v</td></tr>
+<tr><td><code>r</code></td><td><code>bytes32</code></td><td>Signature r</td></tr>
+<tr><td><code>s</code></td><td><code>bytes32</code></td><td>Signature s</td></tr>
+</tbody></table>
+</div>
+<h3 id="permitandtransfer"><a class="header" href="#permitandtransfer">permitAndTransfer</a></h3>
+<p>Function to transfer tokens from the caller to another address.</p>
+<pre><code class="language-solidity">function permitAndTransfer(
+    address _token,
+    address _to,
+    uint256 _amount,
+    uint256 _deadline,
+    uint8 v,
+    bytes32 r,
+    bytes32 s
+) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_token</code></td><td><code>address</code></td><td>Address of the token</td></tr>
+<tr><td><code>_to</code></td><td><code>address</code></td><td>Address of the recipient</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of tokens</td></tr>
+<tr><td><code>_deadline</code></td><td><code>uint256</code></td><td>Expiration time for the permit</td></tr>
+<tr><td><code>v</code></td><td><code>uint8</code></td><td>Signature v</td></tr>
+<tr><td><code>r</code></td><td><code>bytes32</code></td><td>Signature r</td></tr>
+<tr><td><code>s</code></td><td><code>bytes32</code></td><td>Signature s</td></tr>
+</tbody></table>
+</div>
+<h3 id="_iswhitelisted"><a class="header" href="#_iswhitelisted">_isWhitelisted</a></h3>
+<p>Function to check if the user is whitelisted.</p>
+<pre><code class="language-solidity">function _isWhitelisted(address _account) internal view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_account</code></td><td><code>address</code></td><td>Address of the user</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>bool True if the user is whitelisted, false otherwise</td></tr>
+</tbody></table>
+</div>
+<h3 id="_msgsender-6"><a class="header" href="#_msgsender-6">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(Context, ERC2771Context) returns (address sender);
+</code></pre>
+<h3 id="_msgdata-6"><a class="header" href="#_msgdata-6">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(Context, ERC2771Context) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength-6"><a class="header" href="#_contextsuffixlength-6">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength() internal view override(Context, ERC2771Context) returns (uint256);
+</code></pre>
+<h3 id="_checkexecutionlimit-1"><a class="header" href="#_checkexecutionlimit-1">_checkExecutionLimit</a></h3>
+<p>Function to check if the user has exceeded the limit of 25 uses per day.</p>
+<pre><code class="language-solidity">function _checkExecutionLimit(address _user) internal;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_user</code></td><td><code>address</code></td><td>Address of the user</td></tr>
+</tbody></table>
+</div>
+<h2 id="events-7"><a class="header" href="#events-7">Events</a></h2>
+<h3 id="transfer"><a class="header" href="#transfer">Transfer</a></h3>
+<p><em>Event emitted when a transfer is executed.</em></p>
+<pre><code class="language-solidity">event Transfer(address indexed token, address indexed from, address indexed to, uint256 amount);
+</code></pre>
+<h2 id="errors-8"><a class="header" href="#errors-8">Errors</a></h2>
+<h3 id="notwhitelisted-2"><a class="header" href="#notwhitelisted-2">NotWhitelisted</a></h3>
+<p><em>Error to show when the caller is not whitelisted.</em></p>
+<pre><code class="language-solidity">error NotWhitelisted(address _address);
+</code></pre>
+<h3 id="executionlimitreached-1"><a class="header" href="#executionlimitreached-1">ExecutionLimitReached</a></h3>
+<p><em>Error to show when the user has exceeded the limit of 25 uses per day.</em></p>
+<pre><code class="language-solidity">error ExecutionLimitReached(address _user);
+</code></pre>
+<h2 id="structs-7"><a class="header" href="#structs-7">Structs</a></h2>
+<h3 id="transfermanageruselimiterstruct"><a class="header" href="#transfermanageruselimiterstruct">TransferManagerUseLimiterStruct</a></h3>
+<p><em>Struct to store the first use timestamp and the number of uses per day for each user.
+This is used to limit the number of uses per day for each user.</em></p>
+<pre><code class="language-solidity">struct TransferManagerUseLimiterStruct {
+    uint40 firstUseTodayTimestamp;
+    uint16 usesToday;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="usdcmock"><a class="header" href="#usdcmock">USDCMock</a></h1>
+<p><strong>Inherits:</strong>
+ERC20, ERC20Permit</p>
+<h2 id="functions-15"><a class="header" href="#functions-15">Functions</a></h2>
+<h3 id="constructor-11"><a class="header" href="#constructor-11">constructor</a></h3>
+<pre><code class="language-solidity">constructor() ERC20("USDC", "US Dollar Coin") ERC20Permit("USDC");
+</code></pre>
+<h3 id="mint-2"><a class="header" href="#mint-2">mint</a></h3>
+<pre><code class="language-solidity">function mint(address to, uint256 amount) external;
+</code></pre>
 <h3 id="burn-2"><a class="header" href="#burn-2">burn</a></h3>
 <pre><code class="language-solidity">function burn(address from, uint256 amount) external;
+</code></pre>
+<h3 id="decimals"><a class="header" href="#decimals">decimals</a></h3>
+<pre><code class="language-solidity">function decimals() public pure override returns (uint8);
 </code></pre>
 
                     </main>
@@ -2521,6 +2806,22 @@ to withdraw the funds to a safe address.</em></p>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
