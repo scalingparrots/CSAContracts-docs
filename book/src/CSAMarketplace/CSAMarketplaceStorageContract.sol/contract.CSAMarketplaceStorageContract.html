@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSAMarketplaceStorageContract</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../book.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="../../../src/CSAEngineV2/index.html">❱ CSAEngineV2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAEngineV2/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="../../../src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></li></ol></li><li class="chapter-item expanded "><a href="../../../src/CSAMarketplace/index.html">❱ CSAMarketplace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item expanded "><a href="../../../src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html" class="active">CSAMarketplaceStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSASwap/index.html">❱ CSASwap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSASwap/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="../../../src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAT/index.html">❱ CSAT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAT/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="../../../src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="../../../src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="../../../src/CSATBuyer.sol/contract.CSATBuyer.html">CSATBuyer</a></li><li class="chapter-item "><a href="../../../src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item "><a href="../../../src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="../../../src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li><li class="chapter-item "><a href="../../../src/TransferManager.sol/contract.TransferManager.html">TransferManager</a></li><li class="chapter-item "><a href="../../../src/USDCMock.sol/contract.USDCMock.html">USDCMock</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="csamarketplacestoragecontract"><a class="header" href="#csamarketplacestoragecontract">CSAMarketplaceStorageContract</a></h1>
+<p><strong>Author:</strong>
+Maurizio Murru</p>
+<p><em>This contract is the storage definition of the CSAMarketplace contract.</em></p>
+<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
+<h3 id="eurusd_decimals"><a class="header" href="#eurusd_decimals">EURUSD_DECIMALS</a></h3>
+<p><em>Decimals for EUR/USD oracle</em></p>
+<pre><code class="language-solidity">uint16 public immutable EURUSD_DECIMALS;
+</code></pre>
+<h3 id="tokenusd_decimals"><a class="header" href="#tokenusd_decimals">TokenUSD_DECIMALS</a></h3>
+<p><em>Decimals for Token/USD oracle</em></p>
+<pre><code class="language-solidity">uint16 public immutable TokenUSD_DECIMALS;
+</code></pre>
+<h3 id="csat"><a class="header" href="#csat">CSAT</a></h3>
+<p><em>CSA token</em></p>
+<pre><code class="language-solidity">IERC20 public immutable CSAT;
+</code></pre>
+<h3 id="token_out"><a class="header" href="#token_out">TOKEN_OUT</a></h3>
+<p><em>Token to be exchanged for</em></p>
+<pre><code class="language-solidity">IERC20 public immutable TOKEN_OUT;
+</code></pre>
+<h3 id="min_buy_amount"><a class="header" href="#min_buy_amount">MIN_BUY_AMOUNT</a></h3>
+<p><em>Minimum buy amount to avoid meta tx exploitation</em></p>
+<pre><code class="language-solidity">uint256 public immutable MIN_BUY_AMOUNT;
+</code></pre>
+<h3 id="dust_amount"><a class="header" href="#dust_amount">DUST_AMOUNT</a></h3>
+<p><em>Amount of CSAT left in a sell order to be considered dust and be removed</em></p>
+<pre><code class="language-solidity">uint256 public immutable DUST_AMOUNT;
+</code></pre>
+<h3 id="eurusd_oracle"><a class="header" href="#eurusd_oracle">EURUSD_ORACLE</a></h3>
+<p><em>Oracle to get the price of EUR/USD</em></p>
+<pre><code class="language-solidity">AggregatorV3Interface public immutable EURUSD_ORACLE;
+</code></pre>
+<h3 id="tokenusd_oracle"><a class="header" href="#tokenusd_oracle">TOKENUSD_ORACLE</a></h3>
+<p><em>Oracle to get the price of Token/USD</em></p>
+<pre><code class="language-solidity">AggregatorV3Interface public immutable TOKENUSD_ORACLE;
+</code></pre>
+<h3 id="vault"><a class="header" href="#vault">VAULT</a></h3>
+<p><em>Vault to hold the tokens</em></p>
+<pre><code class="language-solidity">CSAVault public immutable VAULT;
+</code></pre>
+<h3 id="max_fee"><a class="header" href="#max_fee">MAX_FEE</a></h3>
+<p><em>Fee percentage</em></p>
+<p><em>Maximum fee percentage (100%)</em></p>
+<pre><code class="language-solidity">uint256 public constant MAX_FEE = 10000;
+</code></pre>
+<h3 id="max_n_orders"><a class="header" href="#max_n_orders">MAX_N_ORDERS</a></h3>
+<p><em>Maximum number of orders to match at the head of the queue</em></p>
+<pre><code class="language-solidity">uint256 public constant MAX_N_ORDERS = 4;
+</code></pre>
+<h3 id="upgrader_role"><a class="header" href="#upgrader_role">UPGRADER_ROLE</a></h3>
+<p><em>Role identifier for pausers.</em></p>
+<pre><code class="language-solidity">bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
+</code></pre>
+<h3 id="fee_setter_role"><a class="header" href="#fee_setter_role">FEE_SETTER_ROLE</a></h3>
+<p><em>Role identifier for fee setters.</em></p>
+<pre><code class="language-solidity">bytes32 public constant FEE_SETTER_ROLE = keccak256("FEE_SETTER_ROLE");
+</code></pre>
+<h3 id="csamarketplacestoragelocation"><a class="header" href="#csamarketplacestoragelocation">CSAMarketplaceStorageLocation</a></h3>
+<p><em>Storage location for CSAMarketplaceStorage</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSAMarketplaceStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAMarketplace")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csamarketplacequeuestoragelocation"><a class="header" href="#csamarketplacequeuestoragelocation">CSAMarketplaceQueueStorageLocation</a></h3>
+<p><em>Storage location for CSAMarketplaceQueueStorage</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSAMarketplaceQueueStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAMarketplaceQueue")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h3 id="csamarketplaceuselimiterstoragelocation"><a class="header" href="#csamarketplaceuselimiterstoragelocation">CSAMarketplaceUseLimiterStorageLocation</a></h3>
+<p><em>Storage location for CSAMarketplaceUseLimiterStorage</em></p>
+<pre><code class="language-solidity">bytes32 private constant CSAMarketplaceUseLimiterStorageLocation =
+    keccak256(abi.encode(uint256(keccak256("CSA.storage.CSAMarketplaceUseLimiter")) - 1)) &amp; ~bytes32(uint256(0xff));
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p><em>Constructor for the CSAMarketplaceStorageContract</em></p>
+<pre><code class="language-solidity">constructor(
+    address _csat,
+    address _tokenOut,
+    AggregatorV3Interface _EURUSDOracle,
+    AggregatorV3Interface _TokenUSDOracle,
+    address _vault,
+    uint256 _minBuyAmount,
+    uint256 _dustAmount
+);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_csat</code></td><td><code>address</code></td><td>Address of the CSA token</td></tr>
+<tr><td><code>_tokenOut</code></td><td><code>address</code></td><td>Address of the token to be exchanged for</td></tr>
+<tr><td><code>_EURUSDOracle</code></td><td><code>AggregatorV3Interface</code></td><td>Address of the Oracle to get the price of EUR/USD</td></tr>
+<tr><td><code>_TokenUSDOracle</code></td><td><code>AggregatorV3Interface</code></td><td>Address of the Oracle to get the price of Token/USD</td></tr>
+<tr><td><code>_vault</code></td><td><code>address</code></td><td>Address of the vault to send swapped tokens</td></tr>
+<tr><td><code>_minBuyAmount</code></td><td><code>uint256</code></td><td>Minimum buy amount to avoid meta tx exploitation</td></tr>
+<tr><td><code>_dustAmount</code></td><td><code>uint256</code></td><td>Amount of CSAT left in a sell order to be considered dust and be removed.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsamarketplacestorage"><a class="header" href="#_getcsamarketplacestorage">_getCSAMarketplaceStorage</a></h3>
+<p><em>This function is used to get the CSAMarketplaceStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAMarketplaceStorage() internal pure returns (CSAMarketplaceStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAMarketplaceStorage</code></td><td>The storage pointer to the CSAMarketplaceStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsamarketplacequeuestorage"><a class="header" href="#_getcsamarketplacequeuestorage">_getCSAMarketplaceQueueStorage</a></h3>
+<p><em>This function is used to get the CSAMarketplaceQueueStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAMarketplaceQueueStorage() internal pure returns (CSAMarketplaceQueueStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAMarketplaceQueueStorage</code></td><td>The storage pointer to the CSAMarketplaceQueueStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_getcsamarketplaceuselimiterstorage"><a class="header" href="#_getcsamarketplaceuselimiterstorage">_getCSAMarketplaceUseLimiterStorage</a></h3>
+<p><em>This function is used to get the CSAMarketplaceUseLimiterStorage storage pointer.</em></p>
+<pre><code class="language-solidity">function _getCSAMarketplaceUseLimiterStorage() internal pure returns (CSAMarketpalceUseLimiterStorage storage $);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>$</code></td><td><code>CSAMarketpalceUseLimiterStorage</code></td><td>The storage pointer to the CSAMarketplaceUseLimiterStorage.</td></tr>
+</tbody></table>
+</div>
+<h3 id="csat-1"><a class="header" href="#csat-1">csat</a></h3>
+<p><em>Gets the CSAT contract address</em></p>
+<pre><code class="language-solidity">function csat() external view returns (IERC20);
+</code></pre>
+<h3 id="tokenout"><a class="header" href="#tokenout">tokenOut</a></h3>
+<p><em>Gets the token to be exchanged for</em></p>
+<pre><code class="language-solidity">function tokenOut() external view returns (IERC20);
+</code></pre>
+<h3 id="eurusdoracle"><a class="header" href="#eurusdoracle">EURUSDOracle</a></h3>
+<p><em>Gets the EUR/USD oracle contract.</em></p>
+<pre><code class="language-solidity">function EURUSDOracle() external view returns (AggregatorV3Interface);
+</code></pre>
+<h3 id="tokenusdoracle"><a class="header" href="#tokenusdoracle">TokenUSDOracle</a></h3>
+<p><em>Gets the Token/USD oracle contract.</em></p>
+<pre><code class="language-solidity">function TokenUSDOracle() external view returns (AggregatorV3Interface);
+</code></pre>
+<h3 id="vault-1"><a class="header" href="#vault-1">vault</a></h3>
+<p><em>Gets the vault contract.</em></p>
+<pre><code class="language-solidity">function vault() external view returns (CSAVault);
+</code></pre>
+<h3 id="pricefee"><a class="header" href="#pricefee">priceFee</a></h3>
+<p><em>Gets the Marketplace fee percentage.</em></p>
+<pre><code class="language-solidity">function priceFee() external view returns (uint16);
+</code></pre>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<h3 id="csamarketplacestorage"><a class="header" href="#csamarketplacestorage">CSAMarketplaceStorage</a></h3>
+<p><em>Marketplace storage struct</em></p>
+<pre><code class="language-solidity">struct CSAMarketplaceStorage {
+    uint16 priceFee;
+}
+</code></pre>
+<h3 id="csamarketplacequeuestorage"><a class="header" href="#csamarketplacequeuestorage">CSAMarketplaceQueueStorage</a></h3>
+<p><em>Marketplace queue storage struct</em></p>
+<pre><code class="language-solidity">struct CSAMarketplaceQueueStorage {
+    CSAQueueLib.Queue sellOrders;
+}
+</code></pre>
+<h3 id="csamarketplaceuselimiterstruct"><a class="header" href="#csamarketplaceuselimiterstruct">CSAMarketplaceUseLimiterStruct</a></h3>
+<p><em>Marketplace use limiter storage struct</em></p>
+<pre><code class="language-solidity">struct CSAMarketplaceUseLimiterStruct {
+    uint40 firstUseTodayTimestamp;
+    uint16 usesToday;
+}
+</code></pre>
+<h3 id="csamarketpalceuselimiterstorage"><a class="header" href="#csamarketpalceuselimiterstorage">CSAMarketpalceUseLimiterStorage</a></h3>
+<p><em>Marketplace use limiter storage</em></p>
+<pre><code class="language-solidity">struct CSAMarketpalceUseLimiterStorage {
+    mapping(address =&gt; CSAMarketplaceUseLimiterStruct) useLimiter;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../src/CSASwap/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../src/CSASwap/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

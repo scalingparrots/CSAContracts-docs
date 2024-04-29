@@ -1,0 +1,637 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSAEngineV2</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../book.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item expanded "><a href="../../../src/CSAEngineV2/index.html">❱ CSAEngineV2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../src/CSAEngineV2/CSAEngineV2.sol/contract.CSAEngineV2.html" class="active">CSAEngineV2</a></li><li class="chapter-item "><a href="../../../src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAMarketplace/index.html">❱ CSAMarketplace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="../../../src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html">CSAMarketplaceStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSASwap/index.html">❱ CSASwap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSASwap/CSASwap.sol/contract.CSASwap.html">CSASwap</a></li><li class="chapter-item "><a href="../../../src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAT/index.html">❱ CSAT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAT/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="../../../src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="../../../src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="../../../src/CSATBuyer.sol/contract.CSATBuyer.html">CSATBuyer</a></li><li class="chapter-item "><a href="../../../src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item "><a href="../../../src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="../../../src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li><li class="chapter-item "><a href="../../../src/TransferManager.sol/contract.TransferManager.html">TransferManager</a></li><li class="chapter-item "><a href="../../../src/USDCMock.sol/contract.USDCMock.html">USDCMock</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="csaenginev2"><a class="header" href="#csaenginev2">CSAEngineV2</a></h1>
+<p><strong>Inherits:</strong>
+Initializable, AccessControlUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, <a href="/src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></p>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p>This contract handles positions opened on footballer's scores. It interacts with the oracle to fetch footballer scores and allows users to open positions based on those scores. It allows admin to halt and un-halt footballers and to change the oracle address. It also provides various utility functions to calculate PnL, check if a footballer is updated after a match, and to check if a footballer is halted.</p>
+<p><em>This contract uses OpenZeppelin contracts for Access Control and Safe ERC20 operations. It also uses CSAOracleV2 for fetching footballer data and CSAT token for burning and minting operations.</em></p>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p><em>Constructor function for CSAEngineV2 contract.</em></p>
+<pre><code class="language-solidity">constructor(address _oracle, CSAT _csat, address _trustedForwarder)
+    ERC2771ContextUpgradeable(_trustedForwarder)
+    CSAEngineV2StorageContract(_oracle, _csat);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_oracle</code></td><td><code>address</code></td><td>The address of the CSAOracleV2 contract.</td></tr>
+<tr><td><code>_csat</code></td><td><code>CSAT</code></td><td>The address of the CSAT contract.</td></tr>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<pre><code class="language-solidity">function initialize(address halter) public initializer;
+</code></pre>
+<h3 id="_authorizeupgrade"><a class="header" href="#_authorizeupgrade">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
+</code></pre>
+<h3 id="getfootballer"><a class="header" href="#getfootballer">getFootballer</a></h3>
+<p><em>Returns the footballer information for a given footballer ID.</em></p>
+<pre><code class="language-solidity">function getFootballer(uint24 _footballerId) public view returns (CSAOracleV2.Footballer memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to retrieve information for.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>CSAOracleV2.Footballer</code></td><td>A <code>CSAOracleV2.Footballer</code> struct containing the footballer's information.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfootballerscore"><a class="header" href="#getfootballerscore">getFootballerScore</a></h3>
+<p><em>Returns the score of a footballer with the given ID.</em></p>
+<pre><code class="language-solidity">function getFootballerScore(uint24 _footballerId) public view returns (uint24);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to get the score for.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint24</code></td><td>The score of the footballer.</td></tr>
+</tbody></table>
+</div>
+<h3 id="getfootballerscoreandnextmatch"><a class="header" href="#getfootballerscoreandnextmatch">getFootballerScoreAndNextMatch</a></h3>
+<p><em>Returns the score and next match timestamp of a given footballer.</em></p>
+<pre><code class="language-solidity">function getFootballerScoreAndNextMatch(uint24 _footballerId) public view returns (uint24, uint32);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to retrieve information for.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint24</code></td><td>A tuple containing the footballer's score and next match timestamp.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint32</code></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="openposition"><a class="header" href="#openposition">openPosition</a></h3>
+<p><em>Opens a new position for a given footballer, direction and amount.</em></p>
+<pre><code class="language-solidity">function openPosition(uint24 _footballerId, Direction _direction, uint256 _amount) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to open the position for.</td></tr>
+<tr><td><code>_direction</code></td><td><code>Direction</code></td><td>The direction of the position (LONG or SHORT).</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount of tokens to use for the position. Requirements: - The amount must be at least 10 ether. - The footballer must not be halted. - The footballer must have score and nextMatchTimestamp data available. - There must be a spread, if the position is long the _entryScore must be 1% lower than the current score if the position is short the _entryScore must be 1% higher than the current score. - The footballer's score must have been updated after the last match, or 48 hours must have passed since the last match.</td></tr>
+</tbody></table>
+</div>
+<h3 id="isfootballerscoreupdatedaftermatch"><a class="header" href="#isfootballerscoreupdatedaftermatch">isFootballerScoreUpdatedAfterMatch</a></h3>
+<p><em>Checks if a footballer's score has been updated after their last match.</em></p>
+<pre><code class="language-solidity">function isFootballerScoreUpdatedAfterMatch(CSAOracleV2.Footballer memory _footballer) public view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballer</code></td><td><code>CSAOracleV2.Footballer</code></td><td>The footballer to check.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>A boolean indicating whether the footballer's score has been updated after their last match.</td></tr>
+</tbody></table>
+</div>
+<h3 id="isfootballerscoreupdatedaftermatchbyid"><a class="header" href="#isfootballerscoreupdatedaftermatchbyid">isFootballerScoreUpdatedAfterMatchById</a></h3>
+<p><em>Checks if the score of a footballer has been updated after a match by ID.</em></p>
+<pre><code class="language-solidity">function isFootballerScoreUpdatedAfterMatchById(uint256 _footballerId) public view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint256</code></td><td>The ID of the footballer to check.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>A boolean indicating whether the score has been updated or not.</td></tr>
+</tbody></table>
+</div>
+<h3 id="calculatelongpnl"><a class="header" href="#calculatelongpnl">calculateLongPnl</a></h3>
+<p><em>Calculates the profit or loss of a long position based on the amount, entry score, and current score.</em></p>
+<pre><code class="language-solidity">function calculateLongPnl(uint256 _amount, uint24 _entryScore, uint24 _currentScore) public pure returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount of the position.</td></tr>
+<tr><td><code>_entryScore</code></td><td><code>uint24</code></td><td>The score at which the position was opened.</td></tr>
+<tr><td><code>_currentScore</code></td><td><code>uint24</code></td><td>The current score of the position.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The profit or loss of the position.</td></tr>
+</tbody></table>
+</div>
+<h3 id="calculateshortpnl"><a class="header" href="#calculateshortpnl">calculateShortPnl</a></h3>
+<p><em>Calculates the short position profit or loss based on the amount, entry score, and current score.</em></p>
+<pre><code class="language-solidity">function calculateShortPnl(uint256 _amount, uint24 _entryScore, uint24 _currentScore) public pure returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>The amount of the short position.</td></tr>
+<tr><td><code>_entryScore</code></td><td><code>uint24</code></td><td>The score at which the short position was opened.</td></tr>
+<tr><td><code>_currentScore</code></td><td><code>uint24</code></td><td>The current score of the short position.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The profit or loss of the short position.</td></tr>
+</tbody></table>
+</div>
+<h3 id="calculatepnl"><a class="header" href="#calculatepnl">calculatePnL</a></h3>
+<p><em>Calculates the profit or loss of a given position based on the current footballer score.</em></p>
+<pre><code class="language-solidity">function calculatePnL(Position memory _position) public view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_position</code></td><td><code>Position</code></td><td>The position to calculate the PnL for.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The profit or loss of the position.</td></tr>
+</tbody></table>
+</div>
+<h3 id="calculatehaltedpnl"><a class="header" href="#calculatehaltedpnl">calculateHaltedPnL</a></h3>
+<p><em>Calculates the profit and loss (PnL) of a halted position.</em></p>
+<pre><code class="language-solidity">function calculateHaltedPnL(Position memory _position, Halted memory _halt) public pure returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_position</code></td><td><code>Position</code></td><td>The position to calculate the PnL for.</td></tr>
+<tr><td><code>_halt</code></td><td><code>Halted</code></td><td>The halted state of the position.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The PnL of the position.</td></tr>
+</tbody></table>
+</div>
+<h3 id="closeposition"><a class="header" href="#closeposition">closePosition</a></h3>
+<p><em>Closes a position by deleting it from the positions mapping and emitting a ClosePosition event.
+If the position is halted, calculates the PnL based on the halt information.
+If the position is not halted, checks if the footballer score has been updated after the last match and calculates the PnL accordingly.
+Transfers the PnL to the position owner by minting new tokens to their address.</em></p>
+<pre><code class="language-solidity">function closePosition(uint256 _positionId) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_positionId</code></td><td><code>uint256</code></td><td>The ID of the position to be closed.</td></tr>
+</tbody></table>
+</div>
+<h3 id="haltfootballer"><a class="header" href="#haltfootballer">haltFootballer</a></h3>
+<p><em>Halts a footballer by adding a new Halted struct to the halted mapping.</em></p>
+<pre><code class="language-solidity">function haltFootballer(uint24 _footballerId) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to be halted. Requirements: - The caller must have the Halter role. - The footballer must not already be halted.</td></tr>
+</tbody></table>
+</div>
+<h3 id="haltfootballers"><a class="header" href="#haltfootballers">haltFootballers</a></h3>
+<p>Only users with the <code>HALTER_ROLE</code> can call this function.</p>
+<p>If a footballer is already halted, the function will revert.</p>
+<p><em>Halts the specified footballers by adding them to the <code>halted</code> mapping.</em></p>
+<pre><code class="language-solidity">function haltFootballers(uint24[] calldata _footballerIds) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerIds</code></td><td><code>uint24[]</code></td><td>An array of uint24 representing the IDs of the footballers to be halted.</td></tr>
+</tbody></table>
+</div>
+<h3 id="unhaltfootballer"><a class="header" href="#unhaltfootballer">unHaltFootballer</a></h3>
+<p><em>Unhalts a footballer by updating the unHaltedTimestamp of the latest halt record.</em></p>
+<pre><code class="language-solidity">function unHaltFootballer(uint24 _footballerId) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to unhalt. Requirements: - The caller must have the halter role. - The footballer must be currently halted.</td></tr>
+</tbody></table>
+</div>
+<h3 id="unhaltfootballers"><a class="header" href="#unhaltfootballers">unHaltFootballers</a></h3>
+<p>Only users with the Halter role can call this function.</p>
+<p>If a footballer is not currently halted, it will revert with FootballerNotHalted error.</p>
+<p><em>Unhalt the specified footballers by updating their unHaltedTimestamp.</em></p>
+<pre><code class="language-solidity">function unHaltFootballers(uint24[] calldata _footballerIds) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerIds</code></td><td><code>uint24[]</code></td><td>An array of uint24 representing the IDs of the footballers to unhalt.</td></tr>
+</tbody></table>
+</div>
+<h3 id="gethalted"><a class="header" href="#gethalted">getHalted</a></h3>
+<p><em>Returns an array of Halted structs for a given footballer ID.</em></p>
+<pre><code class="language-solidity">function getHalted(uint24 _footballerId) public view returns (Halted[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to retrieve halted information for.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>Halted[]</code></td><td>An array of Halted structs containing information about halted periods for the given footballer.</td></tr>
+</tbody></table>
+</div>
+<h3 id="ishalted"><a class="header" href="#ishalted">isHalted</a></h3>
+<p><em>Checks if a footballer is currently halted.</em></p>
+<pre><code class="language-solidity">function isHalted(uint24 _footballerId) public view returns (bool);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to check.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>A boolean indicating whether the footballer is currently halted or not.</td></tr>
+</tbody></table>
+</div>
+<h3 id="washalted"><a class="header" href="#washalted">wasHalted</a></h3>
+<p><em>Checks if a footballer was halted at a given timestamp and returns the halted information.</em></p>
+<pre><code class="language-solidity">function wasHalted(uint24 _footballerId, uint32 timestamp) public view returns (bool, Halted memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_footballerId</code></td><td><code>uint24</code></td><td>The ID of the footballer to check.</td></tr>
+<tr><td><code>timestamp</code></td><td><code>uint32</code></td><td>The timestamp to check against.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>A tuple containing a boolean indicating if the footballer was halted at the given timestamp and the halted information.</td></tr>
+<tr><td><code>&lt;none&gt;</code></td><td><code>Halted</code></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="importpositions"><a class="header" href="#importpositions">importPositions</a></h3>
+<p><em>Imports an array of positions into the contract.</em></p>
+<pre><code class="language-solidity">function importPositions(Position[] calldata _positions) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_positions</code></td><td><code>Position[]</code></td><td>An array of Position structs to be imported.</td></tr>
+</tbody></table>
+</div>
+<h3 id="positionsownedby"><a class="header" href="#positionsownedby">positionsOwnedBy</a></h3>
+<p><em>Returns an array of position IDs owned by the given address.</em></p>
+<pre><code class="language-solidity">function positionsOwnedBy(address _owner) external view returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_owner</code></td><td><code>address</code></td><td>The address to check for owned positions.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>An array of position IDs owned by the given address.</td></tr>
+</tbody></table>
+</div>
+<h3 id="positionsownedbyfromstarttoendposition"><a class="header" href="#positionsownedbyfromstarttoendposition">positionsOwnedByFromStartToEndPosition</a></h3>
+<p><em>Returns an array of position IDs owned by the given address within a given range.</em></p>
+<pre><code class="language-solidity">function positionsOwnedByFromStartToEndPosition(address _owner, uint256 _start, uint256 _end)
+    public
+    view
+    returns (uint256[] memory);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_owner</code></td><td><code>address</code></td><td>The address to check for owned positions.</td></tr>
+<tr><td><code>_start</code></td><td><code>uint256</code></td><td>The starting position ID to check.</td></tr>
+<tr><td><code>_end</code></td><td><code>uint256</code></td><td>The ending position ID to check.</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256[]</code></td><td>An array of position IDs owned by the given address within the given range.</td></tr>
+</tbody></table>
+</div>
+<h3 id="_msgsender"><a class="header" href="#_msgsender">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
+</code></pre>
+<h3 id="_msgdata"><a class="header" href="#_msgdata">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength"><a class="header" href="#_contextsuffixlength">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
+</code></pre>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="openposition-1"><a class="header" href="#openposition-1">OpenPosition</a></h3>
+<p>Event emitted when a position is opened.</p>
+<pre><code class="language-solidity">event OpenPosition(
+    uint256 indexed positionId,
+    uint256 indexed amount,
+    address indexed owner,
+    uint32 openTimestamp,
+    uint24 footballerId,
+    uint24 entryScore,
+    Direction direction
+);
+</code></pre>
+<h3 id="closeposition-1"><a class="header" href="#closeposition-1">ClosePosition</a></h3>
+<p>Event emitted when a position is closed.</p>
+<pre><code class="language-solidity">event ClosePosition(
+    uint256 indexed positionId,
+    uint256 indexed amount,
+    address indexed owner,
+    uint32 openTimestamp,
+    uint24 footballerId,
+    uint24 entryScore,
+    Direction direction
+);
+</code></pre>
+<h3 id="withdrawbalance"><a class="header" href="#withdrawbalance">WithdrawBalance</a></h3>
+<p>Event emitted when balance is withdrawn.</p>
+<pre><code class="language-solidity">event WithdrawBalance(address indexed owner, uint256 amount);
+</code></pre>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
+<h3 id="notadmin"><a class="header" href="#notadmin">NotAdmin</a></h3>
+<p>Error to show when the caller is not an admin.</p>
+<pre><code class="language-solidity">error NotAdmin(address from);
+</code></pre>
+<h3 id="nothalter"><a class="header" href="#nothalter">NotHalter</a></h3>
+<p>Error to show when the caller is not a halter.</p>
+<pre><code class="language-solidity">error NotHalter(address from);
+</code></pre>
+<h3 id="notpositionowner"><a class="header" href="#notpositionowner">NotPositionOwner</a></h3>
+<p>Error to show when the caller is not the owner of the position and tries to close it.</p>
+<pre><code class="language-solidity">error NotPositionOwner(address from, uint256 positionId);
+</code></pre>
+<h3 id="positionnotfound"><a class="header" href="#positionnotfound">PositionNotFound</a></h3>
+<p>Error to show when the position is not found.</p>
+<pre><code class="language-solidity">error PositionNotFound(uint256 positionId);
+</code></pre>
+<h3 id="footballeryettoreceivescoreupdatefromlastmatch"><a class="header" href="#footballeryettoreceivescoreupdatefromlastmatch">FootballerYetToReceiveScoreUpdateFromLastMatch</a></h3>
+<p>Error to show when the footballer has not received the score update after the last match.</p>
+<pre><code class="language-solidity">error FootballerYetToReceiveScoreUpdateFromLastMatch(uint24 footballerId);
+</code></pre>
+<h3 id="nodataforfootballer"><a class="header" href="#nodataforfootballer">NoDataForFootballer</a></h3>
+<p>Error to show when there is no data available for the footballer.</p>
+<pre><code class="language-solidity">error NoDataForFootballer(uint24 footballerId);
+</code></pre>
+<h3 id="footballeralreadyhalted"><a class="header" href="#footballeralreadyhalted">FootballerAlreadyHalted</a></h3>
+<p>Error to show when the caller is not an upgrader.</p>
+<pre><code class="language-solidity">error FootballerAlreadyHalted(uint24 footballerId);
+</code></pre>
+<h3 id="footballernothalted"><a class="header" href="#footballernothalted">FootballerNotHalted</a></h3>
+<p>Error to show when the caller is not a halter.</p>
+<pre><code class="language-solidity">error FootballerNotHalted(uint24 footballerId);
+</code></pre>
+<h3 id="openpositionlessthan10ether"><a class="header" href="#openpositionlessthan10ether">OpenPositionLessThan10Ether</a></h3>
+<p>Error to show when the amount is less than 10 ether (10e18 CSAT).</p>
+<pre><code class="language-solidity">error OpenPositionLessThan10Ether(address from, uint256 amount);
+</code></pre>
+<h3 id="footballerishalted"><a class="header" href="#footballerishalted">FootballerIsHalted</a></h3>
+<p>Error to show when the caller is not a halter.</p>
+<pre><code class="language-solidity">error FootballerIsHalted(uint24 footballerId);
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../src/CSAEngineV2/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../src/CSAEngineV2/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>

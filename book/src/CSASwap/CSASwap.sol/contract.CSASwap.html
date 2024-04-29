@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSASwap</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../../book.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../../index.html">Home</a></li><li class="chapter-item affix "><li class="part-title">src</li><li class="chapter-item "><a href="../../../src/CSAEngineV2/index.html">❱ CSAEngineV2</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAEngineV2/CSAEngineV2.sol/contract.CSAEngineV2.html">CSAEngineV2</a></li><li class="chapter-item "><a href="../../../src/CSAEngineV2/CSAEngineV2StorageContract.sol/contract.CSAEngineV2StorageContract.html">CSAEngineV2StorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAMarketplace/index.html">❱ CSAMarketplace</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAMarketplace/CSAMarketplace.sol/contract.CSAMarketplace.html">CSAMarketplace</a></li><li class="chapter-item "><a href="../../../src/CSAMarketplace/CSAMarketplaceStorageContract.sol/contract.CSAMarketplaceStorageContract.html">CSAMarketplaceStorageContract</a></li></ol></li><li class="chapter-item expanded "><a href="../../../src/CSASwap/index.html">❱ CSASwap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../src/CSASwap/CSASwap.sol/contract.CSASwap.html" class="active">CSASwap</a></li><li class="chapter-item "><a href="../../../src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAT/index.html">❱ CSAT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../src/CSAT/CSAT.sol/contract.CSAT.html">CSAT</a></li><li class="chapter-item "><a href="../../../src/CSAT/CSATStorageContract.sol/contract.CSATStorageContract.html">CSATStorageContract</a></li></ol></li><li class="chapter-item "><a href="../../../src/CSAOracleV2.sol/contract.CSAOracleV2.html">CSAOracleV2</a></li><li class="chapter-item "><a href="../../../src/CSAQueueLib.sol/library.CSAQueueLib.html">CSAQueueLib</a></li><li class="chapter-item "><a href="../../../src/CSATBuyer.sol/contract.CSATBuyer.html">CSATBuyer</a></li><li class="chapter-item "><a href="../../../src/CSAVault.sol/contract.CSAVault.html">CSAVault</a></li><li class="chapter-item "><a href="../../../src/IBurnableMintable.sol/interface.Mintable.html">Mintable</a></li><li class="chapter-item "><a href="../../../src/IBurnableMintable.sol/interface.Burnable.html">Burnable</a></li><li class="chapter-item "><a href="../../../src/TransferManager.sol/contract.TransferManager.html">TransferManager</a></li><li class="chapter-item "><a href="../../../src/USDCMock.sol/contract.USDCMock.html">USDCMock</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="csaswap"><a class="header" href="#csaswap">CSASwap</a></h1>
+<p><strong>Inherits:</strong>
+Initializable, AccessControlUpgradeable, PausableUpgradeable, UUPSUpgradeable, ERC2771ContextUpgradeable, <a href="/src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html">CSASwapStorageContract</a></p>
+<p><strong>Author:</strong>
+Maurizio Murru https://github.com/akerbabber</p>
+<p>This contract is used to swap various tokens and the native token for CSAT tokens.
+It uses Chainlink oracles to get the prices of tokens and supports pausing functionality.</p>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
+<p>Constructor for the CSASwap contract.</p>
+<p><em>All variables are immutable, as such their values are hardcoded into the contract code</em></p>
+<p><em>Changing them requires an upgrade of the contract</em></p>
+<pre><code class="language-solidity">constructor(address _trustedForwarder, address _csat, address _EURUSDOracle, address _vault)
+    CSASwapStorageContract(_csat, _EURUSDOracle, _vault)
+    ERC2771ContextUpgradeable(_trustedForwarder);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_trustedForwarder</code></td><td><code>address</code></td><td></td></tr>
+<tr><td><code>_csat</code></td><td><code>address</code></td><td>Address of the CSAT token contract</td></tr>
+<tr><td><code>_EURUSDOracle</code></td><td><code>address</code></td><td>Address of the EUR/USD Oracle contract</td></tr>
+<tr><td><code>_vault</code></td><td><code>address</code></td><td>Address of the vault to send swapped tokens</td></tr>
+</tbody></table>
+</div>
+<h3 id="initialize"><a class="header" href="#initialize">initialize</a></h3>
+<p>Initializes the CSASwap contract.</p>
+<pre><code class="language-solidity">function initialize(uint16 _fee) external initializer;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_fee</code></td><td><code>uint16</code></td><td>Initial fee percentage</td></tr>
+</tbody></table>
+</div>
+<h3 id="_authorizeupgrade"><a class="header" href="#_authorizeupgrade">_authorizeUpgrade</a></h3>
+<p><em>Reverts if called by any account other than an upgrader.</em></p>
+<pre><code class="language-solidity">function _authorizeUpgrade(address newImplementation) internal override onlyRole(UPGRADER_ROLE);
+</code></pre>
+<h3 id="addwhitelistedtoken"><a class="header" href="#addwhitelistedtoken">addWhitelistedToken</a></h3>
+<p>Adds a token to the whitelist.</p>
+<pre><code class="language-solidity">function addWhitelistedToken(address _tokenAddress, address _oracleAddress) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be whitelisted</td></tr>
+<tr><td><code>_oracleAddress</code></td><td><code>address</code></td><td>Address of the Oracle to get the price of the token in USD</td></tr>
+</tbody></table>
+</div>
+<h3 id="removewhitelistedtoken"><a class="header" href="#removewhitelistedtoken">removeWhitelistedToken</a></h3>
+<p>Removes a token from the whitelist.</p>
+<pre><code class="language-solidity">function removeWhitelistedToken(address _tokenAddress) external onlyRole(DEFAULT_ADMIN_ROLE);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be removed from the whitelist</td></tr>
+</tbody></table>
+</div>
+<h3 id="geteurusdprice"><a class="header" href="#geteurusdprice">getEURUSDPrice</a></h3>
+<p>Gets the latest price of EUR in USD from the EURUSD Oracle.</p>
+<pre><code class="language-solidity">function getEURUSDPrice() public view returns (uint256);
+</code></pre>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of EUR in USD</td></tr>
+</tbody></table>
+</div>
+<h3 id="gettokenprice"><a class="header" href="#gettokenprice">getTokenPrice</a></h3>
+<p>Gets the latest price of the specified token in USD.</p>
+<pre><code class="language-solidity">function getTokenPrice(address _tokenAddress) public view returns (uint256);
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token</td></tr>
+</tbody></table>
+</div>
+<p><strong>Returns</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>The latest price of the token in USD</td></tr>
+</tbody></table>
+</div>
+<h3 id="_swap"><a class="header" href="#_swap">_swap</a></h3>
+<p>Swaps a specified amount of a token for CSAT tokens.</p>
+<pre><code class="language-solidity">function _swap(address _tokenAddress, uint256 _amount, address receiver) internal whenNotPaused;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the token to be swapped</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the token to be swapped</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="swap"><a class="header" href="#swap">swap</a></h3>
+<p>Swaps a specified amount of the native token for CSAT tokens.</p>
+<pre><code class="language-solidity">function swap(address _tokenAddress, uint256 _amount) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the whitelisted token to be swapped</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the native token to be swapped</td></tr>
+</tbody></table>
+</div>
+<h3 id="swapfor"><a class="header" href="#swapfor">swapFor</a></h3>
+<p>Swaps a specified amount of the native token for CSAT tokens.</p>
+<pre><code class="language-solidity">function swapFor(address _tokenAddress, uint256 _amount, address receiver) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_tokenAddress</code></td><td><code>address</code></td><td>Address of the whitelisted token to be swapped</td></tr>
+<tr><td><code>_amount</code></td><td><code>uint256</code></td><td>Amount of the native token to be swapped</td></tr>
+<tr><td><code>receiver</code></td><td><code>address</code></td><td>Address of the receiver of the CSAT tokens</td></tr>
+</tbody></table>
+</div>
+<h3 id="pause"><a class="header" href="#pause">pause</a></h3>
+<p>Pauses the contract, preventing token swaps.</p>
+<pre><code class="language-solidity">function pause() public whenNotPaused;
+</code></pre>
+<h3 id="unpause"><a class="header" href="#unpause">unpause</a></h3>
+<p>Unpauses the contract, allowing token swaps.</p>
+<pre><code class="language-solidity">function unpause() public whenPaused;
+</code></pre>
+<h3 id="setfee"><a class="header" href="#setfee">setFee</a></h3>
+<p>Sets the fee for the swaps.</p>
+<pre><code class="language-solidity">function setFee(uint16 _fee) external;
+</code></pre>
+<p><strong>Parameters</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>_fee</code></td><td><code>uint16</code></td><td>The new fee percentage</td></tr>
+</tbody></table>
+</div>
+<h3 id="_msgsender"><a class="header" href="#_msgsender">_msgSender</a></h3>
+<pre><code class="language-solidity">function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender);
+</code></pre>
+<h3 id="_msgdata"><a class="header" href="#_msgdata">_msgData</a></h3>
+<pre><code class="language-solidity">function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes calldata);
+</code></pre>
+<h3 id="_contextsuffixlength"><a class="header" href="#_contextsuffixlength">_contextSuffixLength</a></h3>
+<pre><code class="language-solidity">function _contextSuffixLength()
+    internal
+    view
+    override(ContextUpgradeable, ERC2771ContextUpgradeable)
+    returns (uint256);
+</code></pre>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<h3 id="addtowhitelist"><a class="header" href="#addtowhitelist">AddToWhitelist</a></h3>
+<pre><code class="language-solidity">event AddToWhitelist(address indexed _address);
+</code></pre>
+<h3 id="removefromwhitelist"><a class="header" href="#removefromwhitelist">RemoveFromWhitelist</a></h3>
+<pre><code class="language-solidity">event RemoveFromWhitelist(address indexed _address);
+</code></pre>
+<h3 id="changedeurusdoracle"><a class="header" href="#changedeurusdoracle">ChangedEURUSDOracle</a></h3>
+<pre><code class="language-solidity">event ChangedEURUSDOracle(address indexed _address);
+</code></pre>
+<h3 id="swap-1"><a class="header" href="#swap-1">Swap</a></h3>
+<pre><code class="language-solidity">event Swap(
+    address indexed _from, address indexed _tokenAddress, uint256 _amount, address indexed _to, uint256 _csatAmount
+);
+</code></pre>
+<h3 id="swapnativetoken"><a class="header" href="#swapnativetoken">SwapNativeToken</a></h3>
+<pre><code class="language-solidity">event SwapNativeToken(address indexed _from, uint256 _amount);
+</code></pre>
+<h3 id="changedfee"><a class="header" href="#changedfee">ChangedFee</a></h3>
+<pre><code class="language-solidity">event ChangedFee(uint16 _fee);
+</code></pre>
+<h2 id="errors"><a class="header" href="#errors">Errors</a></h2>
+<h3 id="notadmin"><a class="header" href="#notadmin">NotAdmin</a></h3>
+<pre><code class="language-solidity">error NotAdmin(address _address);
+</code></pre>
+<h3 id="notfeesetter"><a class="header" href="#notfeesetter">NotFeeSetter</a></h3>
+<pre><code class="language-solidity">error NotFeeSetter(address _address);
+</code></pre>
+<h3 id="notwhitelisted"><a class="header" href="#notwhitelisted">NotWhitelisted</a></h3>
+<pre><code class="language-solidity">error NotWhitelisted(address _address);
+</code></pre>
+<h3 id="invalidfee"><a class="header" href="#invalidfee">InvalidFee</a></h3>
+<pre><code class="language-solidity">error InvalidFee(uint16 _fee);
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../src/CSASwap/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../src/CSASwap/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../src/CSASwap/CSASwapStorageContract.sol/contract.CSASwapStorageContract.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../solidity.min.js"></script>
+
+
+    </div>
+    </body>
+</html>
