@@ -30,7 +30,6 @@ Below are the verified contracts deployed on Polygon POS.
 | USDC              | [0x3c499c542cef5e3811e1192ce70d8cc03d5c3359](https://polygonscan.com/token/0x3c499c542cef5e3811e1192ce70d8cc03d5c3359) |                                                                                              |
 | TransferManager   | [0x3e76ded7924ec111c14b2eff2852fba4ce481f7e](https://polygonscan.com/address/0x3e76ded7924ec111c14b2eff2852fba4ce481f7e) |                                                                                              |
 
-
 ## What are Web3 Functions?
 
 Web3 Functions are decentralized cloud functions that work similarly to AWS Lambda or Google Cloud, just for web3. They enable developers to execute on-chain transactions based on arbitrary off-chain data (APIs / subgraphs, etc) & computation. These functions are written in Typescript, stored on IPFS and run by Gelato.
@@ -100,7 +99,7 @@ forge build
 ### Test
 
 ```sh
-forge test -vvv -f <POLYGON_POS_RPC_URL>
+forge test 
 ```
 
 ### Format code
@@ -112,13 +111,13 @@ forge fmt
 ### Coverage
   
 ```sh
-forge coverage --ir-minimum -f <POLYGON_POS_RPC_URL>
+forge coverage --ir-minimum
 ```
 
 #### Coverage with debug logs
 
 ```sh
-forge coverage --ir-minimum -f <POLYGON_POS_RPC_URL> --report debug
+forge coverage --ir-minimum --report debug
 ```
 
 ### Setup coverage html

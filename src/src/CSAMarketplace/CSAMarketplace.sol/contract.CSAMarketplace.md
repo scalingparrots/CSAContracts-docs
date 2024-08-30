@@ -116,7 +116,7 @@ If up until the fourth is not enough, a fallback id can be supplied to finish ma
 
 
 ```solidity
-function buy(uint256 _amountIn, uint48 _fallbackId) external;
+function buy(uint256 _amountIn, uint48 _fallbackId) external returns (uint256);
 ```
 **Parameters**
 
@@ -134,7 +134,7 @@ If up until the fourth is not enough, a fallback id can be supplied to finish ma
 
 
 ```solidity
-function buyFor(uint256 _amountIn, uint48 _fallbackId, address receiver) external;
+function buyFor(uint256 _amountIn, uint48 _fallbackId, address receiver) external returns (uint256);
 ```
 **Parameters**
 
@@ -151,7 +151,7 @@ function buyFor(uint256 _amountIn, uint48 _fallbackId, address receiver) externa
 
 
 ```solidity
-function _buy(uint256 _amountIn, uint48 _fallbackId, address receiver) internal;
+function _buy(uint256 _amountIn, uint48 _fallbackId, address receiver) internal returns (uint256);
 ```
 **Parameters**
 
@@ -529,5 +529,19 @@ error ExecutionLimitReached(address user);
 
 ```solidity
 error BuyOrderTooSmall();
+```
+
+## Structs
+### BuyUintHelper
+
+```solidity
+struct BuyUintHelper {
+    uint256 amountOut;
+    uint256 unmatchedAmount;
+    uint256 remainder;
+    uint256 index;
+    uint48 currentId;
+    uint256 tokensToVault;
+}
 ```
 

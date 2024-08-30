@@ -53,7 +53,8 @@ function updateFootballerScore(
     uint32 _nextMatchTimestamp,
     uint32 _previousNextMatchTimestamp,
     uint32 _lastMatchTimestamp,
-    uint32 _lastScoreVariationTimestamp
+    uint40 _nextMatchId,
+    uint40 _lastMatchId
 ) external;
 ```
 **Parameters**
@@ -65,7 +66,8 @@ function updateFootballerScore(
 |`_nextMatchTimestamp`|`uint32`|The updated timestamp of the next match.|
 |`_previousNextMatchTimestamp`|`uint32`|The updated timestamp of the previous 'next match'.|
 |`_lastMatchTimestamp`|`uint32`|The updated timestamp of the last match.|
-|`_lastScoreVariationTimestamp`|`uint32`|The timestamp of the last score variation (not stored).|
+|`_nextMatchId`|`uint40`|The updated ID of the next match.|
+|`_lastMatchId`|`uint40`|The updated ID of the last match.|
 
 
 ### updateFootballerScoreBundle
@@ -76,23 +78,14 @@ Emits multiple FootballerScoreUpdated events.*
 
 
 ```solidity
-function updateFootballerScoreBundle(
-    uint256[] calldata _playerIds,
-    uint24[] calldata _scores,
-    uint32[] calldata _nextMatchTimestamps,
-    uint32[] calldata _previousNextMatchTimestamps,
-    uint32[] calldata _lastMatchTimestamps
-) external;
+function updateFootballerScoreBundle(uint256[] calldata _playerIds, Footballer[] calldata _footballers) external;
 ```
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
 |`_playerIds`|`uint256[]`|An array of player identifiers.|
-|`_scores`|`uint24[]`|An array of scores corresponding to the players.|
-|`_nextMatchTimestamps`|`uint32[]`|An array of next match timestamps corresponding to the players.|
-|`_previousNextMatchTimestamps`|`uint32[]`|An array of previous 'next match' timestamps corresponding to the players.|
-|`_lastMatchTimestamps`|`uint32[]`|An array of last match timestamps corresponding to the players.|
+|`_footballers`|`Footballer[]`|An array of Footballer structs containing the updated data.|
 
 
 ### getFootballer
@@ -144,7 +137,13 @@ function getFootballers(uint256[] calldata _playerIds) external view returns (Fo
 
 ```solidity
 event FootballerScoreUpdated(
-    uint256 indexed playerId, uint24 score, uint32 nextMatchTimestamp, uint32 lastMatchTimestamp
+    uint256 indexed playerId,
+    uint24 score,
+    uint32 nextMatchTimestamp,
+    uint32 previousNextMatchTimestamp,
+    uint32 lastMatchTimestamp,
+    uint40 nextMatchId,
+    uint40 lastMatchId
 );
 ```
 
@@ -155,7 +154,10 @@ event FootballerScoreUpdated(
 |`playerId`|`uint256`|The unique identifier of the footballer.|
 |`score`|`uint24`|The updated score of the footballer.|
 |`nextMatchTimestamp`|`uint32`|The updated timestamp of the next match.|
+|`previousNextMatchTimestamp`|`uint32`||
 |`lastMatchTimestamp`|`uint32`|The updated timestamp of the last match.|
+|`nextMatchId`|`uint40`||
+|`lastMatchId`|`uint40`||
 
 ## Errors
 ### NotUpdater
@@ -177,6 +179,8 @@ struct Footballer {
     uint32 nextMatchTimestamp;
     uint32 previousNextMatchTimestamp;
     uint32 lastMatchTimestamp;
+    uint40 nextMatchId;
+    uint40 lastMatchId;
 }
 ```
 
@@ -188,4 +192,6 @@ struct Footballer {
 |`nextMatchTimestamp`|`uint32`|The timestamp of the footballer's next match.|
 |`previousNextMatchTimestamp`|`uint32`|The timestamp of the previous 'next match' before the latest update.|
 |`lastMatchTimestamp`|`uint32`|The timestamp of the footballer's last match.|
+|`nextMatchId`|`uint40`||
+|`lastMatchId`|`uint40`||
 
